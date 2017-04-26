@@ -13,7 +13,8 @@ BDShop商城系统是B2C模式的电子商城
 前端基于nodejs
 实现的前后端分离架构的项目
 
-相关文章
+相关技术文章
+
 [前后端分离的思考与实践](http://blog.jobbole.com/65513/)
 
 [浅谈前后端分离技术](http://www.jianshu.com/p/f1287e1aee50)
