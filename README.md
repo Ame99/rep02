@@ -20,23 +20,39 @@ BDShop商城系统是B2C模式的电子商城
 
 
 安装运行步骤
+
 一、api-server
+
 前提要安装好 jdk8 maven 
+
 1.  $ mvn clean install
+
 2   $ cd api-server
+
 3   $ mvn spring-boot:run
+
 4  打开浏览器：http://localhost:8080/swagger-ui.html
+
 二、front-project
+
     前提安装好nodejs 6.9
     
     1.$ npm install -g cnpm --registry=https://registry.npm.taobao.org
+
     2.$ cnpm install -g gulp 
+
     3.$ cd front-projec
+
     4.$ cnpm install
+
     5.$ gulp
+
     6 打开浏览器：http://localhost:4865
+
     7 后台管理：http://localhost:4865/page/manage_login.html
+
     8 管理员帐号：admin 密码：111111
+
 
 
 ## BDShop 后端项目截图
@@ -58,3 +74,6 @@ BDShop商城系统是B2C模式的电子商城
 
 
 
+```
+这里输入代码
+```
