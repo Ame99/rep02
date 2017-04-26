@@ -18,6 +18,27 @@ BDShop商城系统是B2C模式的电子商城
 
 前端构建:nodejs+gulp+requirejs+art-template+bootstrap+weui
 
+
+安装运行步骤
+一、api-server
+前提要安装好 jdk8 maven 
+1.  $ mvn clean install
+2   $ cd api-server
+3   $ mvn spring-boot:run
+4  打开浏览器：http://localhost:8080/swagger-ui.html
+二、front-project
+    前提安装好nodejs 6.9
+    
+    1.$ npm install -g cnpm --registry=https://registry.npm.taobao.org
+    2.$ cnpm install -g gulp 
+    3.$ cd front-projec
+    4.$ cnpm install
+    5.$ gulp
+    6 打开浏览器：http://localhost:4865
+    7 后台管理：http://localhost:4865/page/manage_login.html
+    8 管理员帐号：admin 密码：111111
+
+
 ## BDShop 后端项目截图
 ![商品列表](https://git.oschina.net/uploads/images/2017/0424/120936_4639108f_127930.png "商品列表")
 ![输入图片说明](https://git.oschina.net/uploads/images/2017/0424/121305_0af0cadc_127930.png "在这里输入图片标题")
