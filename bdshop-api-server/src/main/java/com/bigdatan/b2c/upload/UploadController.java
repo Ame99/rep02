@@ -55,12 +55,12 @@ public class UploadController extends AbstractController {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
                 String month = sdf.format(new Date());
                 String fileDirPath = PathConstant.REMOTE_IMG + "/" + project + "/" + module + "/" + month;
-                File file = new File(fileDirPath);
+                File file = new File("/data/wwwroot/default"+fileDirPath);
                 System.out.println(fileDirPath);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                String fileName = saveFile(mFile.getBytes(), fileFix, fileDirPath);
+                String fileName = saveFile(mFile.getBytes(), fileFix, "/data/wwwroot/default"+fileDirPath);
                 //上传完后删除上次文件
                 String preImg = request.getParameter("preImg");
                 if (StringUtils.isNotEmpty(preImg)) {
@@ -68,6 +68,8 @@ public class UploadController extends AbstractController {
                 }
                 jr = new JsonResponse(SystemCode.SUCCESS, fileDirPath + "/" + fileName);
                 logger.info(request.getRemoteAddr()+"目录:"+fileDirPath + "  \n上传图片：" + fileName + "成功，图片大小为：" + mFile.getSize());
+            System.out.println("========================================================");
+                System.out.println(request.getRemoteAddr()+"目录:"+fileDirPath + "  \n上传图片：" + fileName );
             }
         }
         return jr;

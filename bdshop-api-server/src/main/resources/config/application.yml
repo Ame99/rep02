@@ -14,10 +14,10 @@ pagehelper:
 
 
 druid:
-    url: jdbc:mysql://localhost:3306/b2c2?createDatabaseIfNotExist=true&useUnicode=true&useUnicode=true&characterEncoding=utf8&autoReconnect=true&verifyServerCertificate=false&useSSL=false&sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false
+    url: jdbc:mysql://localhost:3306/bdshop?createDatabaseIfNotExist=true&useUnicode=true&useUnicode=true&characterEncoding=utf8&autoReconnect=true&verifyServerCertificate=false&useSSL=false&sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false
     driver-class: com.mysql.jdbc.Driver
     username: root
-    password: root
+    password: manager
     initial-size: 1
     min-idle: 1
     max-active: 20
