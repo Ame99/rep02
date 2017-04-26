@@ -12,6 +12,15 @@ BDShop商城系统是B2C模式的电子商城
 后端基于springboot
 前端基于nodejs
 实现的前后端分离架构的项目
+在线demo: 
+http://123.56.254.10:4865/ 最好用手机访问
+
+管理后台：
+http://123.56.254.10:4865/page/manage_login.html 
+用户名 admin 密码：111111
+
+
+
 
 相关技术文章
 
