@@ -17,7 +17,7 @@
 
         <module>parent</module>
         <module>framework</module>
-        <module>bdshop</module>
+        <module>bdshop-api-server</module>
    
     </modules>
 

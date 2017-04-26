@@ -6,7 +6,7 @@
       <module fileurl="file://G:\bd-shop\bdshop-project.iml" filepath="G:\bd-shop\bdshop-project.iml" />
       <module fileurl="file://$PROJECT_DIR$/bdshop/bdshop-project (1) (com.bigdatan.bdshop).iml" filepath="$PROJECT_DIR$/bdshop/bdshop-project (1) (com.bigdatan.bdshop).iml" />
       <module fileurl="file://$PROJECT_DIR$/bdshop-project (2) (com.bigdatan).iml" filepath="$PROJECT_DIR$/bdshop-project (2) (com.bigdatan).iml" />
-      <module fileurl="file://$PROJECT_DIR$/bdshop/bdshop-server.iml" filepath="$PROJECT_DIR$/bdshop/bdshop-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bdshop-api-server/bdshop-server.iml" filepath="$PROJECT_DIR$/bdshop-api-server/bdshop-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/framework/framework-project.iml" filepath="$PROJECT_DIR$/framework/framework-project.iml" />
       <module fileurl="file://G:\bd-shop\framework\framework-project.iml" filepath="G:\bd-shop\framework\framework-project.iml" />
       <module fileurl="file://$PROJECT_DIR$/parent/parent-project.iml" filepath="$PROJECT_DIR$/parent/parent-project.iml" />

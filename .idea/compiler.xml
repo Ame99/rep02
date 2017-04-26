@@ -20,7 +20,7 @@
       <module name="bdshop-project (1) (com.bigdatan.bdshop)" target="1.8" />
       <module name="bdshop-project (2) (com.bigdatan)" target="1.5" />
       <module name="bdshop-server" target="1.8" />
-      <module name="framework-project" target="1.8" />
+      <module name="framework-project" target="1.5" />
       <module name="parent-project" target="1.8" />
       <module name="spring-boot-starter-druid" target="1.8" />
       <module name="spring-boot-starter-swagger" target="1.8" />
