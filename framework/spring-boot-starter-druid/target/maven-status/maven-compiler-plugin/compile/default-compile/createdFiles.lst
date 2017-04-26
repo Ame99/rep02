@@ -1,0 +1,5 @@
+com\bigdatan\framework\druid\DruidAutoConfiguration.class
+com\bigdatan\framework\druid\DruidProperties.class
+com\bigdatan\framework\druid\DruidMonitorAutoConfiguration.class
+META-INF\spring-configuration-metadata.json
+com\bigdatan\framework\druid\DruidMonitorProperties.class

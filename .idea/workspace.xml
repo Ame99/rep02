@@ -1,0 +1,913 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="23767f2c-ea2e-455a-ae51-4cccdf3866bf" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/b2c-simple-service.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/pom.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/Application.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/conf/RedisSessionConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/conf/WebConfigurer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/AbstractController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/admin/AdAdminController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/admin/AdminLoginController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/admin/AdminUserAdminController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/admin/ArticleAdminController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/admin/GoodsAdminController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/admin/GoodsPriceAdminController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/admin/LogisticsAdminController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/admin/MessageAdminController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/admin/ModuleController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/admin/OrderAdminController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/admin/ProductCategoryAdminController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/admin/RoleController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/admin/UserAdminController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/front/AdController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/front/ArticleController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/front/GoodsController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/front/GoodsPriceController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/front/LogisticsController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/front/MessageController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/front/OrderController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/front/PaymentController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/front/ProductCategoryController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/front/ReceiveController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/front/ShoppingCartController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/front/StoreGoodsController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/controller/front/UserController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/Ad.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/AdPosition.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/Admin.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/Article.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/Goods.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/GoodsPrice.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/JoinOrder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/Logistics.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/Message.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/Module.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/Order.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/OrderCertify.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/OrderDetails.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/Payment.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/ProductCategory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/Receive.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/Role.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/RoleModule.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/ShoppingCart.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/ShoppingCartItem.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/ShortMessageModel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/StoreGoods.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/User.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/UserMessage.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/UserPayment.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/entity/UserPrivilege.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/export/DataExporterImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/export/ExportEntity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/interceptor/QqInterceptor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/AdMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/AdPositionMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/AdminMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/ArticleMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/GoodsMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/GoodsPriceMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/IBaseDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/IMessageMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/IShortMessageMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/IUserMessageMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/JoinOrderMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/LogisticsMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/ModuleMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/OrderCertifyMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/OrderDetailsMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/OrderMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/PaymentMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/ProductCategoryMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/ReceiveMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/RoleMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/RoleModuleMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/SerialNumberDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/ShoppingCartMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/StoreGoodsMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/UserMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/UserPaymentMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/mapper/UserPrivilegeMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/pay/AliPlay.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/pay/AlipayConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/pay/Configure.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/pay/MD5.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/pay/Signature.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/pay/Util.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/pay/WxPlaceOrder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/pay/WxPlay.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/pay/XMLParser.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IAdPositionService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IAdService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IAdminService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IArticleService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IBaseService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/ICommonExchangeService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IGoodsPriceService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IGoodsService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/ILogisticsService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IMessageService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IModuleService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IOrderCertifyService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IOrderDetailsService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IOrderService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IPaymentService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IProductCategoryService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IReceiveService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IRoleService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IShoppingCartService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IShortMessageService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IStoreGoodsService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IUserMessageService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IUserMessageVoService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IUserPrivilegeService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/IUserService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/AdPositionServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/AdServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/AdminServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/ArticleServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/BaseServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/CommonExchangeServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/GoodsPriceServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/GoodsServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/LogisticsServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/MessageServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/ModuleServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/OrderCertifyServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/OrderDetailsServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/OrderServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/PaymentServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/ProductCategoryServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/ReceiveServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/RoleServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/SerialNumberService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/ShoppingCartServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/ShortMessageServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/StoreGoodsServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/UserMessageServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/UserPrivilegeServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/service/impl/UserServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/upload/PathConstant.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/upload/PathUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/upload/UploadController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/upload/ZipOutputStreamDemo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/vo/GoodsVO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/vo/HigherPaymentVo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/vo/ModuleVo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/vo/OrderAdminSearchVO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/vo/OrderDetailsAdminSearchVO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/vo/OrderVo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/vo/QueryGoodsAdminVO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/vo/RoleVo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/vo/ShoppingCartDetailVO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/vo/ShoppingCartVo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/vo/TotalPriveAndCategory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/com/bigdatan/b2c/vo/UserMessageVo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/constant/SystemCode.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/util/AvoidSubmit.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/util/CommondUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/util/EmptyStringIfNull.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/util/Encryp/EncrypAES.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/util/Encryp/EncrypDES.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/util/Encryp/EncrypDES3.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/util/Encryp/MD5.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/util/Encryp/MD5Util.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/util/GenerateNoUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/util/JsonResponse.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/util/PageResult.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/util/SendMessage.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/util/SessionUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/util/SimpleCORSFilter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/java/util/StringFormat.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/config/application.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/AdminMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/ArticleMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/GoodsMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/GoodsPriceMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/IShortMessageDao.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/JoinOrderMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/LogisticsMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/MessageMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/ModuleMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/OrderCertifyMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/OrderDetailsMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/OrderMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/PaymentMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/ProductCateGoryMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/ReceiveMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/RoleMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/RoleModuleMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/SerialNumberDao.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/ShoppingCartMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/StoreGoodsMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/UserMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/UserMessageMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/UserPaymentMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/UserPrivilegeMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/adMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/b2c-simple-server/src/main/resources/mapper/adPositionMapper.xml" afterPath="" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/bdshop/target/" />
+    <ignored path="$PROJECT_DIR$/framework/spring-boot-starter-swagger/target/" />
+    <ignored path="$PROJECT_DIR$/parent/target/" />
+    <ignored path="$PROJECT_DIR$/framework/spring-boot-starter-druid/target/" />
+    <ignored path="$PROJECT_DIR$/framework/spring-boot-starter-ueditor-qiniu/target/" />
+    <ignored path="$PROJECT_DIR$/framework/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/parent/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-831">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/framework/spring-boot-starter-druid/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="608">
+              <caret line="35" column="21" lean-forward="false" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/framework/spring-boot-starter-swagger/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="16" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/framework/spring-boot-starter-ueditor-qiniu/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bdshop/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3149">
+              <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bdshop/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bdshop/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bdshop/src/main/resources/config/application.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="979">
+              <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/framework/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="18" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/framework/pom.xml" />
+        <option value="$PROJECT_DIR$/framework/spring-boot-starter-druid/pom.xml" />
+        <option value="$PROJECT_DIR$/framework/spring-boot-starter-swagger/pom.xml" />
+        <option value="$PROJECT_DIR$/framework/spring-boot-starter-ueditor-qiniu/pom.xml" />
+        <option value="$PROJECT_DIR$/parent/pom.xml" />
+        <option value="$PROJECT_DIR$/bdshop/src/main/resources/config/application.yml" />
+        <option value="$PROJECT_DIR$/bdshop/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bdshop-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bd-shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bdshop-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bd-shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bdshop-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bd-shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="framework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bdshop-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bd-shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bdshop-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bd-shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bdshop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bdshop-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bd-shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bdshop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bdshop-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bd-shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bdshop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bdshop-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bd-shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bdshop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bdshop-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bd-shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bdshop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Application">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
+      <option name="SCRATCH_FILE_ID" value="0" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="bdshop-project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
+      <method />
+    </configuration>
+    <configuration default="false" name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.bigdatan.b2c.Application" />
+      <module name="b2c-simple-service" />
+      <envs />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Spring Boot.Application" />
+    </list>
+    <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parent/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1121">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/spring-boot-starter-druid/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="35" column="21" lean-forward="false" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/spring-boot-starter-swagger/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/spring-boot-starter-ueditor-qiniu/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parent/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-831">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bdshop/src/main/resources/config/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="979">
+          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bdshop/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3149">
+          <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bdshop/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bdshop/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
