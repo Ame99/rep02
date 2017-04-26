@@ -1,7 +1,7 @@
 {
-  "name": "7bridgecapital",
+  "name": "bd-shop-front",
   "version": "1.0.0",
-  "description": "七桥资本",
+  "description": "巨量数据",
   "main": "gulpfile.js",
   "dependencies": {
     "gulp": "^3.9.1"
@@ -24,6 +24,7 @@
     "gulp-imagemin": "^2.4.0",
     "gulp-jshint": "^2.0.1",
     "gulp-notify": "^2.2.0",
+    "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^2.1.1",
     "gulp-uglify": "^1.5.4",
@@ -36,10 +37,6 @@
   "keywords": [
     "gulp"
   ],
-  "author": "sjx",
-  "license": "MIT",
-  "repository": {
-    "typr": "svn",
-    "url": "http://code.taobao.org/svn/linkedandes/trunk/"
-  }
+  "author": "jojo",
+  "license": "MIT"
 }
