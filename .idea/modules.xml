@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/bdshop/b2c-simple-service.iml" filepath="$PROJECT_DIR$/bdshop/b2c-simple-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/bdshop-project.iml" filepath="$PROJECT_DIR$/bdshop-project.iml" />
+      <module fileurl="file://G:\bd-shop\bdshop\b2c-simple-service.iml" filepath="G:\bd-shop\bdshop\b2c-simple-service.iml" />
+      <module fileurl="file://G:\bd-shop\bdshop-project.iml" filepath="G:\bd-shop\bdshop-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bdshop/bdshop-project (1) (com.bigdatan.bdshop).iml" filepath="$PROJECT_DIR$/bdshop/bdshop-project (1) (com.bigdatan.bdshop).iml" />
+      <module fileurl="file://$PROJECT_DIR$/bdshop-project (2) (com.bigdatan).iml" filepath="$PROJECT_DIR$/bdshop-project (2) (com.bigdatan).iml" />
+      <module fileurl="file://$PROJECT_DIR$/bdshop/bdshop-server.iml" filepath="$PROJECT_DIR$/bdshop/bdshop-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/framework/framework-project.iml" filepath="$PROJECT_DIR$/framework/framework-project.iml" />
+      <module fileurl="file://G:\bd-shop\framework\framework-project.iml" filepath="G:\bd-shop\framework\framework-project.iml" />
       <module fileurl="file://$PROJECT_DIR$/parent/parent-project.iml" filepath="$PROJECT_DIR$/parent/parent-project.iml" />
       <module fileurl="file://$PROJECT_DIR$/framework/spring-boot-starter-druid/spring-boot-starter-druid.iml" filepath="$PROJECT_DIR$/framework/spring-boot-starter-druid/spring-boot-starter-druid.iml" />
       <module fileurl="file://$PROJECT_DIR$/framework/spring-boot-starter-swagger/spring-boot-starter-swagger.iml" filepath="$PROJECT_DIR$/framework/spring-boot-starter-swagger/spring-boot-starter-swagger.iml" />

@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.bigdatan.bdshop</groupId>
-    <artifactId>bdshop-project</artifactId>
+    <groupId>com.bigdatan.apps</groupId>
+    <artifactId>bdshop-server</artifactId>
     <version>1.0.0.RELEASE</version>
     <packaging>war</packaging>
     <name>b2c bdshop project</name>
@@ -48,17 +48,17 @@
         </dependency>
 
         <dependency>
-            <groupId>com.bigdatan.apps.b2c.framework</groupId>
+            <groupId>com.bigdatan.framework</groupId>
             <artifactId>spring-boot-starter-swagger</artifactId>
             <version>1.0.0.RELEASE</version>
         </dependency>
         <dependency>
-            <groupId>com.bigdatan.apps.b2c.framework</groupId>
+            <groupId>com.bigdatan.framework</groupId>
             <artifactId>spring-boot-starter-druid</artifactId>
             <version>1.0.0.RELEASE</version>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>com.bigdatan.apps.b2c.framework</groupId>-->
+            <!--<groupId>com.bigdatan.framework</groupId>-->
             <!--<artifactId>spring-boot-starter-ueditor-qiniu</artifactId>-->
             <!--<version>1.0.0.RELEASE</version>-->
         <!--</dependency>-->

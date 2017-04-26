@@ -42,21 +42,21 @@
                 <scope>import</scope>
             </dependency>
 
-            <dependency>
-                <groupId>com.bigdatan.framework</groupId>
-                <artifactId>spring-boot-starter-druid</artifactId>
-                <version>1.0.0.RELEASE</version>
-            </dependency>
-            <dependency>
-                <groupId>com.bigdatan.framework</groupId>
-                <artifactId>spring-boot-starter-ueditor-qiniu</artifactId>
-                <version>1.0.0.RELEASE</version>
-            </dependency>
-            <dependency>
-                <groupId>com.bigdatan.framework</groupId>
-                <artifactId>spring-boot-starter-swagger</artifactId>
-                <version>1.0.0.RELEASE</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>com.bigdatan.framework</groupId>-->
+                <!--<artifactId>spring-boot-starter-druid</artifactId>-->
+                <!--<version>1.0.0.RELEASE</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>com.bigdatan.framework</groupId>-->
+                <!--<artifactId>spring-boot-starter-ueditor-qiniu</artifactId>-->
+                <!--<version>1.0.0.RELEASE</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>com.bigdatan.framework</groupId>-->
+                <!--<artifactId>spring-boot-starter-swagger</artifactId>-->
+                <!--<version>1.0.0.RELEASE</version>-->
+            <!--</dependency>-->
         </dependencies>
     </dependencyManagement>
 

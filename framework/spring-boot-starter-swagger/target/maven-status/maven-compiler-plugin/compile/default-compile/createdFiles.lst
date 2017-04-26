@@ -1,0 +1,4 @@
+com\bigdatan\framework\swagger\properties\SwaggerConfigurationProperties.class
+com\bigdatan\framework\swagger\configuration\SwaggerConfiguration$1.class
+com\bigdatan\framework\swagger\configuration\SwaggerConfiguration.class
+com\bigdatan\framework\swagger\EnableSBCSwagger.class

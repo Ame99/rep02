@@ -10,10 +10,10 @@
     <name> bigdatan Components  swagger</name>
 
     <parent>
-        <groupId>com.bigdatan.framework</groupId>
-        <artifactId>framework-project</artifactId>
+        <groupId>com.bigdatan.parent</groupId>
+        <artifactId>parent-project</artifactId>
         <version>1.0.0.RELEASE</version>
-        <relativePath/>
+        <relativePath>../../parent/pom.xml</relativePath>
     </parent>
 
     <properties>
