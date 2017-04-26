@@ -9,11 +9,12 @@
 BDShop是国内少有前后端完全分离的java商城项目.
 ## BDShop 系统简介
 BDShop商城系统是B2C模式的电子商城
-后端基于springboot
-前端基于nodejs
+后端基于springboot 职责提供api
+
+前端基于nodejs 纯html5 css3 js  
 实现的前后端分离架构的项目
 
-
+![输入图片说明](https://git.oschina.net/uploads/images/2017/0426/154407_2f5bf086_127930.png "在这里输入图片标题")
 
 
 
