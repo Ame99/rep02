@@ -1,6 +1,7 @@
 package com.bigdatan.b2c.conf;
 
 import com.bigdatan.b2c.interceptor.QqInterceptor;
+import com.bigdatan.b2c.interceptor.QqWebInterceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +21,13 @@ public class WebConfigurer extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new QqInterceptor()).addPathPatterns("/admin/*/**");
+        registry.addInterceptor(new QqInterceptor())
+                .addPathPatterns("/admin/*/**");
+        registry.addInterceptor(new QqWebInterceptor())
+                .addPathPatterns("/front/*/**").
+                excludePathPatterns("/front/user/user/checkCode").
+                excludePathPatterns("/front/user/user/sendCode");
+
         super.addInterceptors(registry);
     }
 

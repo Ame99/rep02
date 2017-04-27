@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23767f2c-ea2e-455a-ae51-4cccdf3866bf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/interceptor/QqWebInterceptor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/controller/admin/OrderAdminController.java" afterPath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/controller/admin/OrderAdminController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/controller/admin/ProductCategoryAdminController.java" afterPath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/controller/admin/ProductCategoryAdminController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/controller/front/GoodsController.java" afterPath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/controller/front/GoodsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/controller/front/OrderController.java" afterPath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/controller/front/OrderController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/mapper/GoodsMapper.java" afterPath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/mapper/GoodsMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/service/IGoodsService.java" afterPath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/service/IGoodsService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/service/impl/GoodsServiceImpl.java" afterPath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/service/impl/GoodsServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/vo/GoodsVO.java" afterPath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/vo/GoodsVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/vo/OrderAdminSearchVO.java" afterPath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/vo/OrderAdminSearchVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api-server/src/main/resources/config/application.yml" afterPath="$PROJECT_DIR$/api-server/src/main/resources/config/application.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api-server/src/main/resources/mapper/GoodsMapper.xml" afterPath="$PROJECT_DIR$/api-server/src/main/resources/mapper/GoodsMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api-server/src/main/resources/mapper/MessageMapper.xml" afterPath="$PROJECT_DIR$/api-server/src/main/resources/mapper/MessageMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api-server/src/main/resources/mapper/OrderDetailsMapper.xml" afterPath="$PROJECT_DIR$/api-server/src/main/resources/mapper/OrderDetailsMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api-server/src/main/resources/mapper/OrderMapper.xml" afterPath="$PROJECT_DIR$/api-server/src/main/resources/mapper/OrderMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/conf/WebConfigurer.java" afterPath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/conf/WebConfigurer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/bdshop/target/" />
@@ -48,7 +33,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="application.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api-server/src/main/resources/config/application.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="190">
@@ -157,7 +142,7 @@
       <file leaf-file-name="QqWebInterceptor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/interceptor/QqWebInterceptor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
+            <state relative-caret-position="-205">
               <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -166,42 +151,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GoodsMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api-server/src/main/resources/mapper/GoodsMapper.xml">
+      <file leaf-file-name="QqInterceptor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/interceptor/QqInterceptor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="89" column="103" lean-forward="false" selection-start-line="89" selection-start-column="103" selection-end-line="89" selection-end-column="103" />
-              <folding>
-                <marker date="1493277488198" expanded="true" signature="1586:1688" ph="select from t_goods" />
-                <marker date="1493277488198" expanded="true" signature="2156:2274" ph="select from t_goods" />
-                <marker date="1493277488198" expanded="true" signature="2390:2617" ph="select from t_goods" />
-                <marker date="1493277488198" expanded="true" signature="2750:3248" ph="select from t_goods" />
-                <marker date="1493277488198" expanded="true" signature="3020:3153" ph="select categ... t_goods_category" />
-                <marker date="1493277488198" expanded="true" signature="3441:3591" ph="select from t_goods" />
-                <marker date="1493277488198" expanded="true" signature="3720:4052" ph="select from t_goods" />
-                <marker date="1493277488198" expanded="true" signature="4192:5491" ph="select a.goo... t_goods" />
-                <marker date="1493277488198" expanded="true" signature="5318:5451" ph="select categ... t_goods_category" />
-                <marker date="1493277488198" expanded="true" signature="5613:6173" ph="select a.goo... t_store_goods" />
-                <marker date="1493277488198" expanded="true" signature="6299:7482" ph="select from t_goods" />
-                <marker date="1493277488198" expanded="true" signature="9672:10854" ph="update t_goo... " />
-              </folding>
+            <state relative-caret-position="171">
+              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api-server/src/main/resources/mapper/MessageMapper.xml">
+      <file leaf-file-name="WebConfigurer.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/conf/WebConfigurer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="214" column="14" lean-forward="true" selection-start-line="214" selection-start-column="14" selection-end-line="214" selection-end-column="14" />
-              <folding>
-                <marker date="1493278344621" expanded="true" signature="1824:1930" ph="select from t_message" />
-                <marker date="1493278344621" expanded="true" signature="2045:2151" ph="select from t_message" />
-                <marker date="1493278344621" expanded="true" signature="4406:5588" ph="update t_mes... " />
-                <marker date="1493278344621" expanded="true" signature="5720:6028" ph="select m.mes... t_message" />
-                <marker date="1493278344621" expanded="true" signature="6921:7266" ph="select m.mes... t_message" />
-                <marker date="1493278344621" expanded="true" signature="7368:7621" ph="select m.mes... t_message" />
-              </folding>
+            <state relative-caret-position="247">
+              <caret line="24" column="16" lean-forward="false" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -282,7 +247,6 @@
         <option value="$PROJECT_DIR$/bdshop-api-server/src/main/java/com/bigdatan/b2c/upload/PathConstant.java" />
         <option value="$PROJECT_DIR$/bdshop-api-server/src/main/java/com/bigdatan/b2c/upload/UploadController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/conf/WebConfigurer.java" />
         <option value="$PROJECT_DIR$/front-project/package.json" />
         <option value="$PROJECT_DIR$/front-project/src/js/config.js" />
         <option value="$PROJECT_DIR$/front-project/src/js/article_list.js" />
@@ -306,6 +270,7 @@
         <option value="$PROJECT_DIR$/api-server/src/main/resources/mapper/OrderDetailsMapper.xml" />
         <option value="$PROJECT_DIR$/api-server/src/main/resources/mapper/OrderMapper.xml" />
         <option value="$PROJECT_DIR$/api-server/src/main/resources/config/application.yml" />
+        <option value="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/conf/WebConfigurer.java" />
       </list>
     </option>
   </component>
@@ -779,6 +744,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bdshop-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bd-shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="b2c" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="conf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -1040,7 +1039,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15295629" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32884097" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34366578" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884097" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1116,22 +1115,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/conf/WebConfigurer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="23" column="26" lean-forward="true" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/interceptor/QqInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1359,16 +1342,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/interceptor/QqWebInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api-server/src/main/resources/mapper/GoodsMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -1503,6 +1476,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/interceptor/QqWebInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-205">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/interceptor/QqInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/conf/WebConfigurer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="24" column="16" lean-forward="false" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
           <folding />
         </state>
       </provider>
