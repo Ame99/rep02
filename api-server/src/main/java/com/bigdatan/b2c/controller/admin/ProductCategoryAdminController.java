@@ -2,8 +2,11 @@ package com.bigdatan.b2c.controller.admin;
 
 import com.bigdatan.b2c.controller.AbstractController;
 import com.bigdatan.b2c.entity.Admin;
+import com.bigdatan.b2c.entity.Goods;
 import com.bigdatan.b2c.entity.ProductCategory;
+import com.bigdatan.b2c.service.IGoodsService;
 import com.bigdatan.b2c.service.IProductCategoryService;
+import com.bigdatan.b2c.vo.QueryGoodsAdminVO;
 import constant.SystemCode;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +31,8 @@ public class ProductCategoryAdminController extends AbstractController {
     @Resource
     private IProductCategoryService productCategoryService;
 
+    @Resource
+    private IGoodsService goodsService;
     /**
      * 商品种类列表
      */
@@ -138,20 +143,34 @@ public class ProductCategoryAdminController extends AbstractController {
     /**
      * 删除商品
      */
-    //@GetMapping("/delProductcategoryById")
-    @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET},value = "/delProductcategoryById")
-    public JsonResponse<ProductCategory> delProductcategoryById(ProductCategory productcategory, HttpServletRequest request) {
+    @ResponseBody
+    @RequestMapping("/delProductcategoryById")
+    public JsonResponse<ProductCategory> delProductcategoryById(ProductCategory productcategory,HttpServletRequest request) {
         JsonResponse<ProductCategory> result = new JsonResponse<ProductCategory>();
-        Admin admin = SessionUtil.getAdminUser(request);
+        Admin admin =SessionUtil.getAdminUser(request);
         productcategory.setAdminId(admin.getAdminId());
-        productcategory.setState((byte) 3);
+        productcategory.setState((byte)3);
         productcategory.setUpdateTime(new Date());
+
+        PageResult<Goods> tempquery=new PageResult<Goods>();
+        tempquery.setPageNo(1);
+        tempquery.setPageSize(1);
+        QueryGoodsAdminVO tempqueryVo=new QueryGoodsAdminVO();
+        tempqueryVo.setCategoryId(Integer.toString(productcategory.getCategoryId()));
+        goodsService.getPageByQueryGoodsAdminVO(tempquery,tempqueryVo);
+        if(tempquery.getTotal()>0){
+            result.setRes(SystemCode.FAILURE);
+            result.setMsg("商品分类下有商品，无法删除");
+            return result;
+        }
+
         try {
             productCategoryService.updateByPrimaryKeySelective(productcategory);
             result.setRes(SystemCode.SUCCESS);
         } catch (Exception e) {
-            logError(request, "[admin:" + admin.getAdminName() + ",删除商品异常]", e);
+            logError(request,"[admin:"+admin.getAdminName()+",删除商品分类异常]", e);
             result.setRes(SystemCode.FAILURE);
+            result.setMsg("删除商品分类异常");
         }
 
         return result;

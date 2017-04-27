@@ -14,42 +14,42 @@ public class OrderAdminSearchVO {
 	 * 订单号
 	 */
 	private String orderNumber;
-	
+
 	/**
 	 * 结束下单时间
-	 */	
+	 */
 	private String createTime_le;
-	
+
 	/**
 	 * 起始下单时间
 	 */
 	private String createTime_ge;
-	
+
 	/**
 	 * 会员手机user.phone
 	 */
 	private String phone;
-	
+
 	/**
 	 * 是否开发票
 	 */
-	private String invoiceTag; 
-	
+	private String invoiceTag;
+
 	/**
 	 * 付款方式 payment.paymentId
 	 */
 	private String paymentId;
-	
+
 	/**
 	 * 支付状态   payment.payState
 	 */
 	private String payState;
-	
+
 	/**
 	 * 配送状态
 	 */
 	private String logisticsState;
-	
+
 	/**
 	 * 需要导出的id拼成的语句
 	 */
@@ -135,7 +135,7 @@ public class OrderAdminSearchVO {
 		this.selectIdList = selectIdList;
 	}
 
-	
 
-	
+
+
 }

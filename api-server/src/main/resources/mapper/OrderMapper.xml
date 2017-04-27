@@ -63,7 +63,7 @@
 		<association property="payment" select="selectPaymentByPaymentId" column="payment_id" />
 		<association property="receive" select="selectReceiveByReceiveId" column="receive_id" /> -->
 		<!--上面的方法也能查询出结果，但是会增加查询sql语句，影响查询效率  -->
-		<association property="user" javaType="com.ande.entity.User">
+		<association property="user" javaType="com.bigdatan.b2c.entity.User">
 			<id column="user_id" property="userId" jdbcType="INTEGER" />
 			<result column="openid" property="openid" jdbcType="VARCHAR" />
 			<result column="nickname" property="nickname" jdbcType="VARCHAR" />
@@ -77,11 +77,11 @@
 			<result column="state" property="state" jdbcType="TINYINT" />
 			<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
 		</association>
-		<association property="payment" javaType="com.ande.entity.Payment">
+		<association property="payment" javaType="com.bigdatan.b2c.entity.Payment">
 			<id column="payment_id" property="paymentId" jdbcType="INTEGER" />
 			<result column="name" property="name" jdbcType="VARCHAR" />
 		</association>
-		<association property="receive" javaType="com.ande.entity.Receive">
+		<association property="receive" javaType="com.bigdatan.b2c.entity.Receive">
 			<id column="receive_id" property="receiveId" jdbcType="INTEGER" />
 			<result column="contact" property="contact" jdbcType="VARCHAR" />
 			<result column="tel" property="tel" jdbcType="VARCHAR" />
@@ -117,11 +117,11 @@
 	</resultMap>
 	<resultMap id="BaseOrderDetailsMap" type="com.bigdatan.b2c.entity.OrderDetails">
 		<id column="order_details_id" property="orderDetailsId" jdbcType="INTEGER" />
-			<result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
-			<result column="unit_name" property="unitName" jdbcType="VARCHAR" />
-			<result column="unit_price" property="unitPrice" jdbcType="INTEGER" />
-			<result column="num" property="num" jdbcType="INTEGER" />
-			<result column="details_amount" property="detailsAmount"
+		<result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+		<result column="unit_name" property="unitName" jdbcType="VARCHAR" />
+		<result column="unit_price" property="unitPrice" jdbcType="INTEGER" />
+		<result column="num" property="num" jdbcType="INTEGER" />
+		<result column="details_amount" property="detailsAmount"
 				jdbcType="INTEGER" />
 	</resultMap>
 	<resultMap id="BaseReceiveMap" type="com.bigdatan.b2c.entity.Receive">
@@ -169,7 +169,7 @@
 		r.contact,r.tel,r.receive_province,r.receive_city,r.receive_county,r.receive_address
 	</sql>
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
-		parameterType="java.lang.Integer">
+			parameterType="java.lang.Integer">
 		select
 		<include refid="Base_Column_List" />
 		from t_order o
@@ -242,12 +242,12 @@
 			<result column="contact" property="contact" jdbcType="VARCHAR" />
 			<result column="tel" property="tel" jdbcType="VARCHAR" />
 			<result column="receive_province" property="receiveProvince"
-				jdbcType="VARCHAR" />
+					jdbcType="VARCHAR" />
 			<result column="receive_city" property="receiveCity" jdbcType="VARCHAR" />
 			<result column="receive_county" property="receiveCounty"
-				jdbcType="VARCHAR" />
+					jdbcType="VARCHAR" />
 			<result column="receive_address" property="receiveAddress"
-				jdbcType="VARCHAR" />
+					jdbcType="VARCHAR" />
 		</association>
 		<collection property="orderDetailsList" ofType="com.bigdatan.b2c.entity.OrderDetails">
 			<id column="order_details_id" property="orderDetailsId" jdbcType="INTEGER" />
@@ -256,7 +256,7 @@
 			<result column="unit_price" property="unitPrice" jdbcType="INTEGER" />
 			<result column="num" property="num" jdbcType="INTEGER" />
 			<result column="details_amount" property="detailsAmount"
-				jdbcType="INTEGER" />
+					jdbcType="INTEGER" />
 		</collection>
 	</resultMap>
 	<!-- 订单详情 -->
@@ -323,7 +323,10 @@
 		left
 		join
 		t_payment_method p on p.payment_id = o.payment_id
-		where del_state=2
+		left
+		join
+		t_user_receive q on q.receive_id = o.receive_id
+		where o.del_state=2
 		<if test="orderNumber != null and orderNumber != ''">
 			and o.order_number LIKE #{orderNumber,jdbcType=VARCHAR}
 		</if>
@@ -350,11 +353,11 @@
 		</if>
 		<if test="checkAll == null or checkAll == ''">
 			<if test="selectIdList != null and selectIdList.size() != 0">
-			and o.order_id in
-			<foreach item="item" index="index" collection="selectIdList" open="("
-           		separator="," close=")">
-           		#{item}
-        	</foreach>
+				and o.order_id in
+				<foreach item="item" index="index" collection="selectIdList" open="("
+						 separator="," close=")">
+					#{item}
+				</foreach>
 			</if>
 		</if>
 		order by o.create_time
@@ -433,9 +436,6 @@
 		select
 		<include refid="PageFront_Cloum_List" />
 		from t_order o
-		left join t_order_details d on o.order_number =
-		d.order_number
-		left join t_goods g on d.goods_id = g.goods_id
 		left join
 		t_user u on u.user_id=o.user_id
 		left join t_payment_method p on

@@ -12,6 +12,16 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import util.JsonResponse;
+import util.PageResult;
+import util.SessionUtil;
+
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.bigdatan.b2c.export.DataExporterImpl;
 import com.bigdatan.b2c.export.ExportEntity;
 import org.springframework.stereotype.Controller;
@@ -34,6 +44,7 @@ import com.bigdatan.b2c.entity.OrderDetails;
 import com.bigdatan.b2c.vo.OrderDetailsAdminSearchVO;
 import com.bigdatan.b2c.service.IOrderDetailsService;
 import com.bigdatan.b2c.service.IOrderService;
+
 
 import constant.SystemCode;
 
@@ -75,7 +86,7 @@ public class OrderAdminController extends AbstractController {
 	@ResponseBody
 	@RequestMapping("/getOrderByOrderNumber")
 	public JsonResponse<Order> getOrderByOrderNumber(String orderNumber,
-			HttpServletRequest request) {
+													 HttpServletRequest request) {
 		JsonResponse<Order> result = new JsonResponse<Order>();
 		Order order = orderService.getOne(orderNumber);
 		if (order != null) {
@@ -118,7 +129,7 @@ public class OrderAdminController extends AbstractController {
 
 	/**
 	 * 确认收货
-	 * 
+	 *
 	 * @param order
 	 *            订单对象
 	 * @param request
@@ -127,7 +138,7 @@ public class OrderAdminController extends AbstractController {
 	@ResponseBody
 	@RequestMapping("/receiveGoods")
 	public JsonResponse<String> receiveGoods(Order order,
-			HttpServletRequest request) {
+											 HttpServletRequest request) {
 		JsonResponse<String> result = new JsonResponse<String>();
 		order = orderService.selectByPrimaryKey(order.getOrderId());
 		try {
@@ -153,7 +164,7 @@ public class OrderAdminController extends AbstractController {
 
 	/**
 	 * 确认收款
-	 * 
+	 *
 	 * @param order
 	 *            订单对象
 	 * @param request
@@ -162,7 +173,7 @@ public class OrderAdminController extends AbstractController {
 	@ResponseBody
 	@RequestMapping("/receiveMoney")
 	public JsonResponse<String> receiveMoney(Order order,
-			HttpServletRequest request) {
+											 HttpServletRequest request) {
 		JsonResponse<String> result = new JsonResponse<String>();
 		String certifyImageUrl = request.getParameter("imageUrl");
 		order = orderService.selectByPrimaryKey(order.getOrderId());
@@ -453,7 +464,7 @@ public class OrderAdminController extends AbstractController {
 	@SuppressWarnings("rawtypes")
 	@RequestMapping("/exportPageByOrderAdminSearchVO")
 	public void exportPageByOrderAdminSearchVO(OrderAdminSearchVO order,
-			HttpServletRequest request, HttpServletResponse response) {
+											   HttpServletRequest request, HttpServletResponse response) {
 		Admin admin = SessionUtil.getAdminUser(request);
 		if (null == admin) {
 			return;
@@ -463,33 +474,43 @@ public class OrderAdminController extends AbstractController {
 		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 		// 最外层解析
 		JSONObject object = JSONObject.parseObject(selectIdListData);
-		for (String k : object.keySet()) {
-			Integer v = Integer.valueOf((String)object.get(k));
-			map.put(Integer.valueOf(k), v);
+		if (object != null && !object.isEmpty()) {
+			for (String k : object.keySet()) {
+				Integer v = Integer.valueOf((String) object.get(k));
+				map.put(Integer.valueOf(k), v);
+			}
 		}
 		order.setSelectIdList(map);
-		
-		if ((order.getCreateTime_ge() == null || order.getCreateTime_ge()
-				.trim().length() == 0)
-				&& (order.getCreateTime_ge() == null || order
-						.getCreateTime_ge().trim().length() == 0)) {
-			// 没有截止日期,默认为当天
-			SimpleDateFormat formatter1 = new SimpleDateFormat(
-					"yyyy-MM-dd 00:00:00");
-			String dateString1 = formatter1.format(new Date());
-			order.setCreateTime_ge(dateString1);
-			SimpleDateFormat formatter2 = new SimpleDateFormat(
-					"yyyy-MM-dd 23:59:59");
-			String dateString2 = formatter2.format(new Date());
-			order.setCreateTime_le(dateString2);
+		//仅当全选时未选择时间则按照当天的取
+		if (order.getCheckAll() != null && order.getCheckAll().equals("1")) {
+			if ((order.getCreateTime_ge() == null || order.getCreateTime_ge()
+					.trim().length() == 0)
+					&& (order.getCreateTime_ge() == null || order
+					.getCreateTime_ge().trim().length() == 0)) {
+				// 没有截止日期,默认为当天
+				SimpleDateFormat formatter1 = new SimpleDateFormat(
+						"yyyy-MM-dd 00:00:00");
+				String dateString1 = formatter1.format(new Date());
+				order.setCreateTime_ge(dateString1);
+				SimpleDateFormat formatter2 = new SimpleDateFormat(
+						"yyyy-MM-dd 23:59:59");
+				String dateString2 = formatter2.format(new Date());
+				order.setCreateTime_le(dateString2);
+			}
+		}else{
+			//不是全选
+			if(order.getSelectIdList().isEmpty()){
+				//也没有勾选id
+				return ;
+			}
 		}
 		// order.setCheckAll("1");// 设置全部导出
-		
+
 		try {
 			List<Order> result = orderService
 					.getPageExportByOrderAdminSearchVO(order);
 			if (result != null) {
-				// 处理导出商品名称，存入备注字段
+				// 处理导出商品名称，存入备注字段 ;处理接收地址，拼接省市区
 				for (int k = 0; k < result.size(); k++) {
 					result.get(k).setComment("");
 					if (result.get(k).getOrderDetailsList() != null
@@ -500,12 +521,15 @@ public class OrderAdminController extends AbstractController {
 									result.get(k).getComment()
 											+ ","
 											+ result.get(k)
-													.getOrderDetailsList()
-													.get(m).getGoodsName());
+											.getOrderDetailsList()
+											.get(m).getGoodsName());
 						}
 						result.get(k).setComment(
 								result.get(k).getComment().substring(1));
 					}
+					String address=result.get(k).getReceive().getReceiveProvince()+result.get(k).getReceive().getReceiveCity()+result.get(k).getReceive().getReceiveCounty()+result.get(k).getReceive().getReceiveAddress();
+					result.get(k).getReceive().setReceiveAddress(address);
+
 				}
 
 				Map<String, Map<String, String>> pamStateDes = new HashMap<String, Map<String, String>>();

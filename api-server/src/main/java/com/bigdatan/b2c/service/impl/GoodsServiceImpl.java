@@ -94,4 +94,14 @@ public class GoodsServiceImpl extends BaseServiceImpl<Goods> implements IGoodsSe
         }
         return PageResult.toPageResult(goodsMapper.getPageByQueryGoodsAdminVO(entity), t);
     }
+    @Override
+    public PageResult<Goods> getPageFrontRecommendAndIsMarketableGoods(
+            PageResult<Goods> t) {
+        int pageNo=t.getPageNo();
+        int pageSize=t.getPageSize();
+        pageNo = pageNo == 0?1:pageNo;
+        pageSize = pageSize == 0?10:pageSize;
+        PageHelper.startPage(pageNo,pageSize);
+        return PageResult.toPageResult(goodsMapper.getPageFrontRecommendAndIsMarketableGoods(),t);
+    }
 }

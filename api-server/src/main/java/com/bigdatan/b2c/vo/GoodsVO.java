@@ -13,7 +13,7 @@ public class GoodsVO implements Serializable {
     private int vo_shoppingCartNum;// 商品只有一个规格时，保存购物车中该规格的数量
     private int vo_retailPrice;// 保存多少价格起，只有一个规格时也是该规格价格
     private int vo_priceId;// 只有一个规格时保存规格id
-
+    private String vo_unitName;// 只有一个规格时计量单位名称
     /**
      * 主键
      */
@@ -211,6 +211,14 @@ public class GoodsVO implements Serializable {
 
     public void setVo_priceId(int vo_priceId) {
         this.vo_priceId = vo_priceId;
+    }
+
+    public String getVo_unitName() {
+        return vo_unitName;
+    }
+
+    public void setVo_unitName(String vo_unitName) {
+        this.vo_unitName = vo_unitName;
     }
 
     public GoodsVO(Goods goods) {

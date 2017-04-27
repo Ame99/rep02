@@ -86,7 +86,17 @@
 		</if>
 		update_time desc
 	</select>
-	
+	<!--分页获取推荐的上架商品，依据更新时间倒序取商品,不含删除状态，供前端调用  -->
+	<select id="getPageFrontRecommendAndIsMarketableGoods" parameterType="com.bigdatan.b2c.entity.Goods"
+			resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_goods
+		where del_state=1 and is_marketable=1
+		and recommend = 1
+		order by
+		update_time desc
+	</select>
 	
 	<select id="getPageFrontByGoodsName" parameterType="com.bigdatan.b2c.entity.Goods"
 		resultMap="BaseResultMap">

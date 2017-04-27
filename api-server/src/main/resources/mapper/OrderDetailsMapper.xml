@@ -21,11 +21,17 @@
 		create_time,image
 	</sql>
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
-		parameterType="java.lang.Integer">
+			parameterType="java.lang.Integer">
 		select
 		<include refid="Base_Column_List" />
 		from t_order_details
 		where order_details_id = #{id,jdbcType=INTEGER}
+	</select>
+	<select id="getAllBySelect" resultMap="BaseResultMap" parameterType="com.bigdatan.b2c.entity.OrderDetails">
+		select
+		<include refid="Base_Column_List" />
+		from t_order_details
+		where order_number = #{orderNumber,jdbcType=VARCHAR}
 	</select>
 	<insert id="insertBatch">
 		insert into t_order_details (order_id, order_number, price_id, goods_id,
@@ -145,10 +151,10 @@
 
 	<select id="getTotalDetailsAmountByOrderDetailsAdminSearchVO" parameterType="com.bigdatan.b2c.vo.OrderDetailsAdminSearchVO"
 		resultType="long">
-		select				
-		case when sum(details_amount) is null then 0 else sum(details_amount) end	
-		from t_order_details			
-		where 1=1 
+		select
+		case when sum(details_amount) is null then 0 else sum(details_amount) end
+		from t_order_details
+		where 1=1
 		<if test="goodsName != null and goodsName !=''">
 			and  goods_name LIKE #{goodsName,jdbcType=VARCHAR}
 		</if>
@@ -171,13 +177,13 @@
 			and create_time &gt;= #{createTime_ge,jdbcType=TIMESTAMP}
 		</if>
 	</select>
-	
+
 	<select id="getTotalNumAmountByOrderDetailsAdminSearchVO" parameterType="com.bigdatan.b2c.vo.OrderDetailsAdminSearchVO"
 		resultType="long">
-		select	
+		select
 		case when sum(num) is null then 0 else sum(num)	end
-		from t_order_details			
-		where 1=1 
+		from t_order_details
+		where 1=1
 		<if test="goodsName != null and goodsName !=''">
 			and  goods_name LIKE #{goodsName,jdbcType=VARCHAR}
 		</if>
@@ -200,13 +206,13 @@
 			and create_time &gt;= #{createTime_ge,jdbcType=TIMESTAMP}
 		</if>
 	</select>
-	
+
 	<select id="getPageByOrderDetailsAdminSearchVO" parameterType="com.bigdatan.b2c.vo.OrderDetailsAdminSearchVO"
 		resultMap="BaseResultMap">
-		select				
-		<include refid="Base_Column_List" />		
-		from t_order_details			
-		where 1=1 
+		select
+		<include refid="Base_Column_List" />
+		from t_order_details
+		where 1=1
 		<if test="goodsName != null  and goodsName != ''">
 			and  goods_name LIKE #{goodsName,jdbcType=VARCHAR}
 		</if>
@@ -230,15 +236,15 @@
 		</if>
 		order by create_time desc
 	</select>
-	
+
 	<select id="getDetailReportByOrderDetailsAdminSearchVO" parameterType="com.bigdatan.b2c.vo.OrderDetailsAdminSearchVO"
-		resultMap="BaseResultMap">		
+		resultMap="BaseResultMap">
 		select t.price_id price_id,t.unit_name unit_name,t.goods_name goods_name,
 		case when sum(t.num) is null then 0  else sum(t.num) end as num,
 		case when sum(t.details_amount) is null then 0 else sum(t.details_amount) end as details_amount,
-		left(t.create_time,10) as create_time 
-		from  t_order_details t 
-		where t.price_id = #{goodsName,jdbcType=INTEGER} 
+		left(t.create_time,10) as create_time
+		from  t_order_details t
+		where t.price_id = #{goodsName,jdbcType=INTEGER}
 		<if test="createTime_le != null  and createTime_le != ''">
 			and create_time &lt;= #{createTime_le,jdbcType=TIMESTAMP}
 		</if>
@@ -248,6 +254,6 @@
 		group by t.price_id, left(t.create_time,10)
 		order by left(t.create_time,10) asc
 	</select>
-	
-	
+
+
 </mapper>

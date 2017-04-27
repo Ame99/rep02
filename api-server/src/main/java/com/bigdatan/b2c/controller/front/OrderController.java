@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.bigdatan.b2c.mapper.LogisticsMapper;
 import com.bigdatan.b2c.mapper.ReceiveMapper;
 import com.bigdatan.b2c.mapper.UserMapper;
+import com.bigdatan.b2c.service.IOrderDetailsService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,12 +38,13 @@ import com.bigdatan.b2c.service.IShoppingCartService;
 
 import constant.SystemCode;
 
-
 @Controller
 @RequestMapping("/front/order/order")
 public class OrderController extends AbstractController {
 	@Resource
 	private IOrderService orderService;
+	@Resource
+	private IOrderDetailsService orderDetailsService;
 
 	@Resource
 	private ReceiveMapper receiveMapper;
@@ -57,7 +59,7 @@ public class OrderController extends AbstractController {
 	private LogisticsMapper logisticsMapper;
 
 	/**
-	 * 
+	 *
 	 * @param request
 	 * @param order
 	 * @return 提交订单
@@ -122,6 +124,22 @@ public class OrderController extends AbstractController {
 			}
 		}
 		orderService.queryByPageFront(page, order);
+
+		List<Order> orderList = new ArrayList<Order>();
+		if(null != page && null != page.getDataList()){
+			for(Order temp : page.getDataList()){
+				String orderNumber = temp.getOrderNumber();
+				OrderDetails orderDetails = new OrderDetails();
+				orderDetails.setOrderNumber(orderNumber);
+
+				List<OrderDetails> details = orderDetailsService.getAllBySelect(orderDetails);
+				temp.setOrderDetailsList(details);
+				orderList.add(temp);
+			}
+			if(orderList.size() > 0){
+				page.setDataList(orderList);
+			}
+		}
 		if (page.getTotal() != 0) {
 			result.setRes(SystemCode.SUCCESS);
 			result.setObj(page);
@@ -150,6 +168,23 @@ public class OrderController extends AbstractController {
 		payment.setPaymentId(3);
 		order.setPayment(payment);
 		orderService.queryByPageFront(page, order);
+
+		List<Order> orderList = new ArrayList<Order>();
+		if(null != page && null != page.getDataList()){
+			for(Order temp : page.getDataList()){
+				String orderNumber = temp.getOrderNumber();
+				OrderDetails orderDetails = new OrderDetails();
+				orderDetails.setOrderNumber(orderNumber);
+
+				List<OrderDetails> details = orderDetailsService.getAllBySelect(orderDetails);
+				temp.setOrderDetailsList(details);
+				orderList.add(temp);
+			}
+			if(orderList.size() > 0){
+				page.setDataList(orderList);
+			}
+		}
+
 		if (page.getTotal() != 0) {
 			result.setRes(SystemCode.SUCCESS);
 			result.setObj(page);
@@ -165,7 +200,7 @@ public class OrderController extends AbstractController {
 	@ResponseBody
 	@RequestMapping("/getOrderByOrderNumber")
 	public JsonResponse<Order> getOrderByOrderNumber(String orderNumber,
-			HttpServletRequest request) {
+													 HttpServletRequest request) {
 		JsonResponse<Order> result = new JsonResponse<Order>();
 		Order order = orderService.getOne(orderNumber);
 		if (order != null) {
@@ -183,7 +218,7 @@ public class OrderController extends AbstractController {
 	@ResponseBody
 	@RequestMapping("/doOrder")
 	public JsonResponse<OrderVo> doOrder(String goodsIds,
-			HttpServletRequest request) {
+										 HttpServletRequest request) {
 		JsonResponse<OrderVo> result = new JsonResponse<OrderVo>(
 				SystemCode.FAILURE);
 		User user = SessionUtil.getUser(request);
@@ -231,7 +266,7 @@ public class OrderController extends AbstractController {
 
 	/**
 	 * 合并订单
-	 * 
+	 *
 	 * @param request
 	 * @param order
 	 * @return
@@ -239,7 +274,7 @@ public class OrderController extends AbstractController {
 	@ResponseBody
 	@RequestMapping("/joinOrder")
 	public JsonResponse<String> joinOrder(HttpServletRequest request,
-			String orderNumbers) {
+										  String orderNumbers) {
 		JsonResponse<String> result = new JsonResponse<String>(
 				SystemCode.FAILURE);
 		User user = SessionUtil.getUser(request);
@@ -283,14 +318,14 @@ public class OrderController extends AbstractController {
 		}
 		return result;
 	}
-	
+
 	/**
 	 * 下订单 查询出当前用户的收货信息，商品信息，配送信息
 	 */
 	@ResponseBody
 	@RequestMapping("/buyGoodsAgain")
 	public JsonResponse<OrderVo> buyGoodsAgain(String orderNumber,
-			HttpServletRequest request) {
+											   HttpServletRequest request) {
 		JsonResponse<OrderVo> result = new JsonResponse<OrderVo>(
 				SystemCode.FAILURE);
 		User user = SessionUtil.getUser(request);
@@ -298,10 +333,10 @@ public class OrderController extends AbstractController {
 			result.setRes(SystemCode.NO_LOGIN);
 			return result;
 		}
-		
+
 		try {
 			Order order = orderService.getOne(orderNumber);
-			
+
 			orderService.buyGoodsAgain(order, user);
 			result.setRes(SystemCode.SUCCESS);
 		} catch (Exception e) {

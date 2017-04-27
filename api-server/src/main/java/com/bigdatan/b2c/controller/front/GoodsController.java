@@ -120,6 +120,8 @@ public class GoodsController {
                                 .getBuyPrice());
                         temGoodsVO.setVo_priceId(listGoodsPrice.get(0)
                                 .getPriceId());
+                        temGoodsVO.setVo_unitName(listGoodsPrice.get(0)
+                                .getUnitName());
                     }
                     goodsVOList.add(temGoodsVO);
                 }
@@ -133,17 +135,16 @@ public class GoodsController {
     /**
      * 依据商品分类id获取所有商品，供前台调用，传的是VO对象，包含商品所有信息及附加信息
      */
-
-    //@GetMapping("/getPageFrontVOByGoodsCategory")
-    @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET},value = "/getPageFrontVOByGoodsCategory")
+    @ResponseBody
+    @RequestMapping("/getPageFrontVOByGoodsCategory")
     public JsonResponse<PageResult<GoodsVO>> getPageFrontVOByGoodsCategory(
             PageResult<Goods> page, Goods goods, HttpServletRequest request) {
         JsonResponse<PageResult<GoodsVO>> result = new JsonResponse<PageResult<GoodsVO>>();
-        int category = -1;
+        int category =-1;
         try {
             category = Integer.parseInt(java.net.URLDecoder.decode(Integer.toString(goods.getCategoryId()), "UTF-8"));
         } catch (UnsupportedEncodingException e) {
-            category = -1;
+            category=-1;
             e.printStackTrace();
         }
         goods.setCategoryId(category);
@@ -187,6 +188,8 @@ public class GoodsController {
                             .getBuyPrice());
                     temGoodsVO
                             .setVo_priceId(listGoodsPrice.get(0).getPriceId());
+                    temGoodsVO.setVo_unitName(listGoodsPrice.get(0)
+                            .getUnitName());
                 }
                 goodsVOList.add(temGoodsVO);
             }
@@ -198,11 +201,72 @@ public class GoodsController {
     }
 
     /**
+     * 分页获取推荐的上架商品，依据更新时间倒序取商品,不含删除状态，供前端调用，传的是VO对象，包含商品所有信息及附加信息
+     */
+    @ResponseBody
+    @RequestMapping("/getPageFrontRecommendAndIsMarketableGoods")
+    public JsonResponse<PageResult<GoodsVO>> getPageFrontRecommendAndIsMarketableGoods(
+            PageResult<Goods> page,  HttpServletRequest request) {
+        JsonResponse<PageResult<GoodsVO>> result = new JsonResponse<PageResult<GoodsVO>>();
+        goodsService.getPageFrontRecommendAndIsMarketableGoods(page);
+        List<Goods> goodsList = page.getDataList();
+        List<GoodsVO> goodsVOList = new ArrayList<GoodsVO>();
+        PageResult<GoodsVO> resultVO = new PageResult<GoodsVO>();
+        resultVO.setPageNo(page.getPageNo());
+        resultVO.setPages(page.getPages());
+        resultVO.setPageSize(page.getPageSize());
+        resultVO.setTotal(page.getTotal());
+        if (goodsList != null) {
+            // 获取商品规格
+            for (int i = 0; i < goodsList.size(); i++) {
+                Goods tempGoods = goodsList.get(i);
+                GoodsVO temGoodsVO = new GoodsVO(tempGoods);
+                User user = SessionUtil.getUser(request);
+                List<GoodsPrice> listGoodsPrice = goodsPriceService
+                        .findAllNormalGoodsPriceByGoodsId(tempGoods
+                                .getGoodsId());
+                // 换算价格
+                listGoodsPrice = commonExchangeService
+                        .getCurrentUserGoodsprice(user, listGoodsPrice);
+                if (listGoodsPrice == null || listGoodsPrice.size() == 0) {
+                    temGoodsVO.setVo_countGoodsPrice(0);
+                } else {
+                    temGoodsVO.setVo_countGoodsPrice(listGoodsPrice.size());
+
+                    for (int j = 0; j < listGoodsPrice.size(); j++) {
+                        if (temGoodsVO.getVo_retailPrice() == 0) {
+                            temGoodsVO.setVo_retailPrice(listGoodsPrice
+                                    .get(j).getRetailPrice());
+                        } else if (temGoodsVO.getVo_retailPrice() > listGoodsPrice
+                                .get(j).getRetailPrice()) {
+                            temGoodsVO.setVo_retailPrice(listGoodsPrice
+                                    .get(j).getRetailPrice());
+                        }
+                    }
+
+                    temGoodsVO.setVo_shoppingCartNum(listGoodsPrice.get(0)
+                            .getBuyPrice());
+                    temGoodsVO
+                            .setVo_priceId(listGoodsPrice.get(0).getPriceId());
+                    temGoodsVO.setVo_unitName(listGoodsPrice.get(0)
+                            .getUnitName());
+                }
+                goodsVOList.add(temGoodsVO);
+            }
+        }
+        resultVO.setDataList(goodsVOList);
+        result.setRes(SystemCode.SUCCESS);
+        result.setObj(resultVO);
+        return result;
+    }
+
+
+    /**
      * 依据商品id获取商品详情，供前台调用
      * 商品的delstate保存收藏状态，1为收藏，0为未收藏
      */
-    //@GetMapping("/getPageFrontByGoodsId")
-    @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET},value = "/getPageFrontByGoodsId")
+    @ResponseBody
+    @RequestMapping("/getPageFrontByGoodsId")
     public JsonResponse<List<GoodsVO>> getPageFrontByGoodsId(Goods goods,
                                                              HttpServletRequest request) {
         JsonResponse<List<GoodsVO>> result = new JsonResponse<List<GoodsVO>>();
@@ -213,17 +277,17 @@ public class GoodsController {
             if (tempgoods != null) {
                 //获取商品的收藏状态
                 User user = SessionUtil.getUser(request);
-                if (user == null) {
-                    tempgoods.setDelState((byte) 0);//未收藏
-                } else {
-                    StoreGoods storeGoods = new StoreGoods();
+                if(user==null){
+                    tempgoods.setDelState((byte)0);//未收藏
+                }else{
+                    StoreGoods storeGoods =new StoreGoods();
                     storeGoods.setUserId(user.getUserId());
                     storeGoods.setGoodsId(tempgoods.getGoodsId());
-                    if (storeGoodsService.queryStoreGoodsByUserIdAndGoodsId(storeGoods) == null) {
+                    if(storeGoodsService.queryStoreGoodsByUserIdAndGoodsId(storeGoods)==null){
                         //没有收藏记录
-                        tempgoods.setDelState((byte) 0);//未收藏
-                    } else {
-                        tempgoods.setDelState((byte) 1);//已收藏
+                        tempgoods.setDelState((byte)0);//未收藏
+                    }else{
+                        tempgoods.setDelState((byte)1);//已收藏
                     }
                 }
 
@@ -253,12 +317,17 @@ public class GoodsController {
                                             .get(j).getRetailPrice());
                                 } else if (temGoodsVO.getVo_retailPrice() > listGoodsPrice
                                         .get(j).getRetailPrice()) {
-                                    temGoodsVO.setVo_retailPrice(listGoodsPrice.get(j).getRetailPrice());
+                                    temGoodsVO.setVo_retailPrice(listGoodsPrice
+                                            .get(j).getRetailPrice());
                                 }
                             }
 
-                            temGoodsVO.setVo_shoppingCartNum(listGoodsPrice.get(0).getBuyPrice());
-                            temGoodsVO.setVo_priceId(listGoodsPrice.get(0).getPriceId());
+                            temGoodsVO.setVo_shoppingCartNum(listGoodsPrice
+                                    .get(0).getBuyPrice());
+                            temGoodsVO.setVo_priceId(listGoodsPrice.get(0)
+                                    .getPriceId());
+                            temGoodsVO.setVo_unitName(listGoodsPrice.get(0)
+                                    .getUnitName());
                         }
                         goodsVOList.add(temGoodsVO);
                     }
@@ -275,16 +344,16 @@ public class GoodsController {
     /**
      * 依据商品名称模糊查询商品，供前台调用，传的是VO对象，包含商品所有信息及附加信息
      */
-    //@GetMapping("/getPageFrontVOByGoodsName")
-    @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET},value = "/getPageFrontVOByGoodsName")
+    @ResponseBody
+    @RequestMapping("/getPageFrontVOByGoodsName")
     public JsonResponse<PageResult<GoodsVO>> getPageFrontVOByGoodsName(
             PageResult<Goods> page, Goods goods, HttpServletRequest request) {
         JsonResponse<PageResult<GoodsVO>> result = new JsonResponse<PageResult<GoodsVO>>();
-        String serviceNames = "";
+        String serviceNames ="";
         try {
             serviceNames = java.net.URLDecoder.decode(goods.getGoodsName(), "UTF-8");
         } catch (UnsupportedEncodingException e) {
-            serviceNames = "";
+            serviceNames="";
             e.printStackTrace();
         }
         goods.setGoodsName(serviceNames);
@@ -328,6 +397,8 @@ public class GoodsController {
                             .getBuyPrice());
                     temGoodsVO.setVo_priceId(listGoodsPrice.get(0)
                             .getPriceId());
+                    temGoodsVO.setVo_unitName(listGoodsPrice.get(0)
+                            .getUnitName());
                 }
                 goodsVOList.add(temGoodsVO);
             }
@@ -341,11 +412,10 @@ public class GoodsController {
     /**
      * 依据商品名称模糊查询商品，供前台调用，传的是VO对象，包含商品所有信息及附加信息
      */
-
-    //@GetMapping("/getPageFrontByMyStoreGoods")
-    @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET},value = "/getPageFrontByMyStoreGoods")
+    @ResponseBody
+    @RequestMapping("/getPageFrontByMyStoreGoods")
     public JsonResponse<PageResult<GoodsVO>> getPageFrontByMyStoreGoods(
-            PageResult<Goods> page, HttpServletRequest request) {
+            PageResult<Goods> page,  HttpServletRequest request) {
         JsonResponse<PageResult<GoodsVO>> result = new JsonResponse<PageResult<GoodsVO>>();
         User user = SessionUtil.getUser(request);
         if (user == null) {
@@ -391,6 +461,8 @@ public class GoodsController {
                             .getBuyPrice());
                     temGoodsVO.setVo_priceId(listGoodsPrice.get(0)
                             .getPriceId());
+                    temGoodsVO.setVo_unitName(listGoodsPrice.get(0)
+                            .getUnitName());
                 }
                 goodsVOList.add(temGoodsVO);
             }

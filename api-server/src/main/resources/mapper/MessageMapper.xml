@@ -82,6 +82,9 @@
 			<if test="messageShortContext != null">
 				message_short_context,
 			</if>
+			<if test="url != null">
+				url,
+			</if>
 			<if test="userIds != null">
 				user_ids,
 			</if>
@@ -122,6 +125,9 @@
 			</if>
 			<if test="messageShortContext != null">
 				#{messageShortContext,jdbcType=VARCHAR},
+			</if>
+			<if test="url != null">
+				#{url,jdbcType=VARCHAR},
 			</if>
 			<if test="userIds != null">
 				#{userIds,jdbcType=VARCHAR},
@@ -207,7 +213,7 @@
 	<select id="getPageFront" resultMap="pageMap"
 		resultType="com.bigdatan.b2c.entity.Message">
 		select
-		m.message_title,m.message_short_context,m.message_context,m.message_id,m.push_time,um.user_message_id,m.push_now
+		m.message_title,m.message_short_context,m.message_context,m.message_id,m.push_time,um.user_message_id,m.push_now, m.url
 		from t_message m
 		left join t_user_message um
 		on

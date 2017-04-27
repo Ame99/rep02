@@ -40,4 +40,10 @@ public interface GoodsMapper extends IBaseDao<Goods> {
      * @return
      */
     public List<Goods> getPageByQueryGoodsAdminVO(QueryGoodsAdminVO entity);
+
+    /**
+     * 分页获取推荐的上架商品，依据更新时间倒序取商品,不含删除状态，供前端调用
+     * @return
+     */
+    public List<Goods> getPageFrontRecommendAndIsMarketableGoods();
 }
