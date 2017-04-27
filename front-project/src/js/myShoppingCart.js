@@ -198,7 +198,6 @@ define(['zepto', "components", "common", "weui", "touch", "template"], function(
                 goodsList.page = 1;
                 $('#noRec').hide();
                 $goodsList.html('');
-				document.getElementById("noshoppingCartInfo").style.display="";
 				document.getElementById("showOrhideclearmyshoppingcart").style.display="none";
 				$('#cloading').hide();
 				$('#myShoppingCart_tabbar').hide();
@@ -245,6 +244,11 @@ define(['zepto', "components", "common", "weui", "touch", "template"], function(
                         goodsList.isLoading = true;
                         $noRec.hide();
 						$cloading.hide();
+						
+						if(goodsList.page == 1){
+							//加载第一页就没有拿到数据							
+							document.getElementById("noshoppingCartInfo").style.display="";
+						}
 						return ;
                     }
 					
@@ -378,6 +382,7 @@ define(['zepto', "components", "common", "weui", "touch", "template"], function(
 				var res = msg.res;
 				if (res == 1) { 
 					flushCurrentUserTotalPriceAndCategory();
+					goodsList.isLoading=false;
 					goodsList.getMore(true);
 					//$.toast("清空成功!");
 				}else{

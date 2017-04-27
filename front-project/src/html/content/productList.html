@@ -15,11 +15,8 @@
     <link rel="stylesheet" href="/src/libs/weui.min.css"/>
     <script id="script" src="/src/libs/require.min.js" defer async="true" require-module="./productList"
             data-main="/src/js/config.js"></script>
+    <link rel="stylesheet" href="/css/style.css"/>
     <style type="text/css">
-        * {
-            font-family: -apple-system-font, "Helvetica Neue", Helvetica, sans-serif;
-        }
-
         body {
             line-height: normal;
         }
@@ -141,7 +138,6 @@
         #show_first_category li.active a {
             font-size: 14px;
             color: #000;
-            /*font-weight: 600;*/
         }
 
         #show_first_category {
@@ -159,7 +155,7 @@
 
         #show_second_category li {
             float: left;
-            margin: 0 10px 8px 3px;
+            margin: 9px;
             border: 1px solid #e5e9ef;
             border-radius: 20px;
             padding: 0 10px;
@@ -237,6 +233,14 @@
                 transform: rotate(360deg);
             }
         }
+        .show_goods_list_btn:before{
+            border-top: none;
+        }
+        #subClass:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
 
     </style>
 </head>
@@ -279,7 +283,7 @@
                                     </ul>
                                 </div>
                                 <div id="right">
-                                    <div id="subClass" style="display: block;margin-top: 5px;float: left">
+                                    <div id="subClass" style="display: block;">
                                         <ul id="show_second_category">
                                             <!--展示商品二级分类-->
 
@@ -295,8 +299,7 @@
                                     <script type="text/html" id="show_goods_list-tp1">
                                         {{each goodsDataList as value i}}
                                         <li style="list-style-type:none;">
-                                            <div class="weui-cell"
-                                                 style="border-bottom: 1px solid #ddd;padding-left: 0px;margin-left: 10px;">
+                                            <div class="weui-cell" style="border-bottom: 1px solid #ddd;padding-left: 0px;margin-left: 10px;position: relative;">
                                                 <div class="weui-cell__bd">
                                                     <a class="weui-cell weui-cell_access"
                                                        href="/page/productInfo.html?id={{value.goodsId}}"
@@ -317,8 +320,7 @@
                                                     </a>
                                                 </div>
 
-                                                <div class="weui-cell"
-                                                     style="text-align: right; padding-right: 0px;font-size:10px;">
+                                                <div class="weui-cell show_goods_list_btn" style="text-align: right; padding-right: 0px;font-size:10px;position: absolute;right: 15px;bottom: 10px;">
                                                     <a href="javascript:;"
                                                        class="weui-btn weui-btn_mini weui-btn_default;"
                                                        style="color: #fff;background: #2BC17A;border-radius: 20px;"
@@ -397,10 +399,10 @@
 
 <script type="text/html" id="show_goods_price_list-tpl">
     {{each goodspriceDataList as value i}}
-    <li>
-        <div class="weui-cell" style="background: #F9F9F9;margin-left: 10px;padding-left: 0;">
+    <li style="margin-left: 10px;background: #F9F9F9;">
+        <div class="weui-cell" style="margin-left: 10px;padding-left: 0;border-bottom: 1px dotted #eee;padding-top: 10px;padding-bottom: 10px;">
             <div class="weui-cell__hd">
-                <p style="padding-left: 59px;"><label style="color: #FF715B;">¥</label><label style="color:  #FF715B;"
+                <p style=""><label style="color: #FF715B;">¥</label><label style="color:  #FF715B;"
                                                                                               id="retailPrice_{{value.priceId}}">{{value.retailPrice}}</label><label>/{{value.unitName}}</label>
                 </p>
             </div>

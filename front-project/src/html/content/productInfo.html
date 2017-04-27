@@ -60,10 +60,10 @@
                             {{each goodsDataList as value i}}
                             <li style="list-style-type:none">
                                 <div style="width:100%;margin-left: 0px;margin-top: 0px;padding: 0;">
-                                    <div class="" style="padding: 15%;position: relative;">
+                                    <div class="" style="position: relative;">
                                         <div class="swiper-container" data-space-between='1'
                                              data-pagination='.swiper-pagination' data-autoplay="1000"
-                                             style="height: 288px;">
+                                             style="height: 320px;">
                                             <div class="swiper-wrapper">
                                                 {{each value.image as valueImg i}}
                                                 <div class="swiper-slide" style="overflow:hidden;"><img
@@ -72,10 +72,10 @@
                                             </div>
                                         </div>
                                         <img src="/src/image/collect_true.png" alt=""
-                                             style="display:none;width:24px;position: absolute;bottom: 15px;right: 15px;"
+                                             style="display:none;width:24px;position: absolute;bottom: 15px;right: 15px;z-index: 999;"
                                              id="img_true_{{value.goodsId}}">
                                         <img src="/src/image/collect_false.png" alt=""
-                                             style="display:none;width:24px;position: absolute;bottom: 15px;right: 15px;"
+                                             style="display:none;width:24px;position: absolute;bottom: 15px;right: 15px;z-index: 999;"
                                              id="img_false_{{value.goodsId}}">
                                         <span style="position: absolute;bottom: 18px;right: 40px;color: #fff;">收藏</span>
                                     </div>

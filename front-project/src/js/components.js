@@ -11,8 +11,25 @@ define(["jquery", "bootstrap", "jqueryCookie"], function (jquery, bootstrap, jqu
                 crossDomain: true,
                 dataType: "json",
             }).then(function (msg) {
-                
-				return msg;
+                if (msg.res == 301) {
+                    var href = location.href;
+                    if (url.indexOf("admin") > -1) {
+                        $.cookie("preHrefB", href, {
+                            path: '/'
+                        });
+                        location.href = "/page/manage_login.html";
+                    } else {
+                        $.cookie("preHrefA", href, {
+                            path: '/'
+                        });
+                        $.cookie("username", null, {
+                            path: "/"
+                        });
+                        location.href = "/page/login.html";
+                    }
+                } else {
+                    return msg;
+                }
             }, function (err) {
                 console.log(err.status);
             });

@@ -343,12 +343,11 @@
                 <a href="javascript:void(0)" class="btn btn-default m-r-lg text-basic" onclick="window.history.go(-1);">返回</a>
             </div>
         </form>
-       
     </div>
 	<script type="text/html" id="levelCategoryDataList">
-                            {{each dataList as value i}}
-                                 <option  value="{{value.categoryId}}">{{value.categoryName}}</option>
-                            {{/each}}
-                        </script>
+        {{each dataList as value i}}
+             <option  value="{{value.categoryId}}">{{value.categoryName}}</option>
+        {{/each}}
+    </script>
 </body>
 </html>

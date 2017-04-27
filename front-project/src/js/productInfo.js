@@ -1,4 +1,4 @@
-define(['jquery', "components", "common", "template",, "swiper"], function(jquery, components, common, template,swiper) {
+define(['jquery', "components", "common", "template", "swiper"], function(jquery, components, common, template,swiper) {
 	var addordeleteLock=false;//同一规格加减改操作锁，true表示锁住了 
 	  //获取商品列表，并展示
 	 function getPageFrontByGoodsId(goodsId){		
@@ -243,7 +243,7 @@ define(['jquery', "components", "common", "template",, "swiper"], function(jquer
 			 // document.getElementById("settle_accounts").style.fontSize ="16px";
 			 
 		 }else{
-			 document.getElementById("settle_accounts").innerHTML="还差¥"+(differencePrice*(-1));
+			 document.getElementById("settle_accounts").innerHTML="还差¥"+(differencePrice*(-1))+"起送";
 			 document.getElementById("settle_accounts").removeAttribute('href');
             // document.getElementById("settle_accounts").style.color = "#A9A9AA";
 			 document.getElementById("settle_accounts").style.backgroundColor = "#C6C6C6";

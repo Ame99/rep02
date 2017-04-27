@@ -20,7 +20,7 @@ public class WebConfigurer extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-//        registry.addInterceptor(new QqInterceptor()).addPathPatterns("/admin/*/**");
+        registry.addInterceptor(new QqInterceptor()).addPathPatterns("/admin/*/**");
         super.addInterceptors(registry);
     }
 

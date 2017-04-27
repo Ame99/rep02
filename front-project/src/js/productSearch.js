@@ -1,67 +1,294 @@
-define(['jquery', "components","bootstrap", "common", "template"], function(jquery, components,bootstrap, common, template) {
+define(['jquery', "components","bootstrap", "common", "template","updown"], function(jquery, components,bootstrap, common, template,updown) {
 	var imgUrl =apiUrl;
-	var addordeleteLock=false;//同一规格加减改操作锁，true表示锁住了 
-	  //获取商品列表，并展示
-	 function getPageFrontByGoodsCategory(categoryId){		
-			var suburl = apiUrl + "/front/goods/goods/getPageFrontByGoodsCategory?categoryId=" + categoryId;
-			components.getMsg(suburl).done(function(msg) {
-				var res = msg.res;
-				if (res == 1) {                
-					//获取到商品
-					var goodsDataList=msg.obj;
-					msg.goodsDataList=goodsDataList;
-					//处理图片路径的问题
-					for (var pid = 0; pid < msg.goodsDataList.length; pid++) {
-                        if (msg.goodsDataList[pid].image !== "") {
-                            msg.goodsDataList[pid].image = msg.goodsDataList[pid].image.split(",");
-                            for (var j = 0; j < msg.goodsDataList[pid].image.length; j++) {
-                                msg.goodsDataList[pid].image[j] = imgUrl + msg.goodsDataList[pid].image[j];
+	var addordeleteLock=false;//同一规格加减改操作锁，true表示锁住了
+    $('.search_Top').css('height',document.documentElement.clientHeight-44-50);
+    $('.page__bd').css('height',document.documentElement.clientHeight-44);
+    var last,$searchBar = $('#searchBar'),
+        $searchResult = $('#searchResult'),
+        $searchText = $('#searchText'),
+        $searchInput = $('#searchInput'),
+        $searchClear = $('#searchClear'),
+        $searchCancel = $('#searchCancel'),
+    	$searchList = $('.search_Top');
+
+    function hideSearchResult(){
+        $('#search_goods_list').empty();
+        $searchResult.show();
+        $searchList.hide();
+        $searchInput.val('');
+    }
+    function cancelSearch(){
+      hideSearchResult();
+        $searchBar.removeClass('weui-search-bar_focusing');
+        $searchText.show();
+    }
+    $searchText.on('click', function(){
+        $searchBar.addClass('weui-search-bar_focusing');
+        $searchInput.focus();
+    });
+    $searchClear.on('click', function(){
+        hideSearchResult();
+        $searchInput.focus();
+    });
+    $searchCancel.on('click', function(){
+        cancelSearch();
+        $searchInput.blur();
+    });
+    $('.title_btn').click(function(){
+	});
+	 $searchInput
+        .on('blur', function () {
+            if(!this.value.length) cancelSearch();
+        })
+        .on('input', function(event){
+            $('#search_goods_list').empty();
+            if(this.value.length) {
+                $searchResult.hide();
+                $searchList.show();
+                $this=$(this);
+
+                last=event.timeStamp;
+                //利用event的timeStamp来标记时间，这样每次的input事件都会修改last的值，注意last必需为全局变量
+                setTimeout(function(){
+                    if(last-event.timeStamp===0){
+                        //如果时间差为0（也就是你停止输入1s之内都没有其它的keyup事件发生）则做你想要做的事
+                        var isbn = $this.val();
+                        page = 0;
+                        searchPro.categoryId = isbn;
+                        searchPro.unlock();
+                        searchPro.noData(false);
+                        searchPro.$domDown.html(searchPro.opts.domDown.domLoad);
+                        searchPro.loading = true;
+                        searchPro.opts.loadDownFn(searchPro);
+                    }
+                },1500);
+
+            } else {
+                $searchResult.show();
+                $searchList.hide();
+            }
+        });
+
+    querySecondCategoryListByFirstCategoryId('5');
+    //获取二次分类列表
+    function querySecondCategoryListByFirstCategoryId( categoryId) {
+
+        var secondCategoryDataList={'secondCategoryDataList':[
+            {
+                "categoryId":"水蜜桃",
+
+                "categoryName":"水蜜桃"
+            },
+            {
+                "categoryId":"小青芒",
+
+                "categoryName":"小青芒"
+            }, {
+                "categoryId":"黄金鲽鱼",
+
+                "categoryName":"黄金鲽鱼"
+            },
+            {
+                "categoryId":"火龙果",
+
+                "categoryName":"火龙果"
+            }
+        ]};
+        var html = template('productSearch-tpl', secondCategoryDataList);
+        $("#show_second_category").html(html);
+        $("#show_second_category li[data-type]").click(function () {
+            $('#search_goods_list').empty();
+
+
+            $searchResult.hide();
+            $searchList.show();
+            page = 0;
+            searchPro.categoryId = $(this).attr('data-type');
+            searchPro.unlock();
+            searchPro.noData(false);
+            searchPro.$domDown.html(searchPro.opts.domDown.domLoad);
+            searchPro.loading = true;
+            searchPro.opts.loadDownFn(searchPro);
+            /*$searchInput.val($(this).attr('data-type'));
+            $searchInput.focus();
+            $searchBar.addClass('weui-search-bar_focusing');*/
+
+        });
+    }
+
+    var page = 0;
+    // 每页展示5个
+    var size = 5;
+    var searchPro = $('.search_Top').dropload({
+        size: 5,
+        categoryId: '0',
+        autoLoad: false,//自动加载
+        domDown:{
+            domNoData: '<div class="dropload-noData">没有了~</div>'
+        },
+        loadDownFn: function (me) {//加载更多
+            page++;
+            var result = '';
+            $.ajax({
+                type: 'GET',
+                url: apiUrl + "/front/goods/goods/getPageFrontVOByGoodsName",
+                data: "pageNo=" + page + "&pageSize=" + size+ "&goodsName=" + encodeURIComponent(me.categoryId) ,
+                dataType: 'json',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function (msg) {
+                    var res = msg.res;
+                    var goodsDataList = msg.obj.dataList;
+                    msg.goodsDataList=goodsDataList;
+                    if(res ===1 && goodsDataList.length > 0){
+
+                        //处理图片路径的问题
+                        for (var pid = 0; pid < msg.goodsDataList.length; pid++) {
+                            if (msg.goodsDataList[pid].image !== "") {
+                                msg.goodsDataList[pid].image = msg.goodsDataList[pid].image.split(",");
+                                for (var j = 0; j < msg.goodsDataList[pid].image.length; j++) {
+                                    msg.goodsDataList[pid].image[j] = imgUrl + msg.goodsDataList[pid].image[j];
+                                }
+                            }
+                            //处理起步价
+                            msg.goodsDataList[pid].vo_retailPrice=msg.goodsDataList[pid].vo_retailPrice/100;
+                        }
+                        result = template('search_goods_list_tp1', msg);
+
+					}
+                    else {
+                        // 锁定
+                        me.lock();
+                    //    me.noData();
+                        // 无数据
+                    }
+                    $('#search_goods_list').append(result);
+                    me.resetload();
+                    // 每次数据加载完，必须重置
+
+                    for (var z in goodsDataList)
+                    {
+                        var goods_id=new Object();
+                        goods_id="goodsId_"+goodsDataList[z].goodsId;
+                        $("#"+goods_id).click(function() {
+                            showOrhideGoodspriceList(this.id.substring(8));
+                        });
+
+                        //隐藏的默认有的一个规格时的增删改增加绑定事件
+                        $("#one_edit_"+goodsDataList[z].vo_priceId).val(goodsDataList[z].vo_shoppingCartNum);
+                        $("#one_sub_"+goodsDataList[z].vo_priceId).click(function() {
+                            operateShoppingCart(2,this.id.substring(8));
+                        });
+                        $("#one_add_"+goodsDataList[z].vo_priceId).click(function() {
+                            operateShoppingCart(1,this.id.substring(8));
+                        });
+                        $("#one_edit_"+goodsDataList[z].vo_priceId).change(function() {
+                            operateShoppingCart(3,this.id.substring(9));
+                        });
+                        //商品只有一个规格时，直接显示加减号
+                        if(goodsDataList[z].vo_countGoodsPrice==1){
+                            document.getElementById("goodsId_"+goodsDataList[z].goodsId).style.display="none";
+                            if(goodsDataList[z].vo_shoppingCartNum==0){
+                                //购物车中数量为0，只显示加号
+                                document.getElementById("one_add_"+goodsDataList[z].vo_priceId).style.display="block";
+                            }else{
+                                document.getElementById("one_sub_"+goodsDataList[z].vo_priceId).style.display="block";
+                                document.getElementById("one_edit_"+goodsDataList[z].vo_priceId).style.display="block";
+                                document.getElementById("one_add_"+goodsDataList[z].vo_priceId).style.display="block";
                             }
                         }
-						//处理起步价
-						msg.goodsDataList[pid].vo_retailPrice=msg.goodsDataList[pid].vo_retailPrice/100;
                     }
-					var html = template('show_goods_list_search-tp', msg);
-					$("#show_goods_list_search").html(html);	
-					//绑定选择规格事件						
-					for (var z in goodsDataList)  
-					{
-						var goods_id=new Object(); 
-						goods_id="goodsId_"+goodsDataList[z].goodsId; 
-						$("#"+goods_id).click(function() {
-							showOrhideGoodspriceList(this.id.substring(8));
-						});
-						
-					//隐藏的默认有的一个规格时的增删改增加绑定事件
-						$("#one_edit_"+goodsDataList[z].vo_priceId).val(goodsDataList[z].vo_shoppingCartNum);
-						$("#one_sub_"+goodsDataList[z].vo_priceId).click(function() {
-							operateShoppingCart(2,this.id.substring(8));
-						});
-						$("#one_add_"+goodsDataList[z].vo_priceId).click(function() {
-							operateShoppingCart(1,this.id.substring(8));
-						});
-						$("#one_edit_"+goodsDataList[z].vo_priceId).change(function() {
-							operateShoppingCart(3,this.id.substring(9));
-						});
-						//商品只有一个规格时，直接显示加减号
-						if(goodsDataList[z].vo_countGoodsPrice==1){
-							document.getElementById("goodsId_"+goodsDataList[z].goodsId).style.display="none";
-							if(goodsDataList[z].vo_shoppingCartNum==0){
-								//购物车中数量为0，只显示加号
-								document.getElementById("one_add_"+goodsDataList[z].vo_priceId).style.display="block";
-							}else{
-								document.getElementById("one_sub_"+goodsDataList[z].vo_priceId).style.display="block";
-								document.getElementById("one_edit_"+goodsDataList[z].vo_priceId).style.display="block";
-								document.getElementById("one_add_"+goodsDataList[z].vo_priceId).style.display="block";
-							}
-						}
-					};						
-				}else{
-					alert("获取商品失败！");
-				}
-			});			
-	 }	
-	 
+
+
+                },
+                error: function (xhr, type) {
+                    // 即使加载出错，也得重置
+                    me.resetload();
+                }
+            });
+
+
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	  //商品规格增删改同一接口
 	 //商品只有一个规格时增删改数量	 operateType 1增 2删 3改; priceId 规格id;
 	 //source 表示操作来源 0表示只有一个规格时的增删改，1表示多个规格时的增删改
@@ -134,35 +361,35 @@ define(['jquery', "components","bootstrap", "common", "template"], function(jque
 		 operateShoppingCartInterface(3,priceId,1);			
 	 }
 	 
-	 
+
 	 //获取产品规格
 	 function showOrhideGoodspriceList(goodsId){
-		var showId="show_goods_price_list_"+goodsId;		 
+		var showId="show_goods_price_list_"+goodsId;
 		var display =document.getElementById(showId).style.display;
 		if(display == 'none'){
 			//展开
 			var suburl = apiUrl + "/front/goodsPrice/goodsPrice/getGoodsPriceListByGoodsId?goodsId=" + goodsId;
 			components.getMsg(suburl).done(function(msg) {
 				var res = msg.res;
-				if (res == 1) {                
+				if (res == 1) {
 					//获取到产品规格
 					var goodspriceDataList=msg.obj;
 					//处理显示的价格
-					for (var pi = 0; pi < goodspriceDataList.length; pi++) {                        
+					for (var pi = 0; pi < goodspriceDataList.length; pi++) {
                         goodspriceDataList[pi].retailPrice = goodspriceDataList[pi].retailPrice / 100;
                     }
-					
+
 					msg.goodspriceDataList=goodspriceDataList;
 					var html = template('show_goods_price_list-tpl', msg);
-					$("#"+showId).html(html);		
+					$("#"+showId).html(html);
 					var ggs_id="goodsId_"+goodsId;
-					document.getElementById(ggs_id).innerHTML = "收起";	
-					document.getElementById(showId).style.display="";	
-					//绑定增删改规格数量事件及初始化规格数量，规格数量取采购价						
-					for (var m in goodspriceDataList)  
+					document.getElementById(ggs_id).innerHTML = "收起";
+					document.getElementById(showId).style.display="";
+					//绑定增删改规格数量事件及初始化规格数量，规格数量取采购价
+					for (var m in goodspriceDataList)
 					{
-						var goodsPrice_id=new Object(); 
-						goodsPrice_id=goodspriceDataList[m].priceId; 
+						var goodsPrice_id=new Object();
+						goodsPrice_id=goodspriceDataList[m].priceId;
 						$("#edit_"+goodsPrice_id).val(goodspriceDataList[m].buyPrice);
 						$("#sub_"+goodsPrice_id).click(function() {
 							subOneToShoppingCart(this.id.substring(4));
@@ -178,18 +405,18 @@ define(['jquery', "components","bootstrap", "common", "template"], function(jque
 							document.getElementById("sub_"+goodsPrice_id).style.display="none";
 							document.getElementById("edit_"+goodsPrice_id).style.display="none";
 						}
-					};					
+					};
 				}else{
 					alert("获取产品规格失败！");
 				}
 			});
 		}else{
 			//收起
-			document.getElementById(showId).style.display="none";	
+			document.getElementById(showId).style.display="none";
 			var ggs_id="goodsId_"+goodsId;
 			document.getElementById(ggs_id).innerHTML = "选择规格";
-		}		
-	 }	
+		}
+	 }
 	 
 	 //刷新当前用户的购物车总金额及种类数
 	 function flushCurrentUserTotalPriceAndCategory(){
@@ -234,198 +461,17 @@ define(['jquery', "components","bootstrap", "common", "template"], function(jque
 		 }
 	 } 
 
-	
-		
-	var $goodsList = $("#show_goods_list_search");
-    var $noRec = $('#noRec');
-    var $cloading = $('#cloading');	
-	var oldgoodsname="";//用来保存搜索的关键字，因为搜索结果出来后关键字会被清除
-	 //获取商品列表，并展示,新方法 暂时不用，有问题
-	var goodsList = {
-        page: 0, //触发获取数据的数次(+1等于页码)
-        size: 10, //每次触发取的记录条数
-        isLoading: false, //列表是否加载中，避免重复触底加载
-        url: apiUrl + "/front/goods/goods/getPageFrontVOByGoodsName", //数据api
-        getMore: function(first,goodsName) {
-            if (goodsList.isLoading) //取数过程中，先停止重复取数
-                return;
 
-            if (first) {
-                goodsList.page = 1;
-                $('#noRec').hide();
-				$goodsList.html('');
-            } else {
-                goodsList.page += 1;
-            }
-            $('#cloading').show(); //显示加载框
-            goodsList.isLoading = true;
-            setTimeout(goodsList.d(goodsList.page, goodsList.size,goodsName), 1000); //模拟延迟取数据
-        },
-
-        //异步获取商品列表
-        d: function(page, size,goodsName) {
-            $.ajax({
-                url: goodsList.url,
-                data: "pageNo=" + page + "&pageSize=" + size+ "&goodsName=" + encodeURIComponent(encodeURIComponent(goodsName)) ,
-                type: 'GET',
-                xhrFields: {
-                    withCredentials: true
-                },
-                crossDomain: true,
-                dataType: "json",
-            }).done(function(msg) {
-                var res = msg.res;
-                if (res !== 0) {					
-					//获取到商品
-					var goodsDataList=msg.obj.dataList;
-					msg = msg.obj;
-					msg.goodsDataList=goodsDataList;
-					//处理图片路径的问题
-					for (var pid = 0; pid < msg.goodsDataList.length; pid++) {
-                        if (msg.goodsDataList[pid].image !== "") {
-                            msg.goodsDataList[pid].image = msg.goodsDataList[pid].image.split(",");
-                            for (var j = 0; j < msg.goodsDataList[pid].image.length; j++) {
-                                msg.goodsDataList[pid].image[j] = imgUrl + msg.goodsDataList[pid].image[j];
-                            }
-							//处理起步价
-							msg.goodsDataList[pid].vo_retailPrice=msg.goodsDataList[pid].vo_retailPrice/100;
-                        }
-                    }
-					var html = template('show_goods_list_search-tp', msg);
-					//$("#show_goods_list_search").html(html);	
-                    if (goodsDataList && goodsDataList.length > 0) {
-                        goodsList.isLoading = false;
-                        $noRec.hide();
-                    } else {
-                        goodsList.isLoading = true;                       
-						$noRec.hide();
-                    }
-                    if (goodsList.page > 1) {
-                        $goodsList.append(html);
-                    } else {
-                        $goodsList.html(html);
-                    }
-                    $cloading.hide(); //隐藏加载框
-					
-					//绑定选择规格事件						
-					for (var z in goodsDataList)  
-					{
-						var goods_id=new Object(); 
-						goods_id="goodsId_"+goodsDataList[z].goodsId; 
-						$("#"+goods_id).click(function() {
-							showOrhideGoodspriceList(this.id.substring(8));
-						});
-						
-					//隐藏的默认有的一个规格时的增删改增加绑定事件
-						$("#one_edit_"+goodsDataList[z].vo_priceId).val(goodsDataList[z].vo_shoppingCartNum);
-						$("#one_sub_"+goodsDataList[z].vo_priceId).click(function() {
-							operateShoppingCart(2,this.id.substring(8));
-						});
-						$("#one_add_"+goodsDataList[z].vo_priceId).click(function() {
-							operateShoppingCart(1,this.id.substring(8));
-						});
-						$("#one_edit_"+goodsDataList[z].vo_priceId).change(function() {
-							operateShoppingCart(3,this.id.substring(9));
-						});
-						//商品只有一个规格时，直接显示加减号
-						if(goodsDataList[z].vo_countGoodsPrice==1){
-							document.getElementById("goodsId_"+goodsDataList[z].goodsId).style.display="none";
-							if(goodsDataList[z].vo_shoppingCartNum==0){
-								//购物车中数量为0，只显示加号
-								document.getElementById("one_add_"+goodsDataList[z].vo_priceId).style.display="block";
-							}else{
-								document.getElementById("one_sub_"+goodsDataList[z].vo_priceId).style.display="block";
-								document.getElementById("one_edit_"+goodsDataList[z].vo_priceId).style.display="block";
-								document.getElementById("one_add_"+goodsDataList[z].vo_priceId).style.display="block";
-							}
-						}
-					};						
-                } else {
-                    $noRec.hide();
-                    $cloading.hide();
-                }
-				goodsList.isLoading = false;
-            });
-        }
-    };
-	 
 	  //购物车详情事件绑定
-	$("#shoppingCartDetail").on('click', function(){	 
+	$("#shoppingCartDetail").on('click', function(e){
+	    e.stopPropagation();
 		window.location.href="/page/myShoppingCart.html"; 
 	});
 		
-	//滚动
-	 $(window).scroll(function() {
-        //滚动高度 + 窗口高度 + (底部导航高度 + 版权块高度) >= 文档高度，注意：文档高度不包括fixed定位的元素（分类导航、底部导航）
-        if ($(document).scrollTop() + $(window).height() + (50 + 50) >= $(document).height()) {					
-            goodsList.getMore(false,oldgoodsname); //获取数据
-			$noRec.hide();
-        }
-    });
-	
-	
-	//搜索按钮绑定事件
-	$(function(){
-        var $searchBar = $('#searchBar'),
-            $searchResult = $('#searchResult'),
-            $searchText = $('#searchText'),
-            $searchInput = $('#searchInput'),
-            $searchClear = $('#searchClear'),
-            $searchCancel = $('#searchCancel');
 
-        function hideSearchResult(){
-			goodsList.getMore(true,"--**--");
-            $searchResult.hide();
-            $searchInput.val('');
-        }
-        function cancelSearch(){
-            hideSearchResult();
-            $searchBar.removeClass('weui-search-bar_focusing');
-            $searchText.show();
-        }
-
-        $searchText.on('click', function(){
-            $searchBar.addClass('weui-search-bar_focusing');
-            $searchInput.focus();
-        });
-		var chineseInput=false;//中文输入判断，true表示输入中，false表示输入结束
-        $searchInput
-            .on('blur', function () {
-                if(!this.value.length) cancelSearch();
-            })
-            .on('input', function(){
-                if(this.value.length) {	
-					if(chineseInput){
-						return;
-					}				
-					oldgoodsname=$("#searchInput").val();
-					goodsList.getMore(true,$("#searchInput").val());
-                    $searchResult.show();
-                } else {
-                    $searchResult.hide();
-                }
-            }).on('compositionstart', function () {
-				//中文输入开始
-                chineseInput=true;
-            }).on('compositionend', function () {
-				//中文输入结束
-                chineseInput=false;
-            });
-		 
-        $searchClear.on('click', function(){
-            hideSearchResult();
-            $searchInput.focus();
-        });
-        $searchCancel.on('click', function(){
-            cancelSearch();
-            $searchInput.blur();
-        });
-    });
 		
 		
 	//初始化方法	
 	flushCurrentUserTotalPriceAndCategory();
-	//goodsList.getMore(true,oldgoodsname);
-	
 	
  });

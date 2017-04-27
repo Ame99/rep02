@@ -127,7 +127,7 @@ define(['jquery', "components", "common", "template", "hammer", "updown"], funct
                         // 锁定
                         me.lock();
                         // 无数据
-                        me.noData();
+                       // me.noData();
                     }
                     $('#show_goods_list').append(result);
                     me.resetload();
@@ -270,17 +270,18 @@ define(['jquery', "components", "common", "template", "hammer", "updown"], funct
             var res = msg.res;
             if (res === 1) {
                 //获取到二次分类
+
                 var secondCategoryDataList = msg.obj;
                 msg.secondCategoryDataList = secondCategoryDataList;
+                var alltype = {
+                    "categoryId": categoryId,
+                    "parentId": categoryId,
+                    "categoryName": "全部",
+                    "image": "",
+                    "state": 1,
+                    "simpleDescribe": "全部"
+                };
                 if (!!secondCategoryDataList && secondCategoryDataList.length > 0) {
-                    var alltype = {
-                        "categoryId": categoryId,
-                        "parentId": categoryId,
-                        "categoryName": "全部",
-                        "image": "",
-                        "state": 1,
-                        "simpleDescribe": "全部"
-                    };
                     secondCategoryDataList.unshift(alltype);
                     var html = template('show_second_category-tpl', msg);
                     $("#show_second_category").html(html);
@@ -290,7 +291,12 @@ define(['jquery', "components", "common", "template", "hammer", "updown"], funct
                     });
                     getPageFrontByGoodsCategory($('#show_second_category li:eq(0)'), $('#show_second_category li:eq(0)').attr('data-type'))
                 } else {
-                    getPageFrontByGoodsCategory();
+                    secondCategoryDataList=[];
+                    secondCategoryDataList.push(alltype);
+                    msg.secondCategoryDataList = secondCategoryDataList;
+                    var html = template('show_second_category-tpl', msg);
+                    $("#show_second_category").html(html);
+                    getPageFrontByGoodsCategory($('#show_second_category li:eq(0)'),categoryId);
                 }
             } else {
                 alert("获取二级分类失败！");
@@ -311,7 +317,7 @@ define(['jquery', "components", "common", "template", "hammer", "updown"], funct
 
         }
         else {
-            panelset.categoryId = '0';
+          return
 
         }
         page = 0;

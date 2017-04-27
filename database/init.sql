@@ -36,23 +36,6 @@ CREATE TABLE `t_ad` (
 -- ----------------------------
 -- Records of t_ad
 -- ----------------------------
-INSERT INTO `t_ad` VALUES ('1', null, '/pic/dydz/user/201704/1491994748506.png', null, 'adfasf', '1', '2017-04-12 18:59:29', '2017-04-12 18:59:29', '1', null);
-INSERT INTO `t_ad` VALUES ('2', null, '/pic/dydz/user/201704/1491994830645.png/pic/dydz/user/201704/1491994830645.png', 'dsafdasf', 'dasasd', '1', '2017-04-12 19:01:51', '2017-04-12 19:01:51', '1', null);
-INSERT INTO `t_ad` VALUES ('3', null, '/pic/dydz/user/201704/1491994830645.png/pic/dydz/user/201704/1491994830645.png/pic/dydz/user/201704/1491994830645.png', 'dsafdasf', 'dasasd', '1', '2017-04-12 19:02:43', '2017-04-12 19:02:43', '1', null);
-INSERT INTO `t_ad` VALUES ('4', null, '/pic/dydz/user/201704/1491994953107.png', 'sadfsdaf', 'sdafsad', '1', '2017-04-12 19:02:53', '2017-04-12 19:02:53', '1', null);
-INSERT INTO `t_ad` VALUES ('5', '1', '/pic/dydz/user/201704/1491995782987.png', 'dfasdfa', 'adsfasdf', '1', '2017-04-12 19:16:55', '2017-04-12 19:16:55', '1', null);
-INSERT INTO `t_ad` VALUES ('6', '1', '/pic/dydz/user/201704/1492046169515.png', 'sdfadsfa312312', 'dsadfsad', '1', '2017-04-13 09:16:27', '2017-04-13 10:17:06', '1', null);
-INSERT INTO `t_ad` VALUES ('7', null, '/pic/dydz/user/201704/1492053351449.png', '12312', '12312', '2', '2017-04-13 11:16:04', '2017-04-13 11:16:04', '1', null);
-INSERT INTO `t_ad` VALUES ('8', null, '/pic/dydz/user/201704/1492316845760.png', 'xxxx', 'xxxx', '1', '2017-04-16 12:27:32', '2017-04-16 12:27:32', '1', null);
-INSERT INTO `t_ad` VALUES ('9', null, '/pic/dydz/user/201704/1492317403219.png', '12312312', '23123', '1', '2017-04-16 12:37:43', '2017-04-16 12:37:43', '1', null);
-INSERT INTO `t_ad` VALUES ('10', null, '/pic/dydz/user/201704/1492317500550.png', 'asdfasdf', 'dasfsad', '1', '2017-04-16 12:43:06', '2017-04-16 12:43:06', '1', null);
-INSERT INTO `t_ad` VALUES ('11', '1', '/pic/dydz/user/201704/1492317772429.png', 'sadfasdfasdf', 'asdfasdfa', '1', '2017-04-16 12:43:07', '2017-04-16 12:43:07', '1', null);
-INSERT INTO `t_ad` VALUES ('12', '1', '/pic/dydz/user/201704/1492317794987.png', 'asdfasdf', 'fasdfasdf', '1', '2017-04-16 12:44:15', '2017-04-16 12:44:15', '1', null);
-INSERT INTO `t_ad` VALUES ('13', '1', '/pic/dydz/user/201704/1492399029723.png', '首页', 'http://www.chunriqiushi.cn/page/safeDetectReport.html?id=15', '1', '2017-04-17 11:17:37', '2017-04-21 10:48:24', '2', null);
-INSERT INTO `t_ad` VALUES ('14', '1', '/pic/dydz/user/201704/1492418091979.png', '广告二', 'http://www.chunriqiushi.cn/page/safeDetectReport.html?id=15', '1', '2017-04-17 16:35:15', '2017-04-21 10:48:17', '2', null);
-INSERT INTO `t_ad` VALUES ('15', '1', '/pic/dydz/user/201704/1492514685645.png', '搜狐', 'http://www.sohu.com', '1', '2017-04-18 19:25:11', '2017-04-18 19:25:11', '1', null);
-INSERT INTO `t_ad` VALUES ('16', '1', '/pic/dydz/user/201704/1492568269203.jpg', '测试页面三', 'http://www.sohu.com', '1', '2017-04-19 10:18:07', '2017-04-19 10:23:20', '1', null);
-INSERT INTO `t_ad` VALUES ('17', null, null, null, null, null, '2017-04-21 17:29:48', '2017-04-21 17:29:48', '2', null);
 
 -- ----------------------------
 -- Table structure for t_admin
@@ -759,7 +742,6 @@ CREATE TABLE `t_user` (
 -- ----------------------------
 -- Records of t_user
 -- ----------------------------
-INSERT INTO `t_user` VALUES ('1', '', '', '', '', '18927775098', '', '', '', '2017-04-23 18:35:17', '2017-04-23 18:35:17', '1');
 
 -- ----------------------------
 -- Table structure for t_user_message
@@ -820,4 +802,3 @@ CREATE TABLE `t_user_receive` (
 -- ----------------------------
 -- Records of t_user_receive
 -- ----------------------------
-INSERT INTO `t_user_receive` VALUES ('1', '46', '11', '18927775098', '广东省', '广州市', '天河区', '11', '2017-04-23 18:37:27', '2017-04-23 18:37:27', '2', '2');

@@ -1,7 +1,7 @@
 
 define(['jquery', "components", "common", "template"], function(jquery, components, common, template) {
     // addActiveClass(2);
-    // var apiUrl = "http://localhost:8080";
+    // var apiUrl = "http://localhost:8080/";
     var $articleList = $("#article-list");
     var $noRec = $('#noRec');
     var $cloading = $('#cloading');
