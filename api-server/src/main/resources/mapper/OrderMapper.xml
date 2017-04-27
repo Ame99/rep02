@@ -63,7 +63,7 @@
 		<association property="payment" select="selectPaymentByPaymentId" column="payment_id" />
 		<association property="receive" select="selectReceiveByReceiveId" column="receive_id" /> -->
 		<!--上面的方法也能查询出结果，但是会增加查询sql语句，影响查询效率  -->
-		<association property="user" javaType="com.ande.entity.user.User">
+		<association property="user" javaType="com.ande.entity.User">
 			<id column="user_id" property="userId" jdbcType="INTEGER" />
 			<result column="openid" property="openid" jdbcType="VARCHAR" />
 			<result column="nickname" property="nickname" jdbcType="VARCHAR" />
@@ -77,11 +77,11 @@
 			<result column="state" property="state" jdbcType="TINYINT" />
 			<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
 		</association>
-		<association property="payment" javaType="com.ande.entity.payment.Payment">
+		<association property="payment" javaType="com.ande.entity.Payment">
 			<id column="payment_id" property="paymentId" jdbcType="INTEGER" />
 			<result column="name" property="name" jdbcType="VARCHAR" />
 		</association>
-		<association property="receive" javaType="com.ande.entity.receive.Receive">
+		<association property="receive" javaType="com.ande.entity.Receive">
 			<id column="receive_id" property="receiveId" jdbcType="INTEGER" />
 			<result column="contact" property="contact" jdbcType="VARCHAR" />
 			<result column="tel" property="tel" jdbcType="VARCHAR" />
@@ -111,29 +111,29 @@
 		<result column="state" property="state" jdbcType="TINYINT" />
 		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
 	</resultMap>
-	<resultMap id="BasePaymentMap" type="com.ande.entity.payment.Payment">
+	<resultMap id="BasePaymentMap" type="com.bigdatan.b2c.entity.Payment">
 		<id column="payment_id" property="paymentId" jdbcType="INTEGER" />
 		<result column="name" property="name" jdbcType="VARCHAR" />
 	</resultMap>
-	<resultMap id="BaseOrderDetailsMap" type="com.ande.entity.order.OrderDetails">
+	<resultMap id="BaseOrderDetailsMap" type="com.bigdatan.b2c.entity.OrderDetails">
 		<id column="order_details_id" property="orderDetailsId" jdbcType="INTEGER" />
-		<result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
-		<result column="unit_name" property="unitName" jdbcType="VARCHAR" />
-		<result column="unit_price" property="unitPrice" jdbcType="INTEGER" />
-		<result column="num" property="num" jdbcType="INTEGER" />
-		<result column="details_amount" property="detailsAmount"
+			<result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+			<result column="unit_name" property="unitName" jdbcType="VARCHAR" />
+			<result column="unit_price" property="unitPrice" jdbcType="INTEGER" />
+			<result column="num" property="num" jdbcType="INTEGER" />
+			<result column="details_amount" property="detailsAmount"
 				jdbcType="INTEGER" />
 	</resultMap>
-	<resultMap id="BaseReceiveMap" type="com.ande.entity.receive.Receive">
-		<id column="receive_id" property="receiveId" jdbcType="INTEGER" />
-		<result column="contact" property="contact" jdbcType="VARCHAR" />
-		<result column="tel" property="tel" jdbcType="VARCHAR" />
-		<result column="receive_province" property="receiveProvince"
+	<resultMap id="BaseReceiveMap" type="com.bigdatan.b2c.entity.Receive">
+			<id column="receive_id" property="receiveId" jdbcType="INTEGER" />
+			<result column="contact" property="contact" jdbcType="VARCHAR" />
+			<result column="tel" property="tel" jdbcType="VARCHAR" />
+			<result column="receive_province" property="receiveProvince"
 				jdbcType="VARCHAR" />
-		<result column="receive_city" property="receiveCity" jdbcType="VARCHAR" />
-		<result column="receive_county" property="receiveCounty"
+			<result column="receive_city" property="receiveCity" jdbcType="VARCHAR" />
+			<result column="receive_county" property="receiveCounty"
 				jdbcType="VARCHAR" />
-		<result column="receive_address" property="receiveAddress"
+			<result column="receive_address" property="receiveAddress"
 				jdbcType="VARCHAR" />
 	</resultMap>
 
@@ -169,7 +169,7 @@
 		r.contact,r.tel,r.receive_province,r.receive_city,r.receive_county,r.receive_address
 	</sql>
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
-			parameterType="java.lang.Integer">
+		parameterType="java.lang.Integer">
 		select
 		<include refid="Base_Column_List" />
 		from t_order o
@@ -200,16 +200,16 @@
 		from t_order
 		where pay_state =#{payState,jdbcType=INTEGER}
 	</select>
-	<resultMap id="BaseMap" type="com.ande.entity.order.Order">
+	<resultMap id="BaseMap" type="com.bigdatan.b2c.entity.Order">
 		<id column="order_id" property="orderId" jdbcType="INTEGER" />
 		<result column="order_number" property="orderNumber" jdbcType="VARCHAR" />
 		<result column="total_amount" property="totalAmount" jdbcType="INTEGER" />
 		<result column="paid_amount" property="paidAmount" jdbcType="INTEGER" />
 		<result column="discount_amount" property="discountAmount"
-				jdbcType="INTEGER" />
+			jdbcType="INTEGER" />
 		<result column="send_time" property="sendTime" jdbcType="TIMESTAMP" />
 		<result column="logistics_state" property="logisticsState"
-				jdbcType="TINYINT" />
+			jdbcType="TINYINT" />
 		<result column="invoice_tag" property="invoiceTag" jdbcType="TINYINT" />
 		<result column="payment_seq" property="paymentSeq" jdbcType="VARCHAR" />
 		<result column="pay_state" property="payState" jdbcType="TINYINT" />
@@ -218,45 +218,45 @@
 
 		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
 		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
-		<association property="orderCertify" javaType="com.ande.entity.order.OrderCertify">
+		<association property="orderCertify" javaType="com.bigdatan.b2c.entity.OrderCertify">
 			<id column="certify_id" property="orderCertifyId" jdbcType="TINYINT" />
 			<result column="order_number" property="orderNumber" jdbcType="VARCHAR" />
 			<result column="image_url" property="imageUrl" jdbcType="VARCHAR" />
 			<result column="create_time" property="orderNumber" jdbcType="VARCHAR" />
 			<result column="update_time" property="orderNumber" jdbcType="VARCHAR" />
-			<association property="admin" javaType="com.ande.entity.admin.Admin">
+			<association property="admin" javaType="com.bigdatan.b2c.entity.Admin">
 				<id column="admin_id" property="adminId" jdbcType="INTEGER" />
 				<result column="admin_name" property="adminName" jdbcType="VARCHAR" />
 			</association>
 		</association>
-		<association property="user" javaType="com.ande.entity.user.User">
+		<association property="user" javaType="com.bigdatan.b2c.entity.User">
 			<id column="user_id" property="userId" jdbcType="INTEGER" />
 			<result column="phone" property="phone" jdbcType="VARCHAR" />
 		</association>
-		<association property="payment" javaType="com.ande.entity.payment.Payment">
+		<association property="payment" javaType="com.bigdatan.b2c.entity.Payment">
 			<id column="payment_id" property="paymentId" jdbcType="INTEGER" />
 			<result column="name" property="name" jdbcType="VARCHAR" />
 		</association>
-		<association property="receive" javaType="com.ande.entity.receive.Receive">
+		<association property="receive" javaType="com.bigdatan.b2c.entity.Receive">
 			<id column="receive_id" property="receiveId" jdbcType="INTEGER" />
 			<result column="contact" property="contact" jdbcType="VARCHAR" />
 			<result column="tel" property="tel" jdbcType="VARCHAR" />
 			<result column="receive_province" property="receiveProvince"
-					jdbcType="VARCHAR" />
+				jdbcType="VARCHAR" />
 			<result column="receive_city" property="receiveCity" jdbcType="VARCHAR" />
 			<result column="receive_county" property="receiveCounty"
-					jdbcType="VARCHAR" />
+				jdbcType="VARCHAR" />
 			<result column="receive_address" property="receiveAddress"
-					jdbcType="VARCHAR" />
+				jdbcType="VARCHAR" />
 		</association>
-		<collection property="orderDetailsList" ofType="com.ande.entity.order.OrderDetails">
+		<collection property="orderDetailsList" ofType="com.bigdatan.b2c.entity.OrderDetails">
 			<id column="order_details_id" property="orderDetailsId" jdbcType="INTEGER" />
 			<result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
 			<result column="unit_name" property="unitName" jdbcType="VARCHAR" />
 			<result column="unit_price" property="unitPrice" jdbcType="INTEGER" />
 			<result column="num" property="num" jdbcType="INTEGER" />
 			<result column="details_amount" property="detailsAmount"
-					jdbcType="INTEGER" />
+				jdbcType="INTEGER" />
 		</collection>
 	</resultMap>
 	<!-- 订单详情 -->
@@ -291,8 +291,8 @@
 		where o.order_number=
 		#{oderNumber,jdbcType=INTEGER}
 	</select>
-	<select id="getPage" parameterType="com.ande.entity.order.Order"
-			resultMap="BaseResultMap">
+	<select id="getPage" parameterType="com.bigdatan.b2c.entity.Order"
+		resultMap="BaseResultMap">
 		select
 		o.order_id,
 		o.order_number,o.create_time,o.pay_state,o.total_amount,
@@ -312,8 +312,8 @@
 	</select>
 
 	<!-- 管理平台商品订单搜索导出  -->
-	<select id="getPageExportByOrderAdminSearchVO" parameterType="com.ande.entity.order.OrderAdminSearchVO"
-			resultMap="BaseExportResultMap">
+	<select id="getPageExportByOrderAdminSearchVO" parameterType="com.bigdatan.b2c.vo.OrderAdminSearchVO"
+		resultMap="BaseExportResultMap">
 		select
 		*
 		from
@@ -350,19 +350,19 @@
 		</if>
 		<if test="checkAll == null or checkAll == ''">
 			<if test="selectIdList != null and selectIdList.size() != 0">
-				and o.order_id in
-				<foreach item="item" index="index" collection="selectIdList" open="("
-						 separator="," close=")">
-					#{item}
-				</foreach>
+			and o.order_id in
+			<foreach item="item" index="index" collection="selectIdList" open="("
+           		separator="," close=")">
+           		#{item}
+        	</foreach>
 			</if>
 		</if>
 		order by o.create_time
 		desc
 	</select>
 	<!-- 管理平台商品订单搜索  -->
-	<select id="getPageByOrderAdminSearchVO" parameterType="com.ande.entity.order.OrderAdminSearchVO"
-			resultMap="BaseResultMap">
+	<select id="getPageByOrderAdminSearchVO" parameterType="com.bigdatan.b2c.vo.OrderAdminSearchVO"
+		resultMap="BaseResultMap">
 		select
 		o.order_id,
 		o.order_number,o.create_time,o.pay_state,o.total_amount,
@@ -407,20 +407,20 @@
 	</select>
 
 	<!-- 前端订单列表 -->
-	<resultMap id="BaseMapPageFront" type="com.ande.entity.order.Order">
+	<resultMap id="BaseMapPageFront" type="com.bigdatan.b2c.entity.Order">
 		<result column="order_number" property="orderNumber" jdbcType="VARCHAR" />
 		<result column="total_amount" property="totalAmount" jdbcType="INTEGER" />
 		<result column="send_time" property="sendTime" jdbcType="TIMESTAMP" />
 		<result column="logistics_state" property="logisticsState"
-				jdbcType="TINYINT" />
+			jdbcType="TINYINT" />
 		<result column="pay_state" property="payState" jdbcType="TINYINT" />
 		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
 		<result column="order_number" property="orderNumber" jdbcType="VARCHAR" />
-		<association property="payment" javaType="com.ande.entity.payment.Payment">
+		<association property="payment" javaType="com.bigdatan.b2c.entity.Payment">
 			<id column="payment_id" property="paymentId" jdbcType="INTEGER" />
 			<result column="name" property="name" jdbcType="VARCHAR" />
 		</association>
-		<collection property="orderDetailsList" ofType="com.ande.entity.order.OrderDetails">
+		<collection property="orderDetailsList" ofType="com.bigdatan.b2c.entity.OrderDetails">
 			<result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
 			<result column="image" property="image" jdbcType="VARCHAR" />
 		</collection>
@@ -428,11 +428,14 @@
 	<sql id="PageFront_Cloum_List">
 		o.order_number,o.total_amount,o.send_time,o.logistics_state,o.pay_state,o.create_time,p.name
 	</sql>
-	<select id="getPageFront" parameterType="com.ande.entity.order.Order"
-			resultMap="BaseMapPageFront">
+	<select id="getPageFront" parameterType="com.bigdatan.b2c.entity.Order"
+		resultMap="BaseMapPageFront">
 		select
 		<include refid="PageFront_Cloum_List" />
 		from t_order o
+		left join t_order_details d on o.order_number =
+		d.order_number
+		left join t_goods g on d.goods_id = g.goods_id
 		left join
 		t_user u on u.user_id=o.user_id
 		left join t_payment_method p on
@@ -452,7 +455,7 @@
 		</if>
 		order by o.create_time desc
 	</select>
-	<insert id="insertSelective" parameterType="com.ande.entity.order.Order" useGeneratedKeys="true" keyProperty="orderId">
+	<insert id="insertSelective" parameterType="com.bigdatan.b2c.entity.Order" useGeneratedKeys="true" keyProperty="orderId">
 		insert into t_order
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="orderNumber != null">
@@ -555,7 +558,7 @@
 			</if>
 		</trim>
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="com.ande.entity.order.Order">
+	<update id="updateByPrimaryKeySelective" parameterType="com.bigdatan.b2c.entity.Order">
 		update t_order
 		<set>
 			<if test="logisticsState != null">

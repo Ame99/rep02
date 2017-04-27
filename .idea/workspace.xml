@@ -2,33 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23767f2c-ea2e-455a-ae51-4cccdf3866bf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/conf/WebConfigurer.java" afterPath="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/conf/WebConfigurer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api-server/src/main/resources/mapper/OrderMapper.xml" afterPath="$PROJECT_DIR$/api-server/src/main/resources/mapper/OrderMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/init.sql" afterPath="$PROJECT_DIR$/database/init.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-project/src/font/iconfont.svg" afterPath="$PROJECT_DIR$/front-project/src/font/iconfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-project/src/html/content/myShoppingCart.html" afterPath="$PROJECT_DIR$/front-project/src/html/content/myShoppingCart.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-project/src/html/content/paid_detail.html" afterPath="$PROJECT_DIR$/front-project/src/html/content/paid_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-project/src/html/content/pay_check.html" afterPath="$PROJECT_DIR$/front-project/src/html/content/pay_check.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-project/src/html/content/pay_check_settle.html" afterPath="$PROJECT_DIR$/front-project/src/html/content/pay_check_settle.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-project/src/html/content/productInfo.html" afterPath="$PROJECT_DIR$/front-project/src/html/content/productInfo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-project/src/html/content/productList.html" afterPath="$PROJECT_DIR$/front-project/src/html/content/productList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-project/src/html/content/productSearch.html" afterPath="$PROJECT_DIR$/front-project/src/html/content/productSearch.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-project/src/html/index.html" afterPath="$PROJECT_DIR$/front-project/src/html/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-project/src/html/manage/manage_goods_add.html" afterPath="$PROJECT_DIR$/front-project/src/html/manage/manage_goods_add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-project/src/js/article_list.js" afterPath="$PROJECT_DIR$/front-project/src/js/article_list.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-project/src/js/components.js" afterPath="$PROJECT_DIR$/front-project/src/js/components.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-project/src/js/config.js" afterPath="$PROJECT_DIR$/front-project/src/js/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-project/src/js/index.js" afterPath="$PROJECT_DIR$/front-project/src/js/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-project/src/js/myShoppingCart.js" afterPath="$PROJECT_DIR$/front-project/src/js/myShoppingCart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-project/src/js/productInfo.js" afterPath="$PROJECT_DIR$/front-project/src/js/productInfo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-project/src/js/productList.js" afterPath="$PROJECT_DIR$/front-project/src/js/productList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-project/src/js/productSearch.js" afterPath="$PROJECT_DIR$/front-project/src/js/productSearch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front-project/src/js/safeDetect.js" afterPath="$PROJECT_DIR$/front-project/src/js/safeDetect.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/bdshop/target/" />
@@ -69,12 +43,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myShoppingCart.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="myShoppingCart.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front-project/src/js/myShoppingCart.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderMapper.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api-server/src/main/resources/mapper/OrderMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="544" column="54" lean-forward="true" selection-start-line="544" selection-start-column="54" selection-end-line="544" selection-end-column="54" />
+              <folding>
+                <marker date="1493274511967" expanded="true" signature="8135:8181" ph="select * fro... t_user" />
+                <marker date="1493274511967" expanded="true" signature="8307:8366" ph="select * fro... t_order_details" />
+                <marker date="1493274511967" expanded="true" signature="8488:8550" ph="select * fro... t_user_receive" />
+                <marker date="1493274511967" expanded="true" signature="8668:8730" ph="select * fro... t_payment_method" />
+                <marker date="1493274511967" expanded="true" signature="9253:9478" ph="select from t_order" />
+                <marker date="1493274511967" expanded="true" signature="9798:9956" ph="select from t_order" />
+                <marker date="1493274511967" expanded="true" signature="10026:10112" ph="select sum(p... t_order" />
+                <marker date="1493274511967" expanded="true" signature="10181:10259" ph="select count... t_order" />
+                <marker date="1493274511967" expanded="true" signature="13849:14729" ph="select o.ord... t_order" />
+                <marker date="1493274511967" expanded="true" signature="14840:15185" ph="select o.ord... t_order" />
+                <marker date="1493274511967" expanded="true" signature="15362:16813" ph="select * fro... t_order" />
+                <marker date="1493274511967" expanded="true" signature="16975:18275" ph="select o.ord... t_order" />
+                <marker date="1493274511967" expanded="true" signature="19644:20314" ph="select from t_order" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -185,7 +183,6 @@
         <option value="$PROJECT_DIR$/bdshop-api-server/src/main/java/com/bigdatan/b2c/upload/UploadController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/api-server/src/main/java/com/bigdatan/b2c/conf/WebConfigurer.java" />
-        <option value="$PROJECT_DIR$/api-server/src/main/resources/mapper/OrderMapper.xml" />
         <option value="$PROJECT_DIR$/front-project/package.json" />
         <option value="$PROJECT_DIR$/front-project/src/js/config.js" />
         <option value="$PROJECT_DIR$/front-project/src/js/article_list.js" />
@@ -194,6 +191,7 @@
         <option value="$PROJECT_DIR$/front-project/src/js/add_sendTime.js" />
         <option value="$PROJECT_DIR$/front-project/src/js/add_address.js" />
         <option value="$PROJECT_DIR$/front-project/src/js/productInfo.js" />
+        <option value="$PROJECT_DIR$/api-server/src/main/resources/mapper/OrderMapper.xml" />
       </list>
     </option>
   </component>
@@ -275,7 +273,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="front-project" />
+              <option name="myItemId" value="api-server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -289,7 +287,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="front-project" />
+              <option name="myItemId" value="api-server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -307,7 +305,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="front-project" />
+              <option name="myItemId" value="api-server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -315,7 +313,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapper" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -329,7 +335,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="front-project" />
+              <option name="myItemId" value="api-server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -337,11 +343,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="utf8-jsp" />
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -355,7 +361,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="front-project" />
+              <option name="myItemId" value="api-server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -363,7 +369,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -765,32 +771,6 @@
     <entry file="file://$PROJECT_DIR$/bdshop-api-server/src/main/java/com/bigdatan/b2c/upload/UploadController.java" />
     <entry file="file://$PROJECT_DIR$/bdshop-api-server/src/main/java/com/bigdatan/b2c/service/IAdminService.java" />
     <entry file="file://$PROJECT_DIR$/bdshop-api-server/src/main/java/com/bigdatan/b2c/service/IAdService.java" />
-    <entry file="file://$PROJECT_DIR$/api-server/src/main/resources/mapper/OrderMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1510">
-          <caret line="568" column="17" lean-forward="true" selection-start-line="568" selection-start-column="17" selection-end-line="568" selection-end-column="17" />
-          <folding>
-            <element signature="e#15736#15740#0" expanded="false" />
-            <element signature="e#15867#15871#0" expanded="false" />
-            <element signature="e#17487#17491#0" expanded="false" />
-            <element signature="e#17618#17622#0" expanded="false" />
-            <marker date="1493196303075" expanded="true" signature="8142:8188" ph="select * fro... t_user" />
-            <marker date="1493196303075" expanded="true" signature="8314:8373" ph="select * fro... t_order_details" />
-            <marker date="1493196303075" expanded="true" signature="8495:8557" ph="select * fro... t_user_receive" />
-            <marker date="1493196303075" expanded="true" signature="8675:8737" ph="select * fro... t_payment_method" />
-            <marker date="1493196303075" expanded="true" signature="9261:9486" ph="select from t_order" />
-            <marker date="1493196303075" expanded="true" signature="9806:9964" ph="select from t_order" />
-            <marker date="1493196303075" expanded="true" signature="10034:10120" ph="select sum(p... t_order" />
-            <marker date="1493196303075" expanded="true" signature="10189:10267" ph="select count... t_order" />
-            <marker date="1493196303075" expanded="true" signature="13852:14732" ph="select o.ord... t_order" />
-            <marker date="1493196303075" expanded="true" signature="14842:15187" ph="select o.ord... t_order" />
-            <marker date="1493196303075" expanded="true" signature="15367:16801" ph="select * fro... t_order" />
-            <marker date="1493196303075" expanded="true" signature="16966:18266" ph="select o.ord... t_order" />
-            <marker date="1493196303075" expanded="true" signature="19631:20185" ph="select from t_order" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/framework/spring-boot-starter-druid/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -949,6 +929,28 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api-server/src/main/resources/mapper/OrderMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="544" column="54" lean-forward="true" selection-start-line="544" selection-start-column="54" selection-end-line="544" selection-end-column="54" />
+          <folding>
+            <marker date="1493274511967" expanded="true" signature="8135:8181" ph="select * fro... t_user" />
+            <marker date="1493274511967" expanded="true" signature="8307:8366" ph="select * fro... t_order_details" />
+            <marker date="1493274511967" expanded="true" signature="8488:8550" ph="select * fro... t_user_receive" />
+            <marker date="1493274511967" expanded="true" signature="8668:8730" ph="select * fro... t_payment_method" />
+            <marker date="1493274511967" expanded="true" signature="9253:9478" ph="select from t_order" />
+            <marker date="1493274511967" expanded="true" signature="9798:9956" ph="select from t_order" />
+            <marker date="1493274511967" expanded="true" signature="10026:10112" ph="select sum(p... t_order" />
+            <marker date="1493274511967" expanded="true" signature="10181:10259" ph="select count... t_order" />
+            <marker date="1493274511967" expanded="true" signature="13849:14729" ph="select o.ord... t_order" />
+            <marker date="1493274511967" expanded="true" signature="14840:15185" ph="select o.ord... t_order" />
+            <marker date="1493274511967" expanded="true" signature="15362:16813" ph="select * fro... t_order" />
+            <marker date="1493274511967" expanded="true" signature="16975:18275" ph="select o.ord... t_order" />
+            <marker date="1493274511967" expanded="true" signature="19644:20314" ph="select from t_order" />
+          </folding>
         </state>
       </provider>
     </entry>
