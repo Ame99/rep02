@@ -21,10 +21,6 @@
             list-style-type: none;
         }
 
-        .show_goods_price_list .weui-number-input {
-            /*border: none;*/
-            /*color: #FF735C;*/
-        }
 
         .show_goods_price_list:before {
             border-top: none;
@@ -71,7 +67,7 @@
 </div>
 <script type="text/html" id="show_goods_price_list-tpl">
     {{each goodspriceDataList as value i}}
-    <li>
+    <li style="border-bottom: 1px dotted #d9d9d9;background: #f9f9f9;">
         <div class="weui-cell">
             <div class="weui-cell__hd">
                 <p><label style="color: #FF735C;">¥</label><label style="color: #FF735C;"
@@ -88,7 +84,7 @@
                              style="display: block;  width: 24px;  height: 24px;">
                     </div>
                     <input pattern="[0-9]*" class="weui-number-input"
-                           style="text-align:center;width: 30px; display: block;margin: 0 auto;font-size: initial;"
+                           style="text-align:center;width: 30px; font-size: initial;display: block;margin: 0 5px;border:1px solid #999;border-radius: 0;"
                            value="{{value.buyPrice}}" id="edit_{{value.priceId}}" data-min="0" data-max="9999"
                            data-step="1">
                     <div class="user-number user-number-plus">
@@ -117,14 +113,14 @@
                         <img src="{{value.image[0]}}" alt="" style="display: block; width: 54px;">
                     </div>
                     <div class="weui-cell__bd" style="line-height: normal;">
-                        <p style="font-size:16px;margin-top: -5px;"><label>{{value.goodsName}}</label></p>
+                        <p style="font-size:16px;padding-bottom: 10px;"><label>{{value.goodsName}}</label></p>
                         <p style="font-size:14px;"><label style="font-size:12px;color: #FF735C;">¥</label><label
                                 style="font-size:14px;color: #FF735C;" id="one_retailPrice_{{value.vo_priceId}}">{{value.vo_retailPrice}}</label>起
                         </p>
                     </div>
                 </a>
             </div>
-            <div class="weui-cell__ft">
+            <div class="weui-cell__ft" style="position: absolute;right: 15px;bottom: 10px;">
                 <div class="weui-cell" style="text-align: right; padding-right: 0px;font-size:10px;">
                     <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default;"
                        id="goodsId_{{value.goodsId}}"
@@ -134,7 +130,7 @@
                              style="display: none;  width: 24px;  height: 24px;">
                     </div>
                     <input pattern="[0-9]*" class="weui-number-input"
-                           style="text-align:center;width: 30px; display: none;font-size: initial;" value="{{value.vo_shoppingCartNum}}"
+                           style="text-align:center;width: 30px; display: none;font-size: initial;margin: 0 5px;border:1px solid #999;border-radius: 0;" value="{{value.vo_shoppingCartNum}}"
                            id="one_edit_{{value.vo_priceId}}" data-min="0" data-max="9999" data-step="1">
                     <div class="user-number user-number-plus">
                         <img src="/src/image/add.png" id="one_add_{{value.vo_priceId}}"

@@ -5,7 +5,7 @@ define(["components", "common", "template"], function (components, common, templ
     var $goodsList = $("#product-list");
     var $cloading = $('#cloading');
     var addordeleteLock = false;//同一规格加减改操作锁，true表示锁住了
-    getTest();
+  //  getTest();
 
     function getTest() {
         $.ajax({

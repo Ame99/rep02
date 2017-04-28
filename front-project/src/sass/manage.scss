@@ -56,12 +56,13 @@
 
 .manage_sidebar {
     //管理中心侧边栏
-    position: fixed;
+    position: absolute;
     z-index: 1;
+    top: 70px;
     height: 100%;
     overflow: auto;
     width: 235px;
-    background-color: #323642;
+    background-color: #383840;
    .active {
         a {
             color: #3370ad;
@@ -75,15 +76,15 @@
         padding-bottom: 20px;
     }
 
-    .logo {
-        height: 118px;
-        padding-top: 15px;
-        img {
-            width: 170px;
-            margin-top: 20px;
-            margin-left: 25px;
-        }
-    }
+    //.logo {
+    //    height: 118px;
+    //    padding-top: 15px;
+    //    img {
+    //        width: 170px;
+    //        margin-top: 20px;
+    //        margin-left: 25px;
+    //    }
+    //}
 
     > div {
         h2 {
@@ -93,8 +94,8 @@
             color: #999;
            
 
-            i {
-                vertical-align: middle;
+            img.fl{
+
             }
 
             span.fl {
@@ -115,40 +116,50 @@
             }
         }
         .item{
-                font-size: 12px;
-                padding: 5px 0 5px 25px;
+                font-size: 16px;
+                padding: 8px 0 8px 25px;
                 color: #fff;
-                background-color: #404656;
+                background-color: #4D4D55;
+            img.fl{
+                margin-top: 5px;
+                margin-right: 10px;
+            }
+            img.fr{
+                margin-top: 8px;
+                margin-right: 10px;
+            }
         }
 
         .active {
             a {
                 color: #fff;
-                background-color: #A98D50;
+                background-color: #27A18C;
             }
         }
 
 
         > ul > li > a {
-            background-color: #323642;
+            background-color: #383840;
             color: #fff;
-            font-size: 12px;
-            padding: 5px 0 5px 60px;
+            font-size: 14px;
+            padding: 6px 0 6px 53px;
 
             &:focus {
                 text-decoration: none;
             }
 
             &:hover {
-                background-color: #A98D50;
+                background-color: #27A18C;
             }
         }
     }
 }
-
+.row{
+    margin-right: 0px;
+}
 .manage-nav {
     //管理中心头部
-    background-color: #f1f1f1;
+    background-color: #27A18C;
     border: none;
     height: 70px;
 
@@ -167,6 +178,10 @@
             }
         }
     }
+
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
+    background: #27A18C;
 }
 
 .container-wrap {
@@ -192,11 +207,11 @@
         }
 
         .btn-primary {
-            background-color: #cca876;
+            background-color: #27A18C;
             border-radius: 0;
             border-color: transparent; 
             &:hover {
-                background-color: darken(#cca876, 10%);
+                background-color: darken(#27A18C, 10%);
             }
         }
 
@@ -288,8 +303,8 @@
             }
     }
     .pagination>.active>a {
-        background-color: #cca876;
-        border-color: #cca876;
+        background-color: #009687;
+        border-color: #009687;
         color: #fff;
     }
     #pic-document-list{

@@ -61,6 +61,10 @@
             margin: 0 5px;
         }
 
+        .format-choose:after {
+            border-bottom: none;
+        }
+
         .searchbar-result:after {
             border-bottom: none;
         }
@@ -233,10 +237,12 @@
                 transform: rotate(360deg);
             }
         }
-        .show_goods_list_btn:before{
+
+        .show_goods_list_btn:before {
             border-top: none;
         }
-        #subClass:after{
+
+        #subClass:after {
             content: '';
             display: block;
             clear: both;
@@ -289,7 +295,8 @@
 
                                         </ul>
                                     </div>
-                                    <div class="weui_panel show_goods_container" style="width: 100%;margin-top: 0;overflow: auto;">
+                                    <div class="weui_panel show_goods_container"
+                                         style="width: 100%;margin-top: 0;overflow: auto;">
 
 
                                         <ul id="show_goods_list" style="min-height: 400px"></ul>
@@ -299,7 +306,8 @@
                                     <script type="text/html" id="show_goods_list-tp1">
                                         {{each goodsDataList as value i}}
                                         <li style="list-style-type:none;">
-                                            <div class="weui-cell" style="border-bottom: 1px solid #ddd;padding-left: 0px;margin-left: 10px;position: relative;">
+                                            <div class="weui-cell"
+                                                 style="border-bottom: 1px solid #ddd;padding-left: 0px;margin-left: 10px;position: relative;">
                                                 <div class="weui-cell__bd">
                                                     <a class="weui-cell weui-cell_access"
                                                        href="/page/productInfo.html?id={{value.goodsId}}"
@@ -308,7 +316,7 @@
                                                             <img src="{{value.image[0]}}" alt="">
                                                         </div>
                                                         <div class="weui-cell__bd" style="">
-                                                            <p style="padding-bottom: 5px;" class="goodsname"><label>{{value.goodsName}}</label>
+                                                            <p style="margin-bottom: 10px;" class="goodsname"><label>{{value.goodsName}}</label>
                                                             </p>
                                                             <p style="font-size:14px;"><label
                                                                     style="font-size:14px;color: #FF715B;">¥</label><label
@@ -320,7 +328,8 @@
                                                     </a>
                                                 </div>
 
-                                                <div class="weui-cell show_goods_list_btn" style="text-align: right; padding-right: 0px;font-size:10px;position: absolute;right: 15px;bottom: 10px;">
+                                                <div class="weui-cell show_goods_list_btn"
+                                                     style="text-align: right; padding-right: 0px;font-size:10px;position: absolute;right: 15px;bottom: 10px;">
                                                     <a href="javascript:;"
                                                        class="weui-btn weui-btn_mini weui-btn_default;"
                                                        style="color: #fff;background: #2BC17A;border-radius: 20px;"
@@ -331,7 +340,7 @@
                                                              style="display: none;  width: 24px;  height: 24px;">
                                                     </div>
                                                     <input pattern="[0-9]*" class="weui-number-input"
-                                                           style="text-align:center;width: 30px; display: none;margin: 0 5px;"
+                                                           style="text-align:center;width: 30px; display: none;margin: 0 5px;font-size: initial;margin: 0 5px;border:1px solid #999;border-radius: 0;"
                                                            value="{{value.vo_shoppingCartNum}}"
                                                            id="one_edit_{{value.vo_priceId}}"
 
@@ -377,7 +386,7 @@
                                         <img src="/src/image/shop.png" id="shoppingCartDetail"
                                              style="width: 25px;height: 25px;margin-top: 12px;display: inline-block;"/>
                                         <span class="weui-badge"
-                                              style="position: absolute;top: 0.5em;left:26px;background: #fff;color: #FF715B;font-size: xx-small;padding: .04em .3em;"
+                                              style="position: absolute;top: 0.5em;left:26px;background: #fff;color: #FF715B;font-size: xx-small;padding: .1em .35em;"
                                               id="totalCategory">0</span>
                                     </div>
                                 </div>
@@ -400,10 +409,11 @@
 <script type="text/html" id="show_goods_price_list-tpl">
     {{each goodspriceDataList as value i}}
     <li style="margin-left: 10px;background: #F9F9F9;">
-        <div class="weui-cell" style="margin-left: 10px;padding-left: 0;border-bottom: 1px dotted #eee;padding-top: 10px;padding-bottom: 10px;">
+        <div class="weui-cell"
+             style="margin-left: 10px;padding-left: 0;border-bottom: 1px dotted #eee;padding-top: 10px;padding-bottom: 10px;">
             <div class="weui-cell__hd">
                 <p style=""><label style="color: #FF715B;">¥</label><label style="color:  #FF715B;"
-                                                                                              id="retailPrice_{{value.priceId}}">{{value.retailPrice}}</label><label>/{{value.unitName}}</label>
+                                                                           id="retailPrice_{{value.priceId}}">{{value.retailPrice}}</label><label>/{{value.unitName}}</label>
                 </p>
             </div>
             <div class="weui-cell__bd">
@@ -416,7 +426,7 @@
                              style="display: block;  width: 24px;  height: 24px;">
                     </div>
                     <input pattern="[0-9]*" class="weui-number-input"
-                           style="text-align:center;width: 30px; display: block;margin: 0 5px;"
+                           style="text-align:center;width: 30px; display: block;margin: 0 5px; font-size: initial;border:1px solid #999;border-radius: 0;"
                            value="{{value.buyPrice}}"
                            id="edit_{{value.priceId}}"
                            data-min="0"

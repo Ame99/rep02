@@ -139,13 +139,13 @@ define(['jquery', "template", "components", "bootstrap", "manageCommon"], functi
 				 for (var j = 0; j < msg.dataList.length; j++) {
                     msg.dataList[j].createTime = components.formatDate(msg.dataList[j].createTime);
                 }
-                        var html = template('child_table_tp', msg);
-						document.getElementById('child_table_'+categoryId).innerHTML = html;
-						document.getElementById('child_'+categoryId).style.display = "";
-                    } else {
-                        components.Alert("", "删除失败");
-                    }
-                });
+                var html = template('child_table_tp', msg);
+				document.getElementById('child_table_'+categoryId).innerHTML = html;
+				document.getElementById('child_'+categoryId).style.display = "";
+            } else {
+				components.Alert("", "该分类没有相应的二级分类!");
+            }
+            });
         });
     }
 });

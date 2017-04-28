@@ -1,4 +1,4 @@
-define(['jquery', "components", "common", "template", "swiper"], function(jquery, components, common, template,swiper) {
+define(['jquery', "components", "common", "template",, "swiper"], function(jquery, components, common, template,swiper) {
 	var addordeleteLock=false;//同一规格加减改操作锁，true表示锁住了 
 	  //获取商品列表，并展示
 	 function getPageFrontByGoodsId(goodsId){		

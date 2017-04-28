@@ -184,7 +184,7 @@ define(['jquery', "template", "components", "ZeroClipboard", "jqueryValidate", "
                     }
                     for(var i=0; i<arr.length; i++){
                         var imgUrl = apiUrlPic+arr[i];
-                       $('#pic-document-list').append($('<li picUrl="' + arr[i] + '"class="apply-book"> <img  src=" ' + imgUrl + '"> <a docUrl="' + arr[i] + '" href="javascript:void(0)" class="text-basic del-doc iconfont icon-close"></a></li>'));
+                       $('#pic-document-list').append($('<li picUrl="' + arr[i] + '"class="apply-book"> <img  src=" ' + imgUrl + '"> <a docUrl="' + arr[i] + '" href="javascript:void(0)" class="text-basic del-doc"><i class="iconfont icon-delete"></i></a></li>'));
                     }										
                 }
 				goodscategory=$("#categoryId").val(); 

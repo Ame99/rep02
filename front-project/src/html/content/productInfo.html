@@ -85,7 +85,7 @@
                                     <div class="weui-cell__bd">
                                         <a class="weui-cell weui-cell_access" style="padding-left: 0;">
                                             <div class="weui-cell__bd">
-                                                <p style="margin-top: -10px;"><label style="font-size: 18px;">{{value.goodsName}}</label>
+                                                <p style="margin-top: -10px;padding-bottom: 15px;"><label style="font-size: 18px;">{{value.goodsName}}</label>
                                                 </p>
                                                 <p><label style="color: #FF7159;">¥</label><label
                                                         style="color: #FF7159;"
@@ -95,7 +95,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="weui-cell__ft">
+                                    <div class="weui-cell__ft" style="position: absolute;right: 15px;bottom: 10px;">
                                         <div class="weui-cell" style="text-align: right; padding-right: 0px;">
                                             <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default;"
                                                style="color: #fff;background: #2BC17A;border-radius: 20px;"
@@ -106,7 +106,7 @@
                                                      style="display: none;  width: 24px;  height: 24px;">
                                             </div>
                                             <input pattern="[0-9]*" class="weui-number-input"
-                                                   style="text-align:center;width: 30px; display: none;"
+                                                   style="text-align:center;width: 30px; display: none;margin: 0 5px; font-size: initial;border:1px solid #999;border-radius: 0;"
                                                    value="{{value.vo_shoppingCartNum}}"
                                                    id="one_edit_{{value.vo_priceId}}"
 
@@ -175,10 +175,10 @@
 </div>
 <script type="text/html" id="show_goods_price_list-tpl">
     {{each goodspriceDataList as value i}}
-    <li style="list-style-type:none">
-        <div class="weui-cell">
+    <li style="list-style-type:none;background: #F9F9F9;border-bottom: 1px dotted #d9d9d9;">
+        <div class="weui-cell" style="padding-right: 0;">
             <div class="weui-cell__hd">
-                <p><label style="color: #FF7159;">&nbsp;￥</label><label style="color: #FF7159;"
+                <p><label style="color: #FF7159;">¥</label><label style="color: #FF7159;"
                                                                         id="retailPrice_{{value.priceId}}">{{value.retailPrice}}</label><label>/{{value.unitName}}</label>
                 </p>
             </div>
@@ -192,7 +192,7 @@
                              style="display: block;  width: 24px;  height: 24px;">
                     </div>
                     <input pattern="[0-9]*" class="weui-number-input"
-                           style="text-align:center;width: 30px; display: block;margin: 0 5px;"
+                           style="text-align:center;width: 30px; display: block;margin: 0 5px;font-size: initial;border:1px solid #999;border-radius: 0;"
                            value="{{value.buyPrice}}"
                            id="edit_{{value.priceId}}"
 

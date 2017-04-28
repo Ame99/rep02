@@ -11,19 +11,17 @@
     <link rel="stylesheet" href="/src/libs/bootstrap-3.3.5-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/src/libs/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="/css/manage.css">
-	<script type="text/javascript" src="/src/js/goodsprice_table.js">
-	</script>
+	<script type="text/javascript" src="/src/js/goodsprice_table.js"></script>
     <script id="script" src="/src/libs/require.min.js" defer async="true" require-module="./manage_goods_add" data-main="/src/js/config.js"></script>
     <!--[if lt IE 9]>
-        <script src="/src/libs/html5shiv.min.js"></script>
-        <script src="/src/libs/respond.min.js"></script>
+    <script src="/src/libs/html5shiv.min.js"></script>
+    <script src="/src/libs/respond.min.js"></script>
     <![endif]-->
 </head>
 
 <body>
     <!--include "../public/manage_sidebar.html"-->
     <!--include "../public/manage_header.html"-->
-	
     <div class="container-wrap" >
         <div class="bread-nav clearfix p-l-lg">
             <ol>
@@ -31,7 +29,6 @@
                 <li class="fl active text-333 text-basic"><a href="javascript:void(0);" id="addState">添加商品</a></li>
             </ol>
         </div>
-		
 		<div class="modal fade" id="del-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" id="addinfo">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -114,13 +111,13 @@
                     </div>
                     <div class="col-lg-5">
 						<div class="col-lg-5">
-							<select  id="firstLevelList" >
-							<option  value="0">一级分类</option>
+							<select id="firstLevelList">
+							<option value="0">一级分类</option>
 							</select>
 						</div>
 						<div class="col-lg-5">					
-							<select  id="secondLevelList" >
-							<option  value="0">二级分类</option>
+							<select id="secondLevelList">
+							<option value="0">二级分类</option>
 							</select>
 						</div>
                         <input type="text" id="categoryId" name="categoryId" class="form-control" value="0" placeholder="输入商品分类" onkeyup="this.value=this.value.replace(/\D/g,'')" style="display:none">						
@@ -281,19 +278,6 @@
                             </a>
                         </div>
                     </div>
-                   <!--  <div class="form-group text-basic">
-                        <div class="col-lg-2 text-right p-t-sm">
-                            <span>状态<i class="red p-r-sm">*</i></span>
-                        </div>
-                        <div class="col-lg-5">
-                            <label class="radio-inline m-r-lg">
-                                <input type="radio" name="delState" value="1" {{if obj.delState==1}} checked {{/if}} >开启
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="delState" value="2" {{if obj.delState==2}} checked {{/if}}>关闭
-                            </label>
-                        </div>
-                    </div> -->
 					<div class="form-group text-basic">
 						<div class="col-lg-2 text-right">
 							<span>是否上架<i class="red p-r-sm">*</i></span>

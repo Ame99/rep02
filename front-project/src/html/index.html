@@ -22,12 +22,8 @@
             font-size: 15px;
         }
 
-        .icon {
-            width: 1em;
-            height: 1em;
-            vertical-align: -0.15em;
-            fill: currentColor;
-            overflow: hidden;
+        .weui-btn:after {
+            border: none;
         }
 
         body {
@@ -85,6 +81,10 @@
         }
 
         .index-scroll-info:before {
+            border-top: none;
+        }
+
+        .show_goods_price_list_cell:before {
             border-top: none;
         }
 
@@ -305,28 +305,6 @@
         <div class="weui-flex__item" data-type="6"><img src="/src/image/08meat.jpg"></div>
         <div class="weui-flex__item" data-type="11" style="border-right:none"><img src="/src/image/09water.jpg"></div>
     </div>
-    <!--  <div class="weui-flex">
-          <div class="weui-flex__item" data-type="">
-
-          </div>
-          <div class="weui-flex__item" style="border-right:none">
-              <div class="weui-flex__item" style="border-right:none" data-type=""></div>
-              <div class="weui-flex__item" data-type="" style="border: none"></div>
-
-
-          </div>
-      </div>
-      <div class="weui-flex">
-          <div class="weui-flex__item" data-type=""></div>
-          <div class="weui-flex__item" data-type=""></div>
-          <div class="weui-flex__item" data-type=""></div>
-          <div class="weui-flex__item" data-type="" style="border-right:none">
-          </div>
-      </div>
-      <div class="weui-flex">
-          <div class="weui-flex__item" data-type=""></div>
-          <div class="weui-flex__item" data-type="" style="border-right:none"></div>
-      </div>-->
 </div>
 <div class="weui-cell classify-header" style="background: #EBEAEF;padding: 14px 15px">
     <div class="weui-cell__hd" style="width:45%;">
@@ -335,7 +313,7 @@
     <div class="weui-cell__bd">
         <label class="weui-label" style="color:#41BA82;text-align: center;font-size: 13px; "> <img
                 src="/src/image/fire.png" alt=""
-                style="position: absolute;width: 15px;margin-left: -25px;">每日鲜品</label>
+                style="position: absolute;width: 15px;margin-left: -25px;">热门推荐</label>
     </div>
     <div class="weui-cell__ft" style="width:45%">
         <label class="weui-label" style="color:#41BA82;float:left;text-align: left;font-size: 10px;">——————</label>
@@ -354,37 +332,36 @@
 </div>
 <script type="text/html" id="show_goods_price_list-tpl">
     {{each goodspriceDataList as value i}}
-    <li>
-        <div class="weui-cell" style="background: #F9F9F9;margin-left: 10px;padding-left: 0;">
-            <div class="weui-cell__hd">
-                <p style="padding-left: 59px;"><label style="color: #FF715B;">¥</label><label style="color:  #FF715B;"
-                                                                                              id="retailPrice_{{value.priceId}}">{{value.retailPrice}}</label><label>/{{value.unitName}}</label>
-                </p>
-            </div>
-            <div class="weui-cell__bd">
-                <!--<p><label>&nbsp;</label></p>-->
-            </div>
-            <div class="weui-cell__ft">
-                <div class="weui-cell" style="padding-right: 0;padding-left: 0;">
-                    <div class="user-number user-number-sub">
-                        <img src="/src/image/substact.png" id="sub_{{value.priceId}}"
-                             style="display: block;  width: 24px;  height: 24px;">
-                    </div>
-                    <input pattern="[0-9]*" class="weui-number-input"
-                           style="text-align:center;width: 30px; display: block;margin: 0 5px;"
-                           value="{{value.buyPrice}}"
-                           id="edit_{{value.priceId}}"
-                           data-min="0"
-                           data-max="9999"
-                           data-step="1">
+    <div class="weui-cell show_goods_price_list_cell" style="background: #F9F9F9;border-bottom: 1px dotted #d9d9d9;">
+        <div class="weui-cell__hd">
+            <p style="padding-left: 20px;"><label style="color: #FF715B;">¥</label><label style="color:  #FF715B;"
+                                                                                          id="retailPrice_{{value.priceId}}">{{value.retailPrice}}</label><label>/{{value.unitName}}</label>
+            </p>
+        </div>
+        <div class="weui-cell__bd">
+            <!--<p><label>&nbsp;</label></p>-->
+        </div>
+        <div class="weui-cell__ft">
+            <div class="weui-cell" style="padding-right: 0;padding-left: 0;">
+                <div class="user-number user-number-sub">
+                    <img src="/src/image/substact.png" id="sub_{{value.priceId}}"
+                         style="display: block;  width: 24px;  height: 24px;">
+                </div>
+                <input pattern="[0-9]*" class="weui-number-input"
+                       style="text-align:center;width:30px;font-size: initial;display:block;margin: 0 5px;border:1px solid #999;border-radius: 0;"
+                       value="{{value.buyPrice}}"
+                       id="edit_{{value.priceId}}"
+                       data-min="0"
+                       data-max="9999"
+                       data-step="1">
 
-                    <div class="user-number user-number-plus">
-                        <img src="/src/image/add.png" id="add_{{value.priceId}}"
-                             style="display: block;  width: 24px;  height: 24px;">
-                    </div>
+                <div class="user-number user-number-plus">
+                    <img src="/src/image/add.png" id="add_{{value.priceId}}"
+                         style="display: block; width: 24px; height: 24px;">
                 </div>
             </div>
         </div>
+    </div>
     </li>
     {{/each}}
 </script>
@@ -418,7 +395,7 @@
                              style="display: none;  width: 24px;  height: 24px;">
                     </div>
                     <input pattern="[0-9]*" class="weui-number-input"
-                           style="text-align:center;width: 30px; display: none;margin: 0 5px;"
+                           style="text-align:center;font-size: initial;width: 30px; display: none;margin: 0 5px;border: 1px solid #999;border-radius: 0;"
                            value="{{value.vo_shoppingCartNum}}"
                            id="one_edit_{{value.vo_priceId}}"
                            data-min="0"
@@ -433,9 +410,9 @@
             </div>
         </div>
     </li>
-    <li style="list-style-type:none">
+    <li style="list-style-type:none;">
         <div id="show_goods_price_list_{{value.goodsId}}" class="weui-cells format-choose"
-             style="width: 100%;display:none;margin-top: 0;font-size: 14px;">
+             style="width: 100%;display:none;margin-top:-10px;margin-bottom:10px;font-size: 14px;">
             <!--  展示规格 -->
         </div>
     </li>
