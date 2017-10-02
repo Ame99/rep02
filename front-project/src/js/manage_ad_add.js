@@ -178,6 +178,9 @@ define(['jquery', "template", "components", "ZeroClipboard", "jqueryValidate", "
                 },
                 description: {
                     required: true
+                },
+                url:{
+                    required: true
                 }
             },
             messages: {
@@ -186,6 +189,9 @@ define(['jquery', "template", "components", "ZeroClipboard", "jqueryValidate", "
                 },
                 description: {
                     required: "简要描述请填写"
+                },
+                url:{
+                    required: "广告链接填写"
                 }
             },
             submitHandler: function (form) {

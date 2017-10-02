@@ -1,17 +1,20 @@
 package util;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
 import java.io.Serializable;
 import java.util.List;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 
 /**
  * 处理结果Vo
+ * 
  *
+ *
+ *
+ * @param <T>
  */
-@JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
+@JsonSerialize(include=JsonSerialize.Inclusion.NON_EMPTY)
 public class JsonResponse<T> implements Serializable {
 
     private static final long serialVersionUID = 2273610255200563857L;
@@ -20,7 +23,7 @@ public class JsonResponse<T> implements Serializable {
      * 结果
      */
     private int res;
-
+    
     /**
      * 结果
      */
@@ -51,19 +54,16 @@ public class JsonResponse<T> implements Serializable {
      */
     private List<T> list;
 
-    public JsonResponse() {
-
+    public JsonResponse(){
+    	
+    } 
+    public JsonResponse(int res){
+    	this.res=res;
     }
-
-    public JsonResponse(int res) {
-        this.res = res;
+    public JsonResponse(int res,String result){
+    	this.res=res;
+    	this.result=result;
     }
-
-    public JsonResponse(int res, String result) {
-        this.res = res;
-        this.result = result;
-    }
-
     public int getRes() {
         return res;
     }

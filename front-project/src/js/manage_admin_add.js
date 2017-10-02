@@ -141,12 +141,12 @@ define(['jquery', "template", "components",  "jqueryValidate","cityPicker","city
                     var res = msg.res;
                     if (res == 1) {
                         var msg=msg.obj;
-                        var option;
+                        var option = "";
                         for (var i = 0; i < msg.dataList.length; i++) {
                             if(msg.dataList[i].roleId == adminInfo.role.roleId){
-                                option +="<option value='"+msg.dataList[i].roleTypeId+"'  selected >"+msg.dataList[i].name+"</option>";
+                                option +="<option value='"+msg.dataList[i].roleId+"'  selected >"+msg.dataList[i].name+"</option>";
                             }else{
-                                option +="<option value='"+msg.dataList[i].roleTypeId+"'>"+msg.dataList[i].name+"</option>";
+                                option +="<option value='"+msg.dataList[i].roleId+"'>"+msg.dataList[i].name+"</option>";
                             }
                         }
                         $("#roleList").append(option);
@@ -221,7 +221,7 @@ define(['jquery', "template", "components",  "jqueryValidate","cityPicker","city
              
             components.getMsg(submitUrl, data, "post").done(function(msg){
                 if (msg.res == 1) {
-                    components.Alert("success", "添加成功");
+                    components.Alert("success", "成功");
                     setTimeout(function() {
                         window.history.go(-1);
                     }, 2000);

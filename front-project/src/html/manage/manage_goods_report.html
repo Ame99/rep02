@@ -23,6 +23,9 @@
 	.table{border:solid #add9c0; border-width:1px 0px 0px 1px;}
 	.datainp{ width:80px; height:30px; border:1px #ccc solid;}
 	.datep{ margin-bottom:1px;}
+    body{
+        line-height: 25px;
+    }
 	</style> 
 </head>
 
@@ -38,16 +41,16 @@
         <div class="row">
             <div class="m-r-lg m-l-lg">
                 <div class="table-responsive">
-					<div style="background-color:#299FA3;height:40px">
-						<div style="float:left;width:50%;height:100%;background-color:#299FA3;text-align:center" >
-							<label style="font-size:16px;">商品销售总额&nbsp;</label><label style="font-size:18px;">￥</label><label id="totalDetailsAmount" style="font-size:18px;">1234.00 </label>
+					<div style="background-color:#299FA3;width: 100%;position: relative;margin-top: 20px;" class="clearfix">
+						<div style="float:left;width:50%;background-color:#299FA3;text-align:center;color: #fff;padding: 30px 0;" >
+							<label style="font-size:16px;font-weight: normal;">商品销售总额&nbsp;</label><label style="font-size:18px;">￥</label><label id="totalDetailsAmount" style="font-size:26px;">1234.00 </label>
 						</div>
-						<div style="float:left;width:50%">
-							<label style="font-size:16px;">已销商品数&nbsp;</label><label id="totalNumAmount" style="font-size:18px;">1234.00 </label>
-							<!-- <input type="button" id="totalNumAmount" value="已销商品数" class="btn btn-primary"  style="width:100%"> -->
+						<div style="float:left;width:50%;color: #fff;background-color:#299FA3;text-align:center;color: #fff;padding: 30px 0;">
+							<label style="font-size:16px;font-weight: normal;">已销商品数&nbsp;</label><label id="totalNumAmount" style="font-size:26px;">1234.00 </label>
 						</div>
+                        <div style="position: absolute;left: 50%;top: 15px;width: 1px ;height: 60px;background: #fff;"></div>
 					</div>
-                    <table class="table table-hover m-t " width="100%" style="min-width:100%;">
+                    <table class="table table-hover p-t-lg" width="100%" style="min-width:100%;margin-top: 20px;">
                         <thead style="background-color:#F2F2F2">
                             <tr>
                                 <th class="font-normal text-basic td" width="5%">编号</th>

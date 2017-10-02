@@ -109,8 +109,16 @@ define(["jquery", "components", "template", "manageCommon", "bootstrap", "jquery
                 document.querySelector("#payInfo").innerHTML = html;
                 html = template("logisticsInfo-tpl", msg);
                 document.querySelector("#logisticsInfo").innerHTML = html;
-                var div = template("payCertify-tpl", msg);
-                document.querySelector("#payCertify").innerHTML = div;
+
+                var imageUrl = msg.obj.orderCertify.imageUrl;
+                if(imageUrl.length > 0){
+                    msg.obj.orderCertify.imageUrl = apiUrlPic + imageUrl;
+                    var div = template("payCertify-tpl", msg);
+                    document.querySelector("#payCertify").innerHTML = div;
+                } else {
+                    $("#payCertify").css("display", "none");
+                }
+                
                 div = template("table-list-tpl", msg);
                 document.querySelector("#table-list-content").innerHTML = div;
                /* var box = template("userinfo-tpl", msg);

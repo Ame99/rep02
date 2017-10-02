@@ -59,9 +59,13 @@
                             <td>
                                 <a href="/page/manage_role_add.html?id={{value.roleId}}&lid=10">编辑</a>
                                 <a href="/page/manage_role_grant.html?id={{value.roleId}}&lid=10">授权</a>
-                                <a href="javascript:void(0)" aod="{{value.adminId}}" anm="{{value.adminName}}"
-                                   class="del-btn modify-pwd">删除</a>
+                                <a href="javascript:void(0)" aod="{{value.roleId}}" anm="{{value.name}}" class="del-btn">删除</a>
                             </td>
+                            <!--<td>-->
+                                <!--<a href="/page/manage_role_add.html?id={{value.roleId}}&lid=10">编辑</a>-->
+                                <!--<a href="/page/manage_role_grant.html?id={{value.roleId}}&lid=10">授权</a>-->
+                                <!--<a href="javascript:void(0)" aod="{{value.adminId}}" anm="{{value.adminName}}" class="del-btn">删除</a>-->
+                            <!--</td>-->
                         </tr>
                         {{/each}}
                     </script>
@@ -77,43 +81,7 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="modify-pwd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span
-                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title " id="myModalLabel">修改密码</h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal" id="rePw" role="form">
-                        <div class="form-group">
-                            <label class="col-lg-2 control-label confirmPw">新密码</label>
-
-                            <div class="col-lg-10">
-                                <input type="password" id="password" name="newPassword" class="form-control"
-                                       placeholder="新密码">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-2 control-label confirmPw">再次输入</label>
-
-                            <div class="col-lg-10">
-                                <input type="password" name="lastpass" class="form-control" placeholder="再次输入">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default m-r-lg" data-dismiss="modal">
-                                关闭
-                            </button>
-                            <input type="submit" value="保存" class="btn btn-primary m-l-lg" id="sub">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
+<!--include "../public/del_modal.html"-->
 </body>
 </html>

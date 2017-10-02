@@ -1,157 +1,137 @@
-define(['jquery', "components", "common", "template", "weui"], function (jquery, components, common, template, weui) {
-    //getUserInfo();
-    // getOrderList();
-    //$("#index-menu li").eq(2).addClass("active");
+define(['jquery', "components", "common", "template", "weui", "updown"], function (jquery, components, common, template, weui, updown) {
     var $orderList = $("#order-box");
-
-    var $loadmore = $("#weui-loadmore"),
-        $weuiNone = $("#weui-none");
-
     var _payState = '';
-    var _paymentId = null;
-    var _logisticsState = null;
-    // $("#all").bind("click", function () {
-    //     $(".weui-navbar a").siblings('.weui-tab__bd-item--active').removeClass('weui-tab__bd-item--active');
-    //     $(this).addClass('weui-tab__bd-item--active');
-    //     setTimeout(orderList.d(orderList.page, orderList.size), 2000); //模拟延迟取数据
-    // });
-    // $("#noPay").bind("click", function () {
-    //     $(".weui-navbar a").siblings('.weui-tab__bd-item--active').removeClass('weui-tab__bd-item--active');
-    //     $(this).addClass('weui-tab__bd-item--active');;
-    //     _payState = 1;
-    //     setTimeout(orderList.d(orderList.page, orderList.size), 2000); //模拟延迟取数据
-    // });
-    // $("#pay").bind("click", function () {
-    //     $(".weui-navbar a").siblings('.weui-tab__bd-item--active').removeClass('weui-tab__bd-item--active');
-    //     $(this).addClass('weui-tab__bd-item--active');
-    //     _payState = 2;
-    //     setTimeout(orderList.d(orderList.page, orderList.size), 2000); //模拟延迟取数据
-    // });
-
-    $('#order-list').on('click','a',function(){
-        _payState = $(this).attr('state');
-        orderList.page=1;
-        $(this).find('div').addClass('active_div').parent().siblings().find('div').removeClass('active_div');
-        setTimeout(orderList.d(orderList.page, orderList.size), 2000);
-    })
-
-    $("#logisticsState").change(function(){
-        _logisticsState = $("#logisticsState").val();
-        orderList.page=1;
-        setTimeout(orderList.d(orderList.page, orderList.size), 2000); //模拟延迟取数据
-    });
-
-    $("#paymentId").change(function(){
-        _paymentId = $("#paymentId").val();
-        orderList.page=1;
-        setTimeout(orderList.d(orderList.page, orderList.size), 2000); //模拟延迟取数据
-    });
-    var orderList = {
-        page: 0, //触发获取数据的数次(+1等于页码)
-        size: 10, //每次触发取的记录条数
-        cid: '', //当前选中的推销类型
-        isLoading: false, //列表是否加载中，避免重复触底加载
-        //获取数据
-        getMore: function (first) {
-            if (orderList.isLoading) //取数过程中，先停止重复取数
-                return;
-
-            if (first) {
-                orderList.page = 1;
-                $weuiNone.hide();
-                $("#newListBox").html('');
-            } else {
-                orderList.page += 1;
-            }
-            $loadmore.show(); //显示加载框
-            orderList.isLoading = true;
-            setTimeout(orderList.d(orderList.page, orderList.size), 2000); //模拟延迟取数据
+    var _paymentId = '2';
+    var _logisticsState = '1';
+    var page = 0;
+    var size = 5;
+    $('#order-box').css('height', document.documentElement.clientHeight - 103);
+    $(".cover-floor").height(document.documentElement.clientHeight - 108);
+    var searchPro = $('#order-box').dropload({
+        autoLoad: false,//自动加载
+        domDown: {
+            domNoData: '<div class="dropload-noData">没有了~</div>'
         },
-
-        //异步获取商品列表
-        d: function (page, size) {
-            var dataJson = {
-                "payState":_payState,
-                "paymentId":_paymentId,
-                "logisticsState":_logisticsState,
-                "pageNo": page,
-                "pageSize": size
-            };
-            components.getMsg(apiUrl + "/front/order/order/getOrderByPage?pageSize=4", dataJson).done(function (msg) {
-                var res = msg.res;
-                if (res !== 0) {
-                    msg = msg.obj;
-                    for (var i = 0; i < msg.dataList.length; i++) {
-                        msg.dataList[i].goodsName = msg.dataList[i].orderDetailsList[0].goodsName;
-                        //msg.dataList[i].orderDetailsList[0].image = msg.dataList[i].orderDetailsList[0].image.split(",");
-                        //msg.dataList[i].image = apiUrlPic + msg.dataList[i].orderDetailsList[0].image[0];
-                        msg.dataList[i].totalAmount = msg.dataList[i].totalAmount / 100;
-                        for(var j=0; j<msg.dataList[i].orderDetailsList.length; j++){
-                            console.log(msg.dataList[i].orderDetailsList[j].image);
-                            var img = msg.dataList[i].orderDetailsList[j].image;
-                            var imgs;
-                            if(img.length > 0){
-                                imgs = img.split(",");
-                                if(imgs.length > 0){
-                                    msg.dataList[i].orderDetailsList[j].image = apiUrlPic + imgs[0];
+        loadDownFn: function (me) {//加载更多
+            page++;
+            var result = '';
+            $.ajax({
+                type: 'GET',
+                url: apiUrl + "/front/order/order/getOrderByPage",
+                data: "pageNo=" + page + "&pageSize=" + size + "&payState=" + _payState + "&paymentId=" + _paymentId + "&logisticsState=" + _logisticsState,
+                dataType: 'json',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function (msg) {
+                    var res = msg.res;
+                    if (res !== 0 && msg.obj && msg.obj.dataList.length > 0) {
+                        msg = msg.obj;
+                        for (var i = 0; i < msg.dataList.length; i++) {
+                            msg.dataList[i].goodsName = msg.dataList[i].orderDetailsList[0].goodsName;
+                            msg.dataList[i].totalAmount = msg.dataList[i].totalAmount / 100;
+                            for (var j = 0; j < msg.dataList[i].orderDetailsList.length; j++) {
+                                var img = msg.dataList[i].orderDetailsList[j].image;
+                                var imgs;
+                                if (img.length > 0) {
+                                    imgs = img.split(",");
+                                    if (imgs.length > 0) {
+                                        msg.dataList[i].orderDetailsList[j].image = apiUrlPic + imgs[0];
+                                    }
                                 }
                             }
+                            result = template('order-box-tpl', msg);
                         }
+
                     }
-                    var newsJson = msg.dataList;
-                    var html = template('order-box-tpl', msg);
-                    if (newsJson && newsJson.length > 0) {
-                        orderList.isLoading = false;
-                        $weuiNone.hide();
-                    } else {
-                        orderList.isLoading = true;
-                        $weuiNone.show();
+                    else {
+                        // 锁定
+                        me.lock();
+                        //    me.noData();
+                        // 无数据
                     }
-                    if (orderList.page > 1) {
-                        $orderList.append(html);
-                    } else {
-                        $orderList.html(html);
-                    }
-                    $loadmore.hide(); //隐藏加载框
-                } else {
-                    $orderList.html('');
-                    $weuiNone.show();
-                    $loadmore.hide();
+                    $orderList.append(result);
+                    me.resetload();
+
+
+                },
+                error: function (xhr, type) {
+                    // 即使加载出错，也得重置
+                    me.resetload();
                 }
-
             });
-        }
-    };
-    $(window).scroll(function () {
-        //滚动高度 + 窗口高度 + (底部导航高度 + 版权块高度) >= 文档高度，注意：文档高度不包括fixed定位的元素（分类导航、底部导航）
-        if ($(document).scrollTop() + $(window).height() + (50 + 50) >= $(document).height()) {
-            orderList.getMore(false); //获取数据
+
+
         }
     });
-    orderList.getMore(true);
+    DataInt();
+    $('.weui-navbar__item').on('click', function () {
+        $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+        $('#order-box').empty();
+        _payState = $(this).attr('state');
+        _paymentId = $('.condition-choose li:eq(0) span').attr('data-value');
+        _logisticsState = $('.condition-choose li:eq(1) span').attr('data-value');
+        DataInt();
 
-    function getUserInfo() {
-        components.getMsg(apiUrl + "/front/user/user/getUserById").done(function (msg) {
-            var res = msg.res;
-            if (res == 1) {
-                msg = msg.obj;
-                var html = template('user-info-tpl', msg);
-                $("#user-info").html(html);
-            }
-        });
+    });
+
+
+    /*    function getUserInfo() {
+     components.getMsg(apiUrl + "/front/user/user/getUserById").done(function (msg) {
+     var res = msg.res;
+     if (res == 1) {
+     msg = msg.obj;
+     var html = template('user-info-tpl', msg);
+     $("#user-info").html(html);
+     }
+     });
+     }*/
+
+      $("#order-box").on("click", ".send-modal", function () {
+         var _orderNumber = $(this).attr("oNum");
+         url = apiUrl + "/front/order/order/buyGoodsAgain?orderNumber=" + _orderNumber;
+         components.getMsg(url).done(function (msg) {
+         var res = msg.res;
+         if (res == 1) {
+         window.location.href = '/page/order_submit.html';
+         } else {
+         $.toast("购买失败", "text");
+         }
+         });
+     });
+    var btnType = '';
+    $(".condition-choose li").click(function () {
+        if ($(this).text() !== btnType) {
+            $(".cover-floor").hide();
+        }
+        btnType = $(this).text();
+        $(this).addClass("active").siblings().removeClass("active");
+        var index = $(this).index();
+        $(".option-box").find("ul").eq(index).show().siblings().hide();
+        $(".cover-floor").toggle();
+    });
+    $(".option-box li").on("click", function () {
+        $(this).addClass("active").siblings().removeClass("active");
+        var stringValue = $(this).find("span").text();
+        var value = $(this).find("span").attr('data-value');
+        $(".condition-choose").find("li").eq($(this).parent().index()).find("span").text(stringValue).attr('data-value', value);
+
+        $('#order-box').empty();
+        _payState = $('.weui-bar__item_on').attr('state');
+        _paymentId = $('.condition-choose li:eq(0) span').attr('data-value');
+        _logisticsState = $('.condition-choose li:eq(1) span').attr('data-value');
+        DataInt();
+        $(".cover-floor").hide();
+
+    });
+
+    function DataInt() {
+        page = 0;
+        searchPro.unlock();
+        searchPro.noData(false);
+        searchPro.$domDown.html(searchPro.opts.domDown.domLoad);
+        searchPro.loading = true;
+        searchPro.opts.loadDownFn(searchPro);
     }
-
-    $("#order-box").on("click", ".send-modal", function () {
-        var _orderNumber = $(this).attr("oNum");
-        url = apiUrl + "/front/order/order/buyGoodsAgain?orderNumber=" + _orderNumber;
-        components.getMsg(url).done(function (msg) {
-            var res = msg.res;
-            if (res == 1) {
-                window.location.href = '/page/order_submit.html';
-            } else {
-                $.toast("购买失败", "text");
-            }
-        });
-    });
-
 });

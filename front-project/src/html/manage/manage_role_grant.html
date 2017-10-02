@@ -31,7 +31,7 @@
         </ol>
     </div>
     <form class="form-horizontal p-t-lg" id="form-box">
-        <div id="div-box">
+        <div id="div-box" style="padding-bottom: 40px;border-bottom: 1px solid #ddd;margin-bottom: 40px;">
          </div>
         <div class="btn-group" style="position: absolute;top:90px;right:0;">
             <input type="submit" id="submit-btn" value="保存" class="btn btn-primary m-r-lg text-basic">
@@ -63,10 +63,8 @@
         </div>
         <div class="form-group">
             <label  class="col-lg-2 control-label font-normal text-basic">简要描述<i class="red p-r-sm">*</i></label>
-
             <div class="col-lg-5">
-                <textarea class="form-control" name="description" rows="3"
-                          placeholder="输入描述信息">{{obj.description}}</textarea>
+                <textarea class="form-control" name="description" rows="3" placeholder="输入描述信息">{{obj.description}}</textarea>
             </div>
         </div>
     </script>

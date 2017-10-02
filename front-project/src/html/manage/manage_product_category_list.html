@@ -54,7 +54,6 @@
                         <tbody class="text-666" id="table-list-content">
 								<!-- 展示一级分类信息 -->
                         </tbody>
-                       
                     </table>
                     <div id="cloading" class="hide">
                         <div id="loadmore"></div>
@@ -74,8 +73,7 @@
     {{each dataList as value i}}
 		<tr>
 			<td class="td"><span>{{i+1}}</span>
-			<img src="/src/image/add.png" alt=""
-                                                     style="display: block;  width: 14px;  height: 13px;margin-right: 1px;" id="img_{{value.categoryId}}" god="{{value.categoryId}}" class="showorhidechildcategory"></td>
+			<img src="/src/image/add.png" alt="" style="display: inline-block;  width: 14px;  height: 13px;margin-right: 1px;" id="img_{{value.categoryId}}" god="{{value.categoryId}}" class="showorhidechildcategory"></td>
             <td class="td"><span class="inline-block text-ellipsis text-basic" >{{value.categoryName}}</span></td>
             <td class="td"><span class="inline-block text-ellipsis text-basic">{{value.createTime}}</span></td>
             <td class="td"><span class="inline-block text-ellipsis text-basic">{{if value.state==1}}开启{{else}}关闭{{/if}}</span></td>
@@ -84,8 +82,8 @@
 								<a href="/page/manage_product_category_add.html?id={{value.categoryId}}&parentId={{value.parentId}}&lid=2">编辑</a><a href="javascript:void(0)" god="{{value.categoryId}}" gnm="{{value.categoryName}}" class="del-btn">删除</a></td>
         </tr>
 		<tr id="child_{{value.categoryId}}" style="display:;">
-			<td colspan="6">
-				<table width="100%" class="table2"  style="min-width:100%;" id="child_table_{{value.categoryId}}">
+			<td colspan="6" style="padding: 0;border: none;">
+				<table width="100%" class="table2 table table-hover"  style="min-width:100%;margin-bottom: 0;" id="child_table_{{value.categoryId}}">
 					<!-- 展示二级分类信息 -->
 				</table>
 			</td>
@@ -97,12 +95,12 @@
  <script id="child_table_tp" type="text/html">
     {{each dataList as value i}}
 		<tr>
-			<td class="td"><span>{{i+1}}</span></td>
-			<td class="td"><span class="inline-block text-ellipsis text-basic" >{{value.categoryName}}</span></td>
-            <td class="td"><span class="inline-block text-ellipsis text-basic">{{value.createTime}}</span></td>
-            <td class="td"><span class="inline-block text-ellipsis text-basic">{{if value.state==1}}开启{{else}}关闭{{/if}}</span></td>
-            <td class="td"><span class="inline-block text-ellipsis text-basic">{{if value.recommend==1}}是{{else}}否{{/if}}</span></td>
-            <td class="td">	<a href="/page/manage_product_category_add.html?id={{value.categoryId}}&parentId={{value.parentId}}&lid=2">编辑</a><a href="javascript:void(0)" god="{{value.categoryId}}" gnm="{{value.categoryName}}" class="del-btn">删除</a></td>
+			<td class="td" width="5%"><span>{{i+1}}</span></td>
+			<td class="td" width="10%"><span class="inline-block text-ellipsis text-basic" >{{value.categoryName}}</span></td>
+            <td class="td" width="10%"><span class="inline-block text-ellipsis text-basic">{{value.createTime}}</span></td>
+            <td class="td" width="10%"><span class="inline-block text-ellipsis text-basic">{{if value.state==1}}开启{{else}}关闭{{/if}}</span></td>
+            <td class="td" width="10%"><span class="inline-block text-ellipsis text-basic">{{if value.recommend==1}}是{{else}}否{{/if}}</span></td>
+            <td class="td" width="20%">	<a href="/page/manage_product_category_add.html?id={{value.categoryId}}&parentId={{value.parentId}}&lid=2">编辑</a><a href="javascript:void(0)" god="{{value.categoryId}}" gnm="{{value.categoryName}}" class="del-btn">删除</a></td>
 		</tr>
 	{{/each}}
 </script>

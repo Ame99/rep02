@@ -96,7 +96,25 @@ define(['jquery', "components", "bootstrap", "manageCommon","jqueryValidate"], f
 	listUrl = apiUrl + "/admin/role/role/queryRoleByPage";
     require(['./table']);
     var  _adminId;
-    
+    delMessage();
+
+    function delMessage() {
+        $("#table-list-content").on("click", ".del-btn", function() {
+            var url = apiUrl + "/admin/role/role/delRoleById?roleId=" + $(this).attr("aod");
+            $("#del-modal").modal('show');
+            $("#submit-btn").click(function() {
+                components.getMsg(url).done(function(msg) {
+                    if (msg.res == 1) {
+                        components.Alert("success", "删除成功");
+                        location.reload();
+                        $("#del-modal").modal('hide');
+                    } else {
+                        components.Alert("", "删除失败");
+                    }
+                });
+            });
+        });
+    }
     $("#table-list-content").on("click",".modify-pwd",function() {
 		_adminId =$(this).attr("aod");
 		$('#modify-pwd').modal({

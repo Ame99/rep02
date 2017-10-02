@@ -115,11 +115,11 @@ define(['jquery', "template", "components",  "jqueryValidate", "manageCommon"], 
                     var module=obj[i];
                     if(module.parentId==0) {
                     var  option='<div style="width: 13%; float: left;  margin: 0 0 0 3%;" id="module_'+module.moduleId+'">' +
-                        '<h4 style="background: grey;text-align:center;color: white;height: 40px;">' +module.name
+                        '<h4 style="background: #E5E5E5;text-align:center;color: #333;font-size:16px;height: 35px;line-height: 35px;">' +module.name
                         '</h4></div>';
                         $("#div-module").append(option);
                     }else {
-                        var option='<ul><li><input  style="float:left;margin:5% 10% 0 0 ;heith" value="'+module.moduleId+'" name="moduleGroups" type="checkbox" ';
+                        var option='<ul><li style="padding: 1rem 0;padding-left: 25px;"><input style="float:left;margin-right: 15px;margin-top: 8px;" value="'+module.moduleId+'" name="moduleGroups" type="checkbox" ';
                         if(module.isOwnered==1){
                             option +='checked';
                         }
@@ -127,10 +127,7 @@ define(['jquery', "template", "components",  "jqueryValidate", "manageCommon"], 
 
                         $("#module_"+module.parentId).append(option);
                     }
-
-
                 }
-
             }
         });
     }
@@ -163,9 +160,7 @@ define(['jquery', "template", "components",  "jqueryValidate", "manageCommon"], 
                        components.Alert("success", "失败");
                  }
                  });
-
             }
         });
     }
-
 });

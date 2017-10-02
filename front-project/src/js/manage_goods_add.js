@@ -343,6 +343,7 @@ define(['jquery', "template", "components", "ZeroClipboard", "jqueryValidate", "
 					if(productCategory.parentId==0){
 						//是一级分类
 						initLevelCategoryDataList("firstLevelList",0,productCategory.categoryId);//初始化一级分类
+						initLevelCategoryDataList("secondLevelList",productCategory.categoryId,0); 
 					}else{
 						//是二级分类
 						initLevelCategoryDataList("firstLevelList",0,productCategory.parentId);//初始化一级分类

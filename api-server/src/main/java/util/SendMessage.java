@@ -1,20 +1,23 @@
 package util;
+import java.util.Random;
 
 import org.apache.log4j.Logger;
 
-import java.util.Random;
+
 
 /**
- *  阿里云短信服务
+ *
+ *
+  阿里云短信服务
  */
-public class SendMessage {
-    private static Logger log = Logger.getLogger(SendMessage.class);
+public class SendMessage{
+	private static Logger log=Logger.getLogger(SendMessage.class);
+//	public static void main(String[] args) {
+//		System.out.println(regist("13988887777",new Random().nextInt(999999)+111111));
+//	}
+	public static String regist(String phone,int randCode){
 
-
-
-    public static String regist(String phone, int randCode) {
-        //TODO
-        String requestId = "OK";
+        String requestId="";
         return requestId;
-    }
+	}
 }

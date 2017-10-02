@@ -17,6 +17,12 @@
     <script src="/src/libs/html5shiv.min.js"></script>
     <script src="/src/libs/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .form-horizontal .form-group{
+            margin-left: 0;
+            margin-right: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -32,22 +38,48 @@
 		<div class="modal fade" id="del-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" id="addinfo">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<div>
-					<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请添加规格</h2>
-						<br>规格/单位 <input class="form-control" type="text"
-							id="id_unitName" /> <br>采购价(保留两位小数点) <input
-							class="form-control" type="text" id="id_buyPrice" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')"  /> <br>零售价(保留两位小数点)
-						<input class="form-control" type="text" id="id_retailPrice" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')"/> <br>批发价(保留两位小数点)
-						<input class="form-control" type="text" id="id_wholesalePrice" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')"/>						
+					<div class="form-horizontal">
+					<h2 style="text-align: center;font-size: 18px;padding-top: 3rem;padding-bottom: 3rem;">请添加规格</h2>
+                        <div class="form-group" style="margin-left: 0;margin-right: 0;">
+                            <div class="col-lg-6" style="text-align: right">
+                                规格/单位
+                            </div>
+                            <div col-lg-5>
+                                <input class="form-control" type="text" id="id_unitName" style="width:100px;"/>
+                            </div>
+
+                        </div>
+                        <div class="form-group" style="margin-left: 0;margin-right: 0;">
+                            <div class="col-lg-6" style="text-align: right">
+                                采购价(保留两位小数点)
+                            </div>
+                            <div class="col-lg-6">
+                                <input class="form-control" style="width:100px;margin-left: -15px;" type="text" id="id_buyPrice" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')"  />
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-left: 0;margin-right: 0;">
+                            <div class="col-lg-6" style="text-align: right">
+                                零售价(保留两位小数点)
+                            </div>
+                            <div class="col-lg-6">
+                                <input class="form-control" style="width:100px;margin-left: -15px;" type="text" id="id_retailPrice" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')"/>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-left: 0;margin-right: 0;">
+                            <div class="col-lg-6" style="text-align: right">
+                                批发价(保留两位小数点)
+                            </div>
+                            <div class="col-lg-6">
+                                <input class="form-control"  style="width:100px;margin-left: -15px;" type="text" id="id_wholesalePrice" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')"/>
+                            </div>
+                        </div>
 					</div>
 					<div class="modal-body">
-						<div class="m-t-xxl" style="padding-bottom:40px;">
-							<p class="text-md text-666 m-t-xxl m-b-xxl text-left" id="name" style="margin-left:20px;"></p>
-							<div class="text-right" style="margin-right:40px;">
-								<input type="button" value="提交" onclick="addInfo()"
-									id="btn_add"> 
-										<input type="button" value="取消"
-								onclick="hideAddInput()">							
+						<div class="" style="padding-bottom:40px;">
+							<p class="text-md text-666 text-left" id="name" style=""></p>
+							<div class="text-center" style="">
+								<input type="button" value="提交" onclick="addInfo()" id="btn_add" class="btn btn-primary m-r-lg">
+                                <input type="button" value="取消" onclick="hideAddInput()" class="btn btn-default">
 							</div>
 						</div>
 					</div>
@@ -110,12 +142,12 @@
                         <span>商品分类<i class="red p-r-sm">*</i></span>
                     </div>
                     <div class="col-lg-5">
-						<div class="col-lg-5">
+						<div style="float: left;margin-right: 20px;">
 							<select id="firstLevelList">
 							<option value="0">一级分类</option>
 							</select>
 						</div>
-						<div class="col-lg-5">					
+						<div style="float: left;">
 							<select id="secondLevelList">
 							<option value="0">二级分类</option>
 							</select>
@@ -143,7 +175,7 @@
 						</table>
 					</div>
 					<div>
-						<a href="javascript:showAddInput();">添加规格</a>
+						<a href="javascript:showAddInput();" class="btn btn-primary">添加规格</a>
 					</div>
 				</div> 
                 <div class="form-group text-basic">
@@ -174,32 +206,32 @@
                     </div>
                 </div> -->
 				<div class="form-group text-basic">
-						<div class="col-lg-2 text-right">
-							<span>是否上架<i class="red p-r-sm">*</i></span>
-						</div>
-						<div class="col-lg-5">
-							<label class="radio-inline m-r-lg">
-								<input type="radio" name="isMarketable" value="0" checked >未上架（默认）
-							</label>
-							<label class="radio-inline">
-								<input type="radio" name="isMarketable" value="1">上架
-							</label>
-						</div>
-					</div>
-                <div class="form-group text-basic">
-                    <div class="col-lg-2 text-right p-t-sm">
-                        <span>推荐到首页<i class="red p-r-sm">*</i></span>
+                    <div class="col-lg-2 text-right">
+                        <span>是否上架<i class="red p-r-sm">*</i></span>
                     </div>
                     <div class="col-lg-5">
                         <label class="radio-inline m-r-lg">
-                            <input type="radio" name="recommend" value="1">是
+                            <input type="radio" name="isMarketable" value="0" checked >未上架（默认）
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="recommend" value="2" checked>否（默认）
-                            <!-- </label> -->
+                            <input type="radio" name="isMarketable" value="1">上架
                         </label>
                     </div>
                 </div>
+                <!--<div class="form-group text-basic">-->
+                    <!--<div class="col-lg-2 text-right p-t-sm">-->
+                        <!--<span>推荐到首页<i class="red p-r-sm">*</i></span>-->
+                    <!--</div>-->
+                    <!--<div class="col-lg-5">-->
+                        <!--<label class="radio-inline m-r-lg">-->
+                            <!--<input type="radio" name="recommend" value="1">是-->
+                        <!--</label>-->
+                        <!--<label class="radio-inline">-->
+                            <!--<input type="radio" name="recommend" value="2" checked>否（默认）-->
+                            <!--&lt;!&ndash; </label> &ndash;&gt;-->
+                        <!--</label>-->
+                    <!--</div>-->
+                <!--</div>-->
                 <div class="form-group">
                     <label for="" class="col-lg-2 control-label font-normal text-basic">简要描述<i class="red p-r-sm">*</i></label>
                     <div class="col-lg-5">
@@ -228,12 +260,12 @@
                             <span>商品分类<i class="red p-r-sm">*</i></span>
                         </div>
                         <div class="col-lg-5">
-                            <div class="col-lg-5">
+                            <div style="float: left;margin-right: 20px;">
 							<select  id="firstLevelList" >
 							<option  value="0">一级分类</option>
 							</select>
 						</div>
-						<div class="col-lg-5">					
+						<div style="float: left;">
 							<select  id="secondLevelList" >
 							<option  value="0">二级分类</option>
 							</select>
@@ -261,7 +293,7 @@
 							</table>
 						</div>
 						<div>
-						<a href="javascript:showAddInput();">添加规格</a>
+						<a href="javascript:showAddInput();" class="btn btn-primary">添加规格</a>
 						</div>
 					</div> 
                      <div class="form-group text-basic">

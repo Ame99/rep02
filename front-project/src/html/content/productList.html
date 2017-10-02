@@ -248,6 +248,31 @@
             clear: both;
         }
 
+        .show_goods_list_btn {
+            text-align: right;
+            padding-right: 0px;
+            padding-left: 0;
+            font-size: 10px;
+            position: absolute;
+            right: 15px;
+            bottom: 10px;
+        }
+
+        @media screen and (max-width: 320px) {
+            .show_goods_list_btn {
+                left: 58px;
+                bottom: -5px;
+            }
+
+            #show_goods_list li > div.weui-cell {
+                padding-bottom: 25px;
+            }
+            .show_goods_list_btn .weui-btn_mini{
+                margin: inherit;
+            }
+        }
+
+
     </style>
 </head>
 <body ontouchstart>
@@ -329,7 +354,7 @@
                                                 </div>
 
                                                 <div class="weui-cell show_goods_list_btn"
-                                                     style="text-align: right; padding-right: 0px;font-size:10px;position: absolute;right: 15px;bottom: 10px;">
+                                                     style="">
                                                     <a href="javascript:;"
                                                        class="weui-btn weui-btn_mini weui-btn_default;"
                                                        style="color: #fff;background: #2BC17A;border-radius: 20px;"
@@ -374,7 +399,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="weui-tabbar" style=" height:50px;position: relative;">
+                        <div class="weui-tabbar" style=" height:50px;position: relative;bottom: -1px;">
                             <a href="javascript:void(0);" class="weui-tabbar__item weui-bar__item_on"
                                style="background: #fff;position: relative;text-align: left;border-top: 1px solid #ddd;">
                                 <p style="position: absolute;left: 80px;top: 16px;font-size:18px;color:#2CC27B;">¥
@@ -448,7 +473,6 @@
     {{each secondCategoryDataList as value i}}
     <li data-type="{{value.categoryId}}"><a href="javascript:void (0);">{{value.categoryName}}</a>
     </li>
-
     {{/each}}
 </script>
 </body>

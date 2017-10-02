@@ -109,6 +109,9 @@ define(["jquery", "components", "bootstrap", "manageCommon", "jqueryValidate","h
         });
         getsur(str);
     });
+    $('#submit-btn-query').on('click', function(){
+
+    });
     function getsur(str) {
         var url = apiUrl + "/admin/order/orderAdmin/getUnpaidMoney?orderId=" + str;
         components.getMsg(url).done(function (msg) {
@@ -157,12 +160,24 @@ define(["jquery", "components", "bootstrap", "manageCommon", "jqueryValidate","h
         });
     }
     getOrder();
-    function  getOrder(){
+    function getOrder(){
         var url = apiUrl + "/admin/order/orderAdmin/getOrderByPaystate";
         components.getMsg(url).done(function (msg) {
             if (msg.res == 1) {
                 var dataList = msg.obj;
-                var title="订单金额比例（元）"
+                var totalAmount = 0;
+                for(var i=0; i<dataList.length; i++){
+                    var obj = dataList[i];
+                    // alert(obj.name.indexOf("未支付订单"));
+                    if(obj.name.indexOf("未支付订单") > -1){
+                        $("#noPaidOrderAmount").html(obj.y/100);
+                    } else if(obj.name.indexOf("已支付订单") > -1){
+                        $("#paidOrderAmount").html(obj.y/100);
+                    } 
+                    totalAmount += obj.y;
+                }
+                 $("#totalAmount").html(totalAmount/100);
+                var title="订单金额比例（元）";
                 chart(dataList,title);
             }
         });
@@ -182,11 +197,11 @@ define(["jquery", "components", "bootstrap", "manageCommon", "jqueryValidate","h
             },
             title: {
                 text: title,
-                align: 'left',
+                align: 'center',
                 floating: 'true',
                 verticalAlign: 'top',
                 x:0,
-                y:100
+                y:188
             },
             tooltip: {
                 //鼠标停留区域特殊显示效果
@@ -236,6 +251,18 @@ define(["jquery", "components", "bootstrap", "manageCommon", "jqueryValidate","h
         components.getMsg(url).done(function (msg) {
             if (msg.res == 1) {
                 var dataList = msg.obj;
+                 var totalCount = 0;
+                for(var i=0; i<dataList.length; i++){
+                    var obj = dataList[i];
+                    // alert(obj.name.indexOf("未支付订单"));
+                    if(obj.name.indexOf("未支付订单") > -1){
+                        $("#noPaidOrderCount").html("(" + obj.y + "个)");
+                    } else if(obj.name.indexOf("已支付订单") > -1){
+                        $("#paidOrderCount").html("(" + obj.y + "个)");
+                    } 
+                    totalCount += obj.y;
+                }
+                 $("#totalCount").html("(" + totalCount + "个)");
                 var title="订单数量比例（个）";
                 chart2(dataList,title);
             }
@@ -256,11 +283,11 @@ define(["jquery", "components", "bootstrap", "manageCommon", "jqueryValidate","h
             },
             title: {
                 text: title,
-                align: 'left',
+                align: 'center',
                 floating: 'true',
                 verticalAlign: 'top',
                 x:0,
-                y:100
+                y:188
             },
             tooltip: {
                 //鼠标停留区域特殊显示效果

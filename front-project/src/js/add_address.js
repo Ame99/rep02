@@ -1,5 +1,6 @@
-define(['jquery', "components", "common", "weui", "cityPicker", "template"], function(jquery, components, common, weui, cityPicker, template) {
+define(['jquery', "components", "common", "weui", "cityPicker", "template"], function (jquery, components, common, weui, cityPicker, template) {
     var receiveId = components.GetQueryString("id");
+    var rid = components.GetQueryString("rid");
     var text = "";
     var isphone = false,
         isuser = false,
@@ -11,23 +12,28 @@ define(['jquery', "components", "common", "weui", "cityPicker", "template"], fun
         getDate();
         text = "编辑成功";
     } else {
-        setCity("广东省 佛山市 南海区");
         initCity();
         initInfo();
         saveAddress();
         text = "添加成功";
     }
-
+    /*
+     *
+     *
+     * */
     function getDate() {
-        components.getMsg(apiUrl + "/front/receive/receive/getReceiveById?receiveId=" + receiveId).done(function(msg) {
+        components.getMsg(apiUrl + "/front/receive/receive/getReceiveById?receiveId=" + receiveId).done(function (msg) {
             var res = msg.res;
             if (res == 1) {
                 isphone = true;
                 isuser = true;
                 isaddress = true;
-                msg = msg.obj;
-                var html = template('add-address-tpl', msg);
-                document.getElementById('add-address-box').innerHTML = html;
+                var data = msg.obj;
+                for (var k in data) {
+                    $('input[name=' + k + ']').val(data[k])
+                }
+                $('#city-picker').val(data.receiveProvince + " " + data.receiveCity + " " + data.receiveCounty);
+                $('#address').val(data.receiveAddress);
                 initCity();
                 initInfo();
                 saveAddress(receiveId);
@@ -36,10 +42,10 @@ define(['jquery', "components", "common", "weui", "cityPicker", "template"], fun
     }
 
     function saveAddress(id) {
-        $("#save-btn").click(function() {
-            var address=$("#city-picker").val();
-            if(address!=null){
-                var splitAddress=address.split(" ");
+        $("#submitAddress").click(function () {
+            var address = $("#city-picker").val();
+            if (address != null) {
+                var splitAddress = address.split(" ");
                 $("#receiveProvince").val(splitAddress[0]);
                 $("#receiveCity").val(splitAddress[1]);
                 $("#receiveCounty").val(splitAddress[2]);
@@ -59,13 +65,11 @@ define(['jquery', "components", "common", "weui", "cityPicker", "template"], fun
             } else if (!isaddress) {
                 $.toast(isaddressText, "text");
             } else {
-                components.getMsg(url, data, "post").done(function(msg) {
+                components.getMsg(url, data, "post").done(function (msg) {
                     var res = msg.res;
                     if (res == 1) {
-                        $.toast(text, "text", function() {
-                            window.history.go(-1);
-                            // window.location="/page/address_list.html"
-                        });
+                        rid = msg.obj.receiveId;
+                        window.location = "/page/choice_address.html?rid="+rid;
                     }
                 });
             }
@@ -79,7 +83,7 @@ define(['jquery', "components", "common", "weui", "cityPicker", "template"], fun
             $address = $("#address");
 
         // 判断收货人
-        $userName.blur(function() {
+        $userName.blur(function () {
             var str = $(this).val();
             if (getStrLength(str) == 0) {
                 $.toast("请输入姓名", "text");
@@ -90,7 +94,7 @@ define(['jquery', "components", "common", "weui", "cityPicker", "template"], fun
             }
         });
         // 判断手机号码
-        $phone.blur(function() {
+        $phone.blur(function () {
             var str = $(this).val();
             var re = /^1([3578]\d|4[57])\d{8}$/;
             if (getStrLength(str) == 0) {
@@ -107,7 +111,7 @@ define(['jquery', "components", "common", "weui", "cityPicker", "template"], fun
         });
 
         // 判断收货地址
-        $address.blur(function() {
+        $address.blur(function () {
             var str = $(this).val();
             if (getStrLength(str) == 0) {
                 $.toast("请输入详细地址", "text");
@@ -131,8 +135,4 @@ define(['jquery', "components", "common", "weui", "cityPicker", "template"], fun
         });
     }
 
-    // 根据数据设置地区
-    function setCity(str) {
-        $("#city-picker").val(str);
-    }
 });

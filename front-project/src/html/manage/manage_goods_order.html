@@ -24,6 +24,9 @@
         .table{border:solid #add9c0; border-width:1px 0px 0px 1px;}
         .datainp{ width:60px; height:30px; border:1px #ccc solid;}
         .datep{ margin-bottom:1px;}
+        body{
+            line-height: 25px;
+        }
     </style>
 </head>
 
@@ -121,7 +124,7 @@
                             <td class="td"><span class="inline-block text-ellipsis text-basic">{{value.orderNumber}}</span></td>
                             <td class="td"><span class="inline-block text-ellipsis text-basic">{{value.createTime}}</span></td>
                             <td class="td">
-                                <span class="inline-block text-ellipsis text-basic">{{value.totalAmount/100}}</span>
+                                <span class="inline-block text-ellipsis text-basic">{{value.paidAmount/100}}</span>
                             </td>
                             <td class="td"><span class="inline-block text-ellipsis text-basic">{{value.user.phone}}</span></td>
                             <td class="td">
@@ -192,16 +195,18 @@
                             <div id="info">
                                 <h2 class="b-b text-md p-b-lg p-t-lg p-l-lg" id="title_name">配送信息</h2>
 
-                                <div id="logisticsInfo" class="table-responsive">
+                                <div id="logisticsInfo" class="">
 
                                 </div>
                                 <script type="text/html" id="logisticsInfo-tpl">
-                                    <table border="1" class="table table-bordered">
+                                    <table border="1" class="table table-bordered" style="min-width: auto;">
                                         <tr>
                                             <td>
                                                 联系人姓名
                                             </td>
                                             <td>{{obj.receive.contact}}</td>
+                                        </tr>
+                                        <tr>
                                             <td>联系人电话</td>
                                             <td>{{obj.receive.tel}}</td>
                                         </tr>
@@ -210,20 +215,17 @@
                                             <td>{{obj.receive.receiveProvince }}&nbsp; {{obj.receive.receiveCity}}&nbsp;
                                                 {{obj.receive.receiveCounty}}&nbsp; {{obj.receive.receiveAddress}}
                                             </td>
-                                            <td></td>
-                                            <td></td>
+                                        </tr>
                                         </tr>
                                         <tr>
                                             <td>配送时间</td>
                                             <td>{{obj.sendTime}}</td>
-                                            <td></td>
-                                            <td></td>
                                         </tr>
                                     </table>
                                 </script>
 
-                                <div class="table-responsive row" style="margin-right: 15px;margin-left: 15px;">
-                                    <table class="table table-hover table-bordered m-t" >
+                                <div class="table-responsive" style="">
+                                    <table class="table table-hover table-bordered m-t"  style="min-width: auto;">
                                         <thead>
                                         <tr>
                                             <th class="font-normal text-basic" width="5%">序号</th>
@@ -260,11 +262,11 @@
 
                             </div>
                             <script type="text/html" id="orderinfo-tpl">
-                                <div>
-                                    ¥{{obj.totalAmount/100}}
-                                </div>
-                                <div>
+                                <div style="text-align: center;font-size: 16px;">
                                     确认已收到订单金额
+                                </div>
+                                <div style="text-align: center;font-size: 18px;color:#27A18C;">
+                                    ¥{{obj.totalAmount/100}}
                                 </div>
                                 <div class="col-lg-10">
                                     <ul id="pic-document-list">
@@ -272,15 +274,15 @@
                                     </ul>
                                     <a href="javascript:void(0);" class="a-upload">
                                         <input type="file" name="" id="pic-upload" value="上传封面图">
-                                        <span>点击上传</span>
+                                        <span>上传凭证</span>
                                     </a>
                                 </div>
                             </script>
 
                         </div>
-                        <div class="modal-footer">
-                            <input type="button" value="取消" class="btn btn-primary m-l-lg" id="btn_cancel">
-                            <input type="submit" value="马上配送" class="btn btn-primary m-l-lg" id="sub">
+                        <div class="modal-footer" style="text-align: center;">
+                            <input type="button" value="取消" class="btn btn-primary m-r-lg" id="btn_cancel" style="background:#27A18C;">
+                            <input type="submit" value="马上配送" class="btn btn-primary m-l-lg" id="sub" style="background:#27A18C;">
                         </div>
                     </form>
                 </div>

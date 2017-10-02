@@ -73,7 +73,6 @@ define(['jquery', "components", "common", "weui"], function (jquery, components,
             prepay_id = data.prepay_id.toString();
             appId = data.appid.toString();
             timeStamp = data.timeStamp.toString();
-            alert(paySign);
             if (typeof WeixinJSBridge == "undefined") {
                 if (document.addEventListener) {
                     document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
@@ -95,22 +94,6 @@ define(['jquery', "components", "common", "weui"], function (jquery, components,
                 $.toast("下单失败", "text");
                 return;
             }
-            //paySign = data.paySign.toString();
-            //nonceStr = data.nonce_str.toString();
-            //prepay_id = data.prepay_id.toString();
-            //appId = data.appid.toString();
-            //timeStamp = data.timeStamp.toString();
-            ////alert(paySign);
-            //if (typeof WeixinJSBridge == "undefined") {
-            //    if (document.addEventListener) {
-            //        document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-            //    } else if (document.attachEvent) {
-            //        document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
-            //        document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
-            //    }
-            //} else {
-            //    onBridgeReady();
-            //}
         });
     }
 

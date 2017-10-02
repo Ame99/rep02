@@ -160,22 +160,40 @@ define(['jquery', "components", "common", "weui", "hammer", "template","updown"]
 
     //增加左滑动事件
     function addEffect(item) {
-        var img, margin;
+        var img = item.children('div.touchModel'), margin;
         new Hammer(item[ 0 ], {
             domEvents: true
         } );
         item.on( "panstart", function( e ) {
-            img = item.children('div.touchModel');
+
             margin = parseInt( img.css('transform').replace(/[^0-9\-,]/g, '').split(',')[4], 10 );
         } );
         item.on( "pan", function( e ) {
+            fnTransition(img, 0);
             var delta = margin + e.originalEvent.gesture.deltaX;
             if ( delta >= -110 && delta <= 0 ) {
                 img.css ('transform', 'translateX(' + delta + 'px)')
             }
         } );
+        item.on('panend',function (e) {
+            var _absMoveY = Math.abs(parseInt( img.css('transform').replace(/[^0-9\-,]/g, '').split(',')[4], 10 ));
+            fnTransition(img, 300);
+            if(_absMoveY>55){
+                img.css ('transform', 'translateX(-110px)')
+            }
+            else{
+                img.css ('transform', 'translateX(0px)')
+            }
+        })
     }
+    // css过渡
+    function fnTransition(dom, num) {
 
+        dom.css({
+            '-webkit-transition': 'all ' + num + 'ms',
+            'transition': 'all ' + num + 'ms'
+        });
+    }
     $('.title_btn').click(function (e) {
         if(e.target.innerHTML=='编辑'){
             $('#checkAllBtn').show();
@@ -422,13 +440,25 @@ define(['jquery', "components", "common", "weui", "hammer", "template","updown"]
                     onOK: function() {
                         $("#shopping_edit_"+rid).val(0);
                         operateShoppingCartInterface(3,rid,0);
-                        document.getElementById("div_"+rid).style.display="none";
+                        $("#div_"+rid).addClass('hide');
+                        var isOK=true;
+                        $('#show_shoppingCartVO>div').each(function(){
+                            if(!$(this).hasClass('hide')){
+                                isOK=false;
+                                return false;
+                            }
+                        });
+                        if(isOK){
+                            $('.cart_body,.cart_footer').hide();
+                            $('#noshoppingCartInfo').show();
+                        }
                         $.toast("删除成功", "text");
                     }
                 });
             }
         });
     }
+
 
 
     flushCurrentUserTotalPriceAndCategory();

@@ -1,6 +1,6 @@
 define(['jquery', "components", "common", "template"], function(jquery, components, common, template) {
     $("#index-menu li").eq(1).addClass("active");
-    var apiUrl = "http://localhost:8090/hongbao";
+    var apiUrl = "http://localhost:8080/";
     var $goodsList = $("#product-list");
     var $noRec = $('#noRec');
     var $cloading = $('#cloading');

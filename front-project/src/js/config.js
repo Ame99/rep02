@@ -1,8 +1,8 @@
-//var apiUrl = "http://localhost:8080/", //配置全局api请求域名
-var apiUrl = "http://123.56.254.10:8080/", //配置全局api请求域名
+//var apiUrl = "http://127.0.0.1:8080", //配置全局api请求域名
+var apiUrl = "http://127.0.0.1:8080", //配置全局api请求域名
     listUrl = "",
-    //apiUrlPic = "http://localhost:8080/";
-    apiUrlPic = "http://123.56.254.10:8080/";
+    //apiUrlPic = "http://127.0.0.1:8080";
+    apiUrlPic = "http://127.0.0.1:8080";
 var settleAccountsPrice=500;//设置商品起送价格
 if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.split(";")[1].replace(/[ ]/g, "") == "MSIE6.0" || navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.split(";")[1].replace(/[ ]/g, "") == "MSIE7.0" || navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.split(";")[1].replace(/[ ]/g, "") == "MSIE8.0" || navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.split(";")[1].replace(/[ ]/g, "") == "MSIE9.0") {
     alert("您的浏览器版本过低，请下载IE9以上版本或使用其他浏览器");

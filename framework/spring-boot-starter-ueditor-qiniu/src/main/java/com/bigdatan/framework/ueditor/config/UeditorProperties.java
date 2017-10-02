@@ -5,7 +5,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 /**
  * 百度ueditor配置
  *
- * @date 2016年11月10日 上午10:11:58
  */
 @ConfigurationProperties(prefix = "ueditor")
 public class UeditorProperties {

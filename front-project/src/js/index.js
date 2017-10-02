@@ -1,11 +1,11 @@
 define(["components", "common", "template"], function (components, common, template) {
     components.addActiveClass(0);
-    var apiUrl = "http://123.56.254.10:8080/";
-    var apiUrlPic = "http://123.56.254.10:8080/";
+    var apiUrl = "http://127.0.0.1:8080";
+    var apiUrlPic = "http://127.0.0.1:8080";
     var $goodsList = $("#product-list");
     var $cloading = $('#cloading');
     var addordeleteLock = false;//同一规格加减改操作锁，true表示锁住了
-  //  getTest();
+    getTest();
 
     function getTest() {
         $.ajax({
@@ -18,7 +18,7 @@ define(["components", "common", "template"], function (components, common, templ
         }).done(function (msg) {
             var res = msg.res;
             if (res === 301) {
-               // window.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="
+                window.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=&redirect_uri=http%3A%2F%2F%2%2FwxAuthor%2Fuser&response_type=code&scope=snsapi_userinfo&state=aaa&connect_redirect=1#wechat_redirect"
 
             }
         });

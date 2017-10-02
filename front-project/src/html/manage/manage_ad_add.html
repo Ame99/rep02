@@ -16,6 +16,12 @@
     <script src="/src/libs/html5shiv.min.js"></script>
     <script src="/src/libs/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .form-horizontal .form-group{
+            margin-left: 0;
+            margin-right: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -52,7 +58,7 @@
                     <span>广告链接<i class="red p-r-sm">*</i></span>
                 </div>
                 <div class="col-lg-5">
-                    <input type="text" name="url" class="form-control" value="" placeholder="账户名">
+                    <input type="text" name="url" class="form-control" value="" placeholder="填写广告链接">
                 </div>
             </div>
             <div class="form-group text-basic">
@@ -60,7 +66,7 @@
                     <span>描述<i class="red p-r-sm">*</i></span>
                 </div>
                 <div class="col-lg-5">
-                    <input type="text" name="description" class="form-control" value="" placeholder="账户名">
+                    <input type="text" name="description" class="form-control" value="" placeholder="添加描述">
                 </div>
             </div>
             <div class="form-group text-basic">
@@ -104,7 +110,7 @@
             </div>
             <div class="col-lg-5">
                 <input type="text" name="url" class="form-control adName" value="{{obj.url}}"
-                       placeholder="账户名">
+                       placeholder="填写广告链接">
             </div>
         </div>
         <div class="form-group text-basic">
@@ -113,7 +119,7 @@
             </div>
             <div class="col-lg-5">
                 <input type="text" name="description" class="form-control adName" value="{{obj.description}}"
-                       placeholder="账户名">
+                       placeholder="添加描述">
             </div>
         </div>
         <div class="form-group text-basic">

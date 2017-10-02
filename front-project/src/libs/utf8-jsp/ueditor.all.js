@@ -13837,13 +13837,6 @@ UE.plugin.register('anchor', function (){
 ///commands 字数统计
 ///commandsName  WordCount,wordCount
 ///commandsTitle  字数统计
-/*
- * Created by JetBrains WebStorm.
- * User: taoqili
- * Date: 11-9-7
- * Time: 下午8:18
- * To change this template use File | Settings | File Templates.
- */
 
 UE.plugins['wordcount'] = function(){
     var me = this;
@@ -23730,8 +23723,6 @@ UE.plugin.register('music', function (){
  * @description
  * 1.拖放文件到编辑区域，自动上传并插入到选区
  * 2.插入粘贴板的图片，自动上传并插入到选区
- * @author Jinqn
- * @date 2013-10-14
  */
 UE.plugin.register('autoupload', function (){
 
@@ -24456,8 +24447,7 @@ UE.plugin.register('section', function (){
 /**
  * @description
  * 简单上传:点击按钮,直接选择文件上传
- * @author Jinqn
- * @date 2014-03-31
+
  */
 UE.plugin.register('simpleupload', function (){
     var me = this,

@@ -15,7 +15,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 //@EnableCaching
 //@EnableScheduling
 @SpringBootApplication
-@MapperScan(basePackages = "com.bigdatan.b2c.mapper")
+@MapperScan(basePackages = "com.bigdatan.b2c.dao")
 //@EnableConfigurationProperties(value = AliyunOssProperties.class)
 public class Application extends SpringBootServletInitializer {
 

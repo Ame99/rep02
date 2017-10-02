@@ -131,6 +131,13 @@ define(['jquery', "components", "common", "template"], function (jquery, compone
             var _userMsgId = $(this).attr("userMsgId");
             var _id = $(this).attr("id");
             if (_url.length > 0) {
+                components.getMsg(apiUrl + "/front/message/message/getMessageAndRead?messageId=" + _id + "&userMessageId=" + _userMsgId).done(function (msg) {
+                var res = msg.res;
+                if (res == 1) {
+                    
+                }
+               
+                });
                 url = _url;
             } else {
                 url = "/page/stationMessageInfo.html?id=" + _id + "&userMessageId=" + _userMsgId;

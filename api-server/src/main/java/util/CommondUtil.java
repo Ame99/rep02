@@ -1,16 +1,5 @@
 package util;
 
-import com.alibaba.fastjson.JSONObject;
-
-import com.bigdatan.b2c.entity.User;
-import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocketFactory;
-import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -23,9 +12,23 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocketFactory;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.alibaba.fastjson.JSONObject;
+import com.bigdatan.b2c.entity.user.User;
+
+
+
 
 public class CommondUtil {
-		private static Logger log = LoggerFactory.getLogger(CommondUtil.class);
+		private static Logger log =LoggerFactory.getLogger(CommondUtil.class);
 	public static String httpsRequest(String requestUrl, String requestMethod, String outputStr) {
         //JSONObject jsonObject = null;
         StringBuffer buffer = null;
@@ -105,7 +108,14 @@ public class CommondUtil {
 	public static boolean time(Date currentTime,Date startTime,Date endTime){
 		return currentTime.getTime()>startTime.getTime()&&currentTime.getTime()<endTime.getTime();
 	}
-
+	public static void main(String[] args) throws ParseException {
+		String startTime="2015-08-22 12:23:23";
+		String endTime="2015-08-28 02:30:23";
+		SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			System.out.println(format.parse(endTime).getTime());
+			System.out.println(format.parse(endTime).getTime()-new Date().getTime());
+		//System.out.println(time(new Date(),format.parse(startTime),format.parse(endTime)));
+	}
 	/**
 	 * 获取当前网络ip
 	 * @param request

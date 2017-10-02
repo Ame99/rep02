@@ -1,4 +1,4 @@
-package com.bigdatan.b2c.pay;
+package util;
 
 public class AlipayConfig {
     // 商户appid
@@ -6,7 +6,8 @@ public class AlipayConfig {
     // 私钥 pkcs8格式的
     public static String RSA_PRIVATE_KEY = "";
     // 服务器异步通知页面路径 需http://或者https://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-    public static String notify_url = "http://localhost/alipay/notify";
+    public static String notify_url = "/alipay/notify";
+
     // 请求网关地址
     public static String URL = "https://openapi.alipay.com/gateway.do";
     // 编码
