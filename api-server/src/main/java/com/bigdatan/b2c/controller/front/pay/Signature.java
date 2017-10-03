@@ -8,7 +8,6 @@ import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
 import util.Configure;
@@ -25,7 +24,6 @@ public class Signature {
      * @return 签名
      * @throws IllegalAccessException
      */
-	private static Logger log=Logger.getLogger(Signature.class);
     public static String getSign(Object o){
         ArrayList<String> list = new ArrayList<String>();
         Class<? extends Object> cls = o.getClass();
@@ -51,8 +49,8 @@ public class Signature {
 		        Util.log("Sign Before MD5:" + result);
 		        result = MD5.MD5Encode(result).toUpperCase();
 		        Util.log("Sign Result:" + result);
-			} catch (IllegalArgumentException  | IllegalAccessException e) {
-				log.error("sign签名异常",e);
+			} catch (Exception  e) {
+				//log.error("sign签名异常",e);
 			} 
         return result;
     }

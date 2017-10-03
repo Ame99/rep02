@@ -3,8 +3,6 @@ package com.bigdatan.framework.ueditor;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import com.bigdatan.framework.ueditor.define.ActionMap;
 
