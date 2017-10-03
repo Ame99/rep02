@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bigdatan.b2c.dao.order.JoinOrderMapper">
-	<resultMap id="BaseResultMap" type="com.ande.entity.order.JoinOrder">
+	<resultMap id="BaseResultMap" type="com.bigdatan.b2c.entity.order.JoinOrder">
 		<id column="join_order_id" property="joinOrderId" jdbcType="INTEGER" />
 		<result column="join_order_number" property="joinOrderNumber"
 			jdbcType="VARCHAR" />
@@ -15,14 +15,14 @@
 		total_price
 	</sql>
 	<select id="selectByJoinOrderNumber" resultMap="BaseResultMap"
-		parameterType="com.ande.entity.order.JoinOrder">
+		parameterType="com.bigdatan.b2c.entity.order.JoinOrder">
 		select
 		<include refid="Base_Column_List" />
 		from t_order_join
 		where join_order_number =
 		#{joinOrderNumber,jdbcType=VARCHAR}
 	</select>
-	<insert id="insertSelective" parameterType="com.ande.entity.order.JoinOrder">
+	<insert id="insertSelective" parameterType="com.bigdatan.b2c.entity.order.JoinOrder">
 		insert into t_order_join
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="joinOrderNumber != null">

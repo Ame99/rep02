@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bigdatan.b2c.dao.user.UserMapper">
-	<resultMap id="BaseResultMap" type="com.ande.entity.user.User">
+	<resultMap id="BaseResultMap" type="com.bigdatan.b2c.entity.user.User">
 		<id column="user_id" property="userId" jdbcType="INTEGER" />
 		<result column="openid" property="openid" jdbcType="VARCHAR" />
 		<result column="nickname" property="nickname" jdbcType="VARCHAR" />
@@ -42,13 +42,13 @@
 		from t_user
 		where phone = #{phone,jdbcType=VARCHAR}
 	</select>
-	<select id="getPage" parameterType="com.ande.entity.user.User"
+	<select id="getPage" parameterType="com.bigdatan.b2c.entity.user.User"
 		resultMap="BaseResultMap">
 		select user_id,nickname,phone,create_time,province, city,country,update_time
 		from t_user
 		order by create_time desc
 	</select>
-	<select id="queryUserByPage" parameterType="com.ande.entity.user.UserVo"
+	<select id="queryUserByPage" parameterType="com.bigdatan.b2c.entity.user.UserVo"
 		resultMap="BaseResultMap">
 		select user_id,nickname,phone,create_time,province, city,country,update_time
 		from t_user
@@ -74,7 +74,7 @@
 		where user_id in (#{#userIds, jdbcType=VARCHAR})
 		order by create_time desc
 	</select>
-	<insert id="insertSelective" parameterType="com.ande.entity.user.User">
+	<insert id="insertSelective" parameterType="com.bigdatan.b2c.entity.user.User">
 		insert into t_user
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="userId != null">
@@ -153,7 +153,7 @@
 			</if>
 		</trim>
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="com.ande.entity.user.User">
+	<update id="updateByPrimaryKeySelective" parameterType="com.bigdatan.b2c.entity.user.User">
 		update t_user
 		<set>
 			<if test="openid != null">

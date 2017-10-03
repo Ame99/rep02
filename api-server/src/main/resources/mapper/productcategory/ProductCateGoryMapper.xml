@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bigdatan.b2c.dao.productcategory.ProductCategoryMapper" >
-  <resultMap id="BaseResultMap" type="com.ande.entity.productcategory.ProductCategory" >
+  <resultMap id="BaseResultMap" type="com.bigdatan.b2c.entity.productcategory.ProductCategory" >
     <id column="category_id" property="categoryId" jdbcType="INTEGER" />
     <result column="parent_id" property="parentId" jdbcType="INTEGER" />
     <result column="category_name" property="categoryName" jdbcType="VARCHAR" />
@@ -24,7 +24,7 @@
     where category_id = #{id,jdbcType=INTEGER}
   </select>
   
-  <insert id="insertSelective" parameterType="com.ande.entity.productcategory.ProductCategory" >
+  <insert id="insertSelective" parameterType="com.bigdatan.b2c.entity.productcategory.ProductCategory" >
     insert into t_goods_category
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="categoryId != null" >
@@ -91,7 +91,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ande.entity.productcategory.ProductCategory" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.bigdatan.b2c.entity.productcategory.ProductCategory" >
     update t_goods_category
     <set >      
       <if test="parentId != null" >
@@ -163,7 +163,7 @@
 	<!-- limit 9 -->
   </select>
   
-  <select id="getPage" parameterType="com.ande.entity.productcategory.ProductCategory" resultMap="BaseResultMap">
+  <select id="getPage" parameterType="com.bigdatan.b2c.entity.productcategory.ProductCategory" resultMap="BaseResultMap">
   	select 
   	<include refid="Base_Column_List" />
 	from t_goods_category 

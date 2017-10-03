@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bigdatan.b2c.dao.admin.AdminMapper">
-	<resultMap id="BaseResultMap" type="com.ande.entity.admin.Admin">
+	<resultMap id="BaseResultMap" type="com.bigdatan.b2c.entity.admin.Admin">
 		<id column="admin_id" property="adminId" jdbcType="INTEGER" />
 		<result column="admin_name" property="adminName" jdbcType="VARCHAR" />
 		<result column="password" property="password" jdbcType="VARCHAR" />
@@ -11,7 +11,7 @@
 		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
 		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
 		<result column="del_state" property="delState" jdbcType="TINYINT" />
-		<association property="role" javaType="com.ande.entity.role.Role">
+		<association property="role" javaType="com.bigdatan.b2c.entity.role.Role">
 			<id column="role_id" property="roleId" jdbcType="INTEGER" />
 			<result column="name" property="name" jdbcType="VARCHAR" />
 		</association>
@@ -32,7 +32,7 @@
 		where
 		a.admin_id = #{id,jdbcType=INTEGER}
 	</select>
-	<select id="getPage" parameterType="com.ande.entity.admin.Admin"
+	<select id="getPage" parameterType="com.bigdatan.b2c.entity.admin.Admin"
 		resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
@@ -41,7 +41,7 @@
 		order
 		by a.create_time desc
 	</select>
-	<select id="getCount" parameterType="com.ande.entity.admin.Admin"
+	<select id="getCount" parameterType="com.bigdatan.b2c.entity.admin.Admin"
 		resultType="java.lang.Integer">
 		select count(*)
 		from t_admin
@@ -51,14 +51,14 @@
 			and del_state = #{delState, jdbcType=INTEGER}
 		</if>
 	</select>
-	<select id="getCountByAdminName" parameterType="com.ande.entity.admin.Admin"
+	<select id="getCountByAdminName" parameterType="com.bigdatan.b2c.entity.admin.Admin"
 		resultType="java.lang.Integer">
 		select count(*)
 		from t_admin
 		where admin_name = #{adminName,
 		jdbcType=VARCHAR}
 	</select>
-	<insert id="insertSelective" parameterType="com.ande.entity.admin.Admin">
+	<insert id="insertSelective" parameterType="com.bigdatan.b2c.entity.admin.Admin">
 		insert into t_admin
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="adminId != null">
@@ -131,7 +131,7 @@
 			</if>
 		</trim>
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="com.ande.entity.admin.Admin">
+	<update id="updateByPrimaryKeySelective" parameterType="com.bigdatan.b2c.entity.admin.Admin">
 		update t_admin
 		<set>
 			<if test="role != null">
@@ -168,7 +168,7 @@
 		where admin_id = #{adminId,jdbcType=INTEGER}
 	</update>
 	<!-- 登陆查询 -->
-	<resultMap id="BaseMap" type="com.ande.entity.admin.Admin">
+	<resultMap id="BaseMap" type="com.bigdatan.b2c.entity.admin.Admin">
 		<id column="admin_id" property="adminId" jdbcType="INTEGER" />
 		<result column="admin_name" property="adminName" jdbcType="VARCHAR" />
 		<result column="password" property="password" jdbcType="VARCHAR" />

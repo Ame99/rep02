@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bigdatan.b2c.dao.ad.AdMapper">
-	<resultMap id="BaseResultMap" type="com.ande.entity.ad.Ad">
+	<resultMap id="BaseResultMap" type="com.bigdatan.b2c.entity.ad.Ad">
 		<id column="ad_id" property="adId" jdbcType="INTEGER" />
 		<result column="ad_position_id" property="adPositionId"
 			jdbcType="INTEGER" />
@@ -25,7 +25,7 @@
 		from t_ad
 		where ad_id = #{id,jdbcType=INTEGER}
 	</select>
-	<select id="getPage" parameterType="com.ande.entity.ad.Ad"
+	<select id="getPage" parameterType="com.bigdatan.b2c.entity.ad.Ad"
 		resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
@@ -36,7 +36,7 @@
 		</if>
 		order by create_time desc
 	</select>
-	<insert id="insertSelective" parameterType="com.ande.entity.ad.Ad">
+	<insert id="insertSelective" parameterType="com.bigdatan.b2c.entity.ad.Ad">
 		insert into t_ad
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="adPositionId != null">
@@ -91,7 +91,7 @@
 			</if>
 		</trim>
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="com.ande.entity.ad.Ad">
+	<update id="updateByPrimaryKeySelective" parameterType="com.bigdatan.b2c.entity.ad.Ad">
 		update t_ad
 		<set>
 			<if test="adPositionId != null">
@@ -121,7 +121,7 @@
 		</set>
 		where ad_id = #{adId,jdbcType=INTEGER}
 	</update>
-	<update id="delete" parameterType="com.ande.entity.ad.Ad">
+	<update id="delete" parameterType="com.bigdatan.b2c.entity.ad.Ad">
 		update t_ad set del_state = 1
 		where ad_id = #{adId,jdbcType=INTEGER}
 	</update>
@@ -130,7 +130,7 @@
 		a.create_time, a.update_time,a.state,
 		a.del_state
 	</sql>
-	<select id="getPageFront" parameterType="com.ande.entity.ad.Ad"
+	<select id="getPageFront" parameterType="com.bigdatan.b2c.entity.ad.Ad"
 		resultMap="BaseResultMap">
 		select
 		<include refid="Base_List" />

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bigdatan.b2c.dao.order.OrderDetailsMapper">
-	<resultMap id="BaseResultMap" type="com.ande.entity.order.OrderDetails">
+	<resultMap id="BaseResultMap" type="com.bigdatan.b2c.entity.order.OrderDetails">
 		<id column="order_details_id" property="orderDetailsId" jdbcType="INTEGER" />
 		<result column="order_id" property="orderId" jdbcType="INTEGER" />
 		<result column="order_number" property="orderNumber" jdbcType="VARCHAR" />
@@ -27,7 +27,7 @@
 		from t_order_details
 		where order_details_id = #{id,jdbcType=INTEGER}
 	</select>
-	<select id="getAllBySelect" resultMap="BaseResultMap" parameterType="com.ande.entity.order.OrderDetails">
+	<select id="getAllBySelect" resultMap="BaseResultMap" parameterType="com.bigdatan.b2c.entity.order.OrderDetails">
 		select
 		<include refid="Base_Column_List" />
 		from t_order_details
@@ -53,7 +53,7 @@
 			)
 		</foreach>
 	</insert>
-	<insert id="insertSelective" parameterType="com.ande.entity.order.OrderDetails">
+	<insert id="insertSelective" parameterType="com.bigdatan.b2c.entity.order.OrderDetails">
 		insert into t_order_details
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="orderDetailsId != null">
@@ -117,7 +117,7 @@
 			</if>
 		</trim>
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="com.ande.entity.order.OrderDetails">
+	<update id="updateByPrimaryKeySelective" parameterType="com.bigdatan.b2c.entity.order.OrderDetails">
 		update t_order_details
 		<set>
 			<if test="orderNumber != null">
@@ -149,7 +149,7 @@
 	</update>
 
 
-	<select id="getTotalDetailsAmountByOrderDetailsAdminSearchVO" parameterType="com.ande.entity.order.OrderDetailsAdminSearchVO"
+	<select id="getTotalDetailsAmountByOrderDetailsAdminSearchVO" parameterType="com.bigdatan.b2c.entity.order.OrderDetailsAdminSearchVO"
 		resultType="long">
 		select				
 		case when sum(details_amount) is null then 0 else sum(details_amount) end	
@@ -178,7 +178,7 @@
 		</if>
 	</select>
 	
-	<select id="getTotalNumAmountByOrderDetailsAdminSearchVO" parameterType="com.ande.entity.order.OrderDetailsAdminSearchVO"
+	<select id="getTotalNumAmountByOrderDetailsAdminSearchVO" parameterType="com.bigdatan.b2c.entity.order.OrderDetailsAdminSearchVO"
 		resultType="long">
 		select	
 		case when sum(num) is null then 0 else sum(num)	end
@@ -207,7 +207,7 @@
 		</if>
 	</select>
 	
-	<select id="getPageByOrderDetailsAdminSearchVO" parameterType="com.ande.entity.order.OrderDetailsAdminSearchVO"
+	<select id="getPageByOrderDetailsAdminSearchVO" parameterType="com.bigdatan.b2c.entity.order.OrderDetailsAdminSearchVO"
 		resultMap="BaseResultMap">
 		select				
 		<include refid="Base_Column_List" />		
@@ -237,7 +237,7 @@
 		order by create_time desc
 	</select>
 	
-	<select id="getDetailReportByOrderDetailsAdminSearchVO" parameterType="com.ande.entity.order.OrderDetailsAdminSearchVO"
+	<select id="getDetailReportByOrderDetailsAdminSearchVO" parameterType="com.bigdatan.b2c.entity.order.OrderDetailsAdminSearchVO"
 		resultMap="BaseResultMap">		
 		select t.price_id price_id,t.unit_name unit_name,t.goods_name goods_name,
 		case when sum(t.num) is null then 0  else sum(t.num) end as num,

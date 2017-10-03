@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bigdatan.b2c.dao.message.IMessageMapper">
-	<resultMap id="BaseResultMap" type="com.ande.entity.message.Message">
+	<resultMap id="BaseResultMap" type="com.bigdatan.b2c.entity.message.Message">
 		<id column="message_id" property="messageId" jdbcType="INTEGER" />
 		<result column="message_title" property="messageTitle"
 			jdbcType="VARCHAR" />
@@ -20,7 +20,7 @@
 		<result column="is_all" property="isAll" jdbcType="TINYINT" />
 		<result column="push_now" property="pushNow" jdbcType="TINYINT" />
 	</resultMap>
-	<resultMap id="ResultMapWithBLOBs" type="com.ande.entity.message.Message"
+	<resultMap id="ResultMapWithBLOBs" type="com.bigdatan.b2c.entity.message.Message"
 		extends="BaseResultMap">
 		<result column="message_context" property="messageContext"
 			jdbcType="LONGVARCHAR" />
@@ -45,7 +45,7 @@
 		from t_message
 		where message_id = #{id,jdbcType=INTEGER}
 	</select>
-	<insert id="insert" parameterType="com.ande.entity.message.Message"
+	<insert id="insert" parameterType="com.bigdatan.b2c.entity.message.Message"
 		useGeneratedKeys="true" keyProperty="messageId">
 		insert into t_message
 		<trim prefix="(" suffix=")" suffixOverrides=",">
@@ -137,7 +137,7 @@
 			</if>
 		</trim>
 	</insert>
-	<update id="update" parameterType="com.ande.entity.message.Message">
+	<update id="update" parameterType="com.bigdatan.b2c.entity.message.Message">
 		update t_message
 		<set>
 			<if test="messageTitle != null">
@@ -182,7 +182,7 @@
 	</update>
 	<!-- 获取最新动态的消息 -->
 	<select id="getMessageLevel" resultMap="pageMap"
-		resultType="com.ande.entity.message.Message">
+		resultType="com.bigdatan.b2c.entity.message.Message">
 		select
 		m.message_title,m.message_short_context,m.message_context,m.url,m.message_id,m.push_time,um.user_message_id,m.push_now
 		from t_message m
@@ -195,7 +195,7 @@
 		limit 5
 	</select>
 	<!-- 分页查询消息列表 -->
-	<resultMap id="pageMap" type="com.ande.entity.message.Message">
+	<resultMap id="pageMap" type="com.bigdatan.b2c.entity.message.Message">
 		<id column="message_id" property="messageId" jdbcType="INTEGER" />
 		<result column="message_title" property="messageTitle"
 			jdbcType="VARCHAR" />
@@ -211,7 +211,7 @@
 		<result column="is_all" property="isAll" jdbcType="TINYINT" />
 	</resultMap>
 	<select id="getPageFront" resultMap="pageMap"
-		resultType="com.ande.entity.message.Message">
+		resultType="com.bigdatan.b2c.entity.message.Message">
 		select
 		m.message_title,m.message_short_context,m.message_context,m.message_id,m.push_time,um.user_message_id,m.push_now, m.url
 		from t_message m
@@ -224,7 +224,7 @@
 		</if>
 		ORDER BY m.push_time desc
 	</select>
-	<select id="getPage" resultMap="pageMap" resultType="com.ande.entity.message.Message">
+	<select id="getPage" resultMap="pageMap" resultType="com.bigdatan.b2c.entity.message.Message">
 		select
 		m.message_title,m.message_short_context,m.message_id,m.push_time,m.push,m.is_all,m.push_now
 		from t_message m

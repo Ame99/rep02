@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bigdatan.b2c.dao.article.ArticleMapper">
-	<resultMap id="BaseResultMap" type="com.ande.entity.article.Article">
+	<resultMap id="BaseResultMap" type="com.bigdatan.b2c.entity.article.Article">
 		<id column="article_id" property="articleId" jdbcType="INTEGER" />
 		<!--新增 商品类别 -->
 		<id column="category_id" property="categoryId" jdbcType="INTEGER" />
@@ -29,7 +29,7 @@
 		is_published, is_top,
 		create_time, update_time, state, admin_id,key_words,image,recommend
 	</sql>
-	<select id="getPageFront" parameterType="com.ande.entity.article.Article"
+	<select id="getPageFront" parameterType="com.bigdatan.b2c.entity.article.Article"
 		resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
@@ -37,7 +37,7 @@
 		where del_state=2 and state=1
 		order by create_time desc
 	</select>
-	<update id="updateByPrimaryKey" parameterType="com.ande.entity.article.Article">
+	<update id="updateByPrimaryKey" parameterType="com.bigdatan.b2c.entity.article.Article">
 		update t_article
 		<set>
 			<if test="articleId != null">
@@ -94,7 +94,7 @@
 		</set>
 		where article_id = #{articleId,jdbcType=INTEGER}
 	</update>
-	<select id="getPage" parameterType="com.ande.entity.article.Article"
+	<select id="getPage" parameterType="com.bigdatan.b2c.entity.article.Article"
 		resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
@@ -109,7 +109,7 @@
 		from t_article
 		where article_id = #{id,jdbcType=INTEGER}
 	</select>
-	<insert id="insertSelective" parameterType="com.ande.entity.article.Article">
+	<insert id="insertSelective" parameterType="com.bigdatan.b2c.entity.article.Article">
 		insert into t_article
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="articleId != null">
@@ -218,7 +218,7 @@
 			</if>
 		</trim>
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="com.ande.entity.article.Article">
+	<update id="updateByPrimaryKeySelective" parameterType="com.bigdatan.b2c.entity.article.Article">
 		update t_article
 		<set>
 			<if test="categoryId != null">

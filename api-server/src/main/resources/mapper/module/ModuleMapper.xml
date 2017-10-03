@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bigdatan.b2c.dao.module.ModuleMapper">
-	<resultMap id="BaseResultMap" type="com.ande.entity.module.Module">
+	<resultMap id="BaseResultMap" type="com.bigdatan.b2c.entity.module.Module">
 		<id column="module_id" property="moduleId" jdbcType="INTEGER" />
 		<result column="parent_id" property="parentId" jdbcType="INTEGER" />
 		<result column="name" property="name" jdbcType="VARCHAR" />
@@ -33,7 +33,7 @@
 		#{roleId,jdbcType=INTEGER})
 	</select>
 
-	<select id="getAllBySelect" parameterType="com.ande.entity.module.Module"
+	<select id="getAllBySelect" parameterType="com.bigdatan.b2c.entity.module.Module"
 		resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />

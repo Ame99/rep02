@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bigdatan.b2c.dao.role.RoleMapper">
-	<resultMap id="BaseResultMap" type="com.ande.entity.role.Role">
+	<resultMap id="BaseResultMap" type="com.bigdatan.b2c.entity.role.Role">
 		<id column="role_id" property="roleId" jdbcType="INTEGER" />
 		<result column="name" property="name" jdbcType="VARCHAR" />
 		<result column="description" property="description" jdbcType="VARCHAR" />
@@ -19,14 +19,14 @@
 		from t_admin_role r
 		where r.role_id = #{id,jdbcType=INTEGER}
 	</select>
-	<select id="getPage" parameterType="com.ande.entity.role.Role"
+	<select id="getPage" parameterType="com.bigdatan.b2c.entity.role.Role"
 		resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
 		from t_admin_role r
 		order by r.create_time desc
 	</select>
-	<insert id="insertSelective" parameterType="com.ande.entity.role.Role">
+	<insert id="insertSelective" parameterType="com.bigdatan.b2c.entity.role.Role">
 		insert into t_admin_role
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="roleId != null">
@@ -69,7 +69,7 @@
 			</if>
 		</trim>
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="com.ande.entity.role.Role">
+	<update id="updateByPrimaryKeySelective" parameterType="com.bigdatan.b2c.entity.role.Role">
 		update t_admin_role
 		<set>
 			<if test="name != null">
@@ -90,7 +90,7 @@
 		</set>
 		where role_id = #{roleId,jdbcType=INTEGER}
 	</update>
-	<delete id="delete" parameterType="com.ande.entity.role.Role">
+	<delete id="delete" parameterType="com.bigdatan.b2c.entity.role.Role">
 		delete from t_admin_role where role_id = #{roleId,jdbcType=INTEGER}
 	</delete>
 </mapper>

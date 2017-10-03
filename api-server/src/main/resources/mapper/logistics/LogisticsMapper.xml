@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bigdatan.b2c.dao.logistics.LogisticsMapper" >
-  <resultMap id="BaseResultMap" type="com.ande.entity.logistics.Logistics" >
+  <resultMap id="BaseResultMap" type="com.bigdatan.b2c.entity.logistics.Logistics" >
     <id column="logistics_id" property="logisticsId" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="price" property="price" jdbcType="INTEGER" />
@@ -27,7 +27,7 @@
 	order by create_time desc
 	limit 1
   </select>
-   <select id="getPage" parameterType="com.ande.entity.logistics.Logistics" resultMap="BaseResultMap">
+   <select id="getPage" parameterType="com.bigdatan.b2c.entity.logistics.Logistics" resultMap="BaseResultMap">
   	select logistics_id,name,price,state
 	from t_logistics
 	where del_state=2
@@ -39,7 +39,7 @@
 	from t_logistics
 	where del_state=2 and state=1
    </select>
-  <insert id="insertSelective" parameterType="com.ande.entity.logistics.Logistics" >
+  <insert id="insertSelective" parameterType="com.bigdatan.b2c.entity.logistics.Logistics" >
     insert into t_logistics
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="logisticsId != null" >
@@ -94,7 +94,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ande.entity.logistics.Logistics" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.bigdatan.b2c.entity.logistics.Logistics" >
     update t_logistics
     <set >
       <if test="name != null" >

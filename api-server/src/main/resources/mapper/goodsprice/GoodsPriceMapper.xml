@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bigdatan.b2c.dao.goodsprice.GoodsPriceMapper">
-	<resultMap id="BaseResultMap" type="com.ande.entity.goodsprice.GoodsPrice">
+	<resultMap id="BaseResultMap" type="com.bigdatan.b2c.entity.goodsprice.GoodsPrice">
 		<id column="price_id" property="priceId" jdbcType="INTEGER" />
 		<result column="goods_id" property="goodsId" jdbcType="INTEGER" />
 		<result column="unit_name" property="unitName" jdbcType="VARCHAR" />
@@ -26,7 +26,7 @@
 		where price_id = #{id,jdbcType=INTEGER}
 	</select>
 
-	<insert id="insertSelective" parameterType="com.ande.entity.goodsprice.GoodsPrice" useGeneratedKeys="true" keyProperty="priceId">  <!-- 获取插入的主键id --> 
+	<insert id="insertSelective" parameterType="com.bigdatan.b2c.entity.goodsprice.GoodsPrice" useGeneratedKeys="true" keyProperty="priceId">  <!-- 获取插入的主键id -->
 	 	insert into t_goods_price
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="priceId != null">
@@ -93,7 +93,7 @@
 			</if>
 		</trim>
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="com.ande.entity.goodsprice.GoodsPrice">
+	<update id="updateByPrimaryKeySelective" parameterType="com.bigdatan.b2c.entity.goodsprice.GoodsPrice">
 		update t_goods_price
 		<set>
 			<if test="priceId != null">
