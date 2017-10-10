@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bigdatan.b2c.dao.shortMsg.IShortMessageDao" >
-  <resultMap id="BaseResultMap" type="ShortMessageModel" >
+  <resultMap id="BaseResultMap" type="com.bigdatan.b2c.entity.shortMsg.ShortMessageModel" >
     <id column="message_id" property="messageId" jdbcType="INTEGER" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="code" property="code" jdbcType="INTEGER" />
@@ -27,7 +27,7 @@
     order by create_time desc
     limit 1
   </select>
-  <insert id="insertSelective" parameterType="ShortMessageModel" >
+  <insert id="insertSelective" parameterType="com.bigdatan.b2c.entity.shortMsg.ShortMessageModel" >
     insert into t_short_message
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="messageId != null" >
@@ -70,7 +70,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="ShortMessageModel" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.bigdatan.b2c.entity.shortMsg.ShortMessageModel" >
     update t_short_message
     <set >
       <if test="phone != null" >
