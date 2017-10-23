@@ -55,22 +55,39 @@ BDShop商城系统是B2C模式的电子商城
 二、front-project
 
     前提安装好nodejs 6.9
+
+
+    1 安装node http://www.cnodejs.org 官网下载 傻瓜式安装 一直确定就行 默认安装在 C:\Program Files\nodejs
+
+
+    2 检测安装结果 打开 命令行 输入 node -v 会出现node版本 输入 npm -v 会出现npm版本
+
+
+    3 配置npm全局环境 在C:\Program Files\nodejs 这里新建连个文件夹 "node_global"及"node_cache" 打开cmd 用管理员 身份打开 输入命令：npm config set prefix "C:\Program Files\nodejs\node_global" 输入命令 ：npm config set cache "C:\Program Files\nodejs\node_cache"
+
+
+    4：配置环境变量 在系统变量下新建"NODE_PATH"，输入”C:\Program Files\nodejs\node_global\node_modules“用户变量 用户变量"PATH"修改为“C:\Program Files\nodejs\node_global\”；
+
+
+    5：检查 cmd命令 输入npm install gulp -g 然后看看 node_global文件夹有没有gulp文件
+
+
     
-    1.$ npm install -g cnpm --registry=https://registry.npm.taobao.org
+    6.$ npm install -g cnpm --registry=https://registry.npm.taobao.org
 
-    2.$ cnpm install -g gulp 
+    7.$ cnpm install -g gulp 
 
-    3.$ cd front-projec
+    8.$ cd front-projec
 
-    4.$ cnpm install
+    9.$ cnpm install
 
-    5.$ gulp
+    10.$ gulp
 
-    6 打开浏览器：http://localhost:4865
+    11 打开浏览器：http://localhost:4865
 
-    7 后台管理：http://localhost:4865/page/manage_login.html
+    12 后台管理：http://localhost:4865/page/manage_login.html
 
-    8 管理员帐号：admin 密码：111111
+    13 管理员帐号：admin 密码：111111
 
 
 
